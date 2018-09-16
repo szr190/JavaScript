@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #box{
+            width:300px;
+
+
+            position: relative;
+            margin:auto;
+        }
+        #box li{
+            list-style: none;
+            height:50px;
+            background: #3E83C0;
+            margin:5px;
+            position: relative;
+
+        }
+
+    </style>
+</head>
+<body>
+    <ul id="box">
+            <li> item 1</li>
+             <li> item 2</li>
+              <li> item 3</li>
+               <li> item 4</li>
+                <li> item 5</li>
+                 <li> item 6</li>
+                  <li> item 7</li>
+
+    </ul>
+</body>
+    <script src='js/jquery-2.1.4.min.js'></script>
+    <script src='js/TweenMax.js'></script>
+    <script>
+        var t = new TimelineMax();
+        /*
+            t.to(selector,duration,cssStyles,[delay] ) 从当前状态到指定状态
+                selector 选择器或者对象
+                duration  过渡时间，
+                cssStyles CSS样式对象
+                delay    延迟
+
+            t.from(selector,duration,cssStyles,[delay] ) 从指定状态到当前状态
+                selector 选择器或者对象
+                duration  过渡时间，
+                cssStyles CSS样式对象
+                delay    延迟
+                    '-=2' 在默认提前2秒
+                    '+=2' 在默认后延迟2秒
+
+            t.set(selector,cssStyles) 设置状态，无过渡
+
+            //动画控制
+            t.play();       播放动画
+            t.pause();      暂停动画
+            t.reverse()     反转动画
+
+            //回调函数
+            onStart   单动画执行开始的回调函数
+            onComplete 单动画执行完成后的回调函数
+            onReverseComplete  反转动画中单动画执行完成后的回调函数
+
+            t.add()  添加状态，要结合tweenTo()使用
+                参数是一个字符串 或者函数
+
+            t.tweenTo() 到达指定状态,需要先add指定指定状态
+                参数是一个字符串或时间
+
+            t.seek()   跳到指定的状态（无过渡）,会执行后面动画
+                1. 指定时间或状态
+                2. 【可选】布尔值,是否执行跳过的函数
+                true：不执行函数 默认
+                false: 执行函数
+
+            t.totalDuration() 动画执行到当前状态所花时间
+            t.getLabelTime()  到达指定状态所需时间
+                参数 字符串状态
+            t.currentLabel() 获取当前状态
+            t.getLabelBefore();//上一个状态
+            t.getLabelAfter();//下一个状态
+
+
+            属性
+            ease  定义动画
+                ease: 类型.出入效果类型
+
+            —Tween 动画类型：—–
+                Power0
+                Power1
+                Power2
+                Power3
+                Power4
+                Back //会弹 一次 超过目标
+                Elastic //会弹 多次 超过目标
+                Bounce //会弹 不超过目标
+                RoughEase
+                SlowMo
+                SteppedEase
+                Circ
+                Expo
+                Sine
+                Custom //自定义，这个要下载插件
+                — 出入效果 类型：—–
+                easeIn
+                easeOut
+                easeInOut
+
+            cycle 属性要结合staggerTo或者staggerFrom使用
+                同时要用TweenMax.js 版本，不要使用压缩版
+
+
+
+
+
+
+
+
+
+
+
+
+
+        */
+
+
+       var obj = document.getElementById('box');
+
+
+        t.staggerTo('#box li',2,{ease:Bounce.easeOut,cycle:{
+            x:[-100,100,200,-150],
+            scale:[0.5,0.3,2],
+            top:function(){
+                return Math.random()*200-100;
+            }
+        } });
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

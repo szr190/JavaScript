@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				event事件对象 ----当事件发生的时候,存储着和事件相关的一些信息的对象
+				
+				event单独写出来是没有任何意义的,必须和事件结合起来才会有意义
+				
+				表现形式:
+				IE---null
+				chrome--undefined
+				FF--未定义--事件函数的第一个参数就是event
+
+			*/
+			
+			//event兼容写法
+			document.onclick=function(ev){
+				ev=ev||window.event;
+				for (var key in ev) {
+					document.write(key + '：' + ev[key] + '<br>')
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

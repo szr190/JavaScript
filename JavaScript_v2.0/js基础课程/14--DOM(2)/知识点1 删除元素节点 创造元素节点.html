@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			/*#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}*/
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+			 	removeChild
+			*/
+			
+			//oBox.style.display='none';
+			//要求：将节点删除,达到在代码和文档中看不到,即从DOM树中删掉
+			
+			//删除元素节点的方法---先找到父节点
+			//oBox.parentNode.removeChild(oBox);
+			
+			/*
+				 createElement appendChild
+			*/
+			
+			//创建元素节点的方法
+			var obj=document.createElement('div');
+			
+			//加入到一个div中去
+			oBox.appendChild(obj);
+			obj.id='wrap';
+			obj.style.cssText='width: 100px;height: 100px;background: red;';
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #box{
+            width:100px;
+            height:100px;
+            background: green;
+            margin:50px auto;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+
+    </div>
+
+</body>
+    <script>
+        var oBox = document.getElementById('box');
+        oBox.style.top = oBox.offsetTop+'px';
+        oBox.style.left = oBox.offsetLeft+'px';
+         oBox.style.margin = 0;
+
+        oBox.style.position ='absolute';
+        var timerL=null,timerT=null,timerR=null,timerB=null;
+
+        document.onkeydown = function(e){
+            console.log( e.keyCode );
+            if(e.keyCode == 37){//左
+                //console.log(oBox.offsetLeft -5)
+                oBox.style.left = oBox.offsetLeft -5+ 'px';
+                if(timerL===null){
+                     timerL = setInterval(function(){oBox.style.left = oBox.offsetLeft -5+ 'px';
+
+                    },13);
+               }
+
+            }else if(e.keyCode == 38){
+
+                if(timerT===null){
+                     timerT = setInterval(function(){oBox.style.top = oBox.offsetTop -5+ 'px';},13);
+               }
+
+            }else if(e.keyCode == 39){
+                 if(timerR===null){
+                     timerR = setInterval(function(){ oBox.style.left = oBox.offsetLeft +5+ 'px';},13);
+                 }
+
+            }else if(e.keyCode == 40){
+                if(timerB===null){
+                     timerB = setInterval(function(){ oBox.style.top = oBox.offsetTop +5+ 'px';},13);
+                 }
+
+            }
+
+        }
+
+        document.onkeyup = function(e){
+            if(e.keyCode == 37){//左
+                //console.log(oBox.offsetLeft -5)
+                clearInterval(timerL);
+               timerL = null;
+            }else if(e.keyCode == 38){
+               clearInterval(timerT);
+               timerT = null;
+
+            }else if(e.keyCode == 39){
+                clearInterval(timerR);
+               timerR = null;
+            }else if(e.keyCode == 40){
+                clearInterval(timerB);
+               timerB = null;
+            }
+
+        }
+
+
+
+    </script>
+</html>

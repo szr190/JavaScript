@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+        /*  正则:匹配字符串的强大工具
+
+
+            一正则：
+               直接量: /pattern/modifider
+                    pattern 字符串模板
+                    modifider 修饰符,可以组合使用
+                        i 忽略大小写
+                        g global全局匹配,默认只匹配一次
+                        m 多行匹配
+
+                new ：new RegExp(pattern,modifider)
+                    pattern 字符串模板
+                    modifider 修饰符,可以组合使用
+
+            二字符串方法
+                match  查找字符串，返回查找结果数组 匹配失败为null 可以全局匹配;
+                search 查找字符串，返回查找字符串首次出现的下标,匹配失败为-1，只能匹配一次;
+                split  分割字符串成数组,默认全局匹配
+                replace(oldval,newval) 匹配oldval字符串，并且替换为newval,可以全局匹配
+
+                字符串.方法(正则);
+
+            三正则方法:
+                exec()  查找字符串，返回查找结果数组 匹配失败为null 只能匹配一次;
+                test    查找字符串，返回查找boolean,匹配成功为true,匹配失败为false
+
+            四 pattern 模式
+                一 基本
+                    1、基本/a/
+                二 或
+                    2、或 a|b
+                三 []
+                    1、[abc]  匹配a或b或c
+                    2、[a-z] 匹配所有的小写英文字母
+                    3、[A-Z] 匹配所有的大写英文字母
+                    4、[a-zA-Z] 匹配所有的英文字母
+                    5、[0-9] 匹配所有的数字
+                    6、[a-zA-Z0-9]匹配所有的数字和英文字母
+                        非
+                    7、[^abc]  //非a 非b非c
+                        匹配中文
+                    8、[\u4e00-\u9fa5] 匹配中文
+                四 元字符(转义字符)
+                    \w 匹配单词字母 _ 数字
+                    \W 匹配非\w
+                    \d 匹配数字
+                    \D 非\d
+                    \s 匹配空格
+                    \S 非\s
+                    \b 单词边界 除字母 _ 数字以为都是单词边界
+                    \B 非\b
+
+                    特殊 .\/
+                    . 匹配非\n
+                    \. 匹配.
+                    \\ 匹配\
+                    \/ 匹配/
+
+                五 量词
+                    n？匹配0次或者1次
+                    n* 匹配任意0次
+                    n+ 匹配至少1次
+                    n{num} 正好num次
+                    n{num1,num2} 至少num1次,至多num2次
+                    n{num1,} 至少num1次至多无限
+
+                六 贪婪/惰性
+                七 分组
+                    捕获型
+                    非捕获型
+
+
+
+
+
+
+
+
+
+
+
+        */
+        //var str = '\\b';//\b
+        //var reg = /[java]/;//或
+        //var reg = /[|]/;//|
+        //var reg = /[a-zA-Z]/;
+        //var reg = /[0-9]/;
+        //var reg = /[a-zA-Z0-9]/;
+
+        //非
+        //var reg = /[^abc]/;//非a 非b非c
+        //匹配中文
+        //var reg = /[\u4e00-\u9fa5]/;
+
+        //var reg = /\w/;
+        //var reg = /\W/;
+
+        //var reg = /\D/;
+        //var reg = /\S/;
+        //var reg = /java\B/;
+        //var reg = /\./;
+
+        //量词
+        //var str = 'aaaaaaaaaaab';//\b
+        //var reg = /a?b/;
+        //var reg = /a*b/;
+        //var reg = /a+b/
+        //var reg = /(java){2}b/;
+        //var reg = /\ba{2,}b/;
+
+        //贪婪/惰性
+        //贪婪:尽可能多的匹配
+        //惰性:尽可能少的匹配
+        var str = 'javascripta';//\b
+        //abe ace bae bce cae cbe
+        //var reg = /a+/;//aaaaaaaaaaa
+        //var reg = /(ab)c/;//a
+        //val[0] 匹配结果
+        //val[1] 分组匹配的结果
+        // 捕获型
+
+        //var reg = /(abe|bce|bae|cae|cbe)javascript/;
+        //var reg = /(j(ava))script\2/;
+        //非捕获型(断言)
+        //匹配后为2000的javascript
+        //(?:val)或(?=val) 零宽度正向断言
+        //var reg = /javascript(?=2000)/;//javascript
+        //(?!val) 零宽度负向断言
+        var reg = /javascript(?!2000)/;
+
+
+
+        var val = reg.exec(str);
+        console.log( val )
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

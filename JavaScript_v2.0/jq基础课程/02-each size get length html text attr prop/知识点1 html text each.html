@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	<ul id="wrap">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>	
+	<script type="text/javascript" src="../js/jquery-1.12.1.min.js" ></script>
+	<script>
+		/*
+			html()
+				传参：给jq对象设置html内容,类似innerHtml
+				不传参：返回jq对象对应的第一个js对象的html内容
+			text()
+				传参：给jq对象设置为文本内容
+				不传参：返回jq对象对应得所有js对象文本内容的拼接
+		*/
+		
+		//用实例比较html和text的区别
+		//console.log($("#wrap li").html());
+		//alert($("#wrap li").html());
+		
+		//console.log($("#wrap li").text());
+		//alert($("#wrap li").text());
+		
+		/*
+			each()
+				遍历jq对应的每一个js对象
+				参数是一个函数,这个函数的第一个形参代表序列(是以个数为序列的)
+				每一个this指向不同的js对象
+		*/
+		$("#wrap li").each(function(x){
+			$(this).html(x+1);
+		});
+	</script>
+	</body>
+</html>

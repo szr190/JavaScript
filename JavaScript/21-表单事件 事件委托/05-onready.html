@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        ul{
+            width:500px;
+            border:1px solid #ccc;
+            padding:10px;
+            margin:50px auto;
+        }
+        ul li{
+            list-style:none;
+            line-height:2;
+            background: green;
+            margin-bottom:10px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+       <li>content 1</li>
+       <li>content 2</li>
+       <li>content 3</li>
+       <li>content 4</li>
+       <li>content 5</li>
+
+    </ul>
+
+</body>
+    <script>
+
+
+
+        /*
+           表单事件：
+                焦点事件：input textarea select a document
+                onfocus 获取焦点事件
+                    focus() 主动获取焦点
+                onblur 失去焦点事件
+                    blur()  主动失去焦点
+
+                onsubmit  表单提交事件
+                onreset    表单重置事件
+                    submit() 主动提交表单
+                onchange 焦点元素value值发生变化的时候触发
+
+
+            事件委托
+                标准：e.target 事件触发的目标元素
+                非标准：e.srcElement 事件触发的目标元素
+
+            文档加载完毕事件：
+                标准：DOMContentLoaded
+
+            onreadystatechange 文档加载发生readyState变化的时候触发
+
+            arguments.callee 当前正在执行的函数
+
+
+        */
+
+        //window.onload  会等文档 img .... 才会执行
+        //$(document).ready(function(){}) DOM
+        window.onready(function(){
+            console.log( 'ok');
+
+        })
+
+
+         function onready(callback){
+            if(document.addEventListener){
+                document.addEventListener('DOMContentLoaded',function(){
+                    callback();
+                    document.removeEventListener('DOMContentLoaded',arguments.callee,false);
+
+                },false);
+            }else{//非标准
+                document.attachEvent('onreadystatechange',function(){
+                    if(document.readyState == 'complete'){//文档加载完毕了
+                         callback();
+                         document.detachEvent('onreadystatechange',arguments.callee);
+                    }
+                });
+            }
+
+         }
+
+        //DOMContentLoaded ：document加载完成事件
+        // document.addEventListener('DOMContentLoaded',fn,false);
+
+
+        // function fn(){
+        //     console.log( 'ok');
+        // }
+
+        // document.onreadystatechange = function(){
+        //     console.log(document.readyState);
+
+        // }
+
+
+
+
+
+    </script>
+</html>

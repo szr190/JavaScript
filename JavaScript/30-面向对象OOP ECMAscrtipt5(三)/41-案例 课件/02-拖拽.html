@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #drag{
+            width:100px;
+            height:100px;
+            background: green;
+            position: absolute;
+        }
+        #drag2{
+            width:100px;
+            height:100px;
+            background: red;
+            position: absolute;
+            left:500px;
+            top:300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="drag">
+
+    </div>
+    <div id="drag2">
+
+    </div>
+</body>
+    <script>
+
+
+
+
+        function drog(name){
+            this.oDrag = document.getElementById(name);
+            var _this = this;
+            this.oDrag.onmousedown = function(e){
+                 e = e|| window.event;
+                _this.down(e);
+            };
+        }
+        drog.prototype ={
+                down:function (e){
+                    this.X = e.clientX;
+                    this.Y = e.clientY;
+                    this.initL = this.oDrag.offsetLeft;
+                    this.initT = this.oDrag.offsetTop;
+                    var _this = this;
+                    document.onmousemove = function(e){
+                        e = e|| window.event;
+                        _this.move(e);
+                        return false;
+                    }
+                    document.onmouseup =function(){
+                        _this.up();
+                    };
+                    return false;
+                },
+                move:function(e){
+                    this.moveX = e.clientX-this.X;
+                    this.moveY = e.clientY-this.Y;
+                    this.oDrag.style.left = this.initL + this.moveX+'px';
+                    this.oDrag.style.top = this.initT + this.moveY+'px';
+
+                },
+                up:function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                }
+
+             }
+        var drog1 = new drog('drag');
+        var drog1 = new drog('drag2');
+
+    </script>
+</html>

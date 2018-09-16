@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			body{
+				font-size: 12px;
+				font-family: "microsoft yahei";
+			}
+			ul,ol,li{list-style: none;}
+			a{color: #333;text-decoration: none;}
+			#wrap{
+				width:500px;
+				height:360px;
+				margin:100px auto;
+				position:relative;
+			}
+
+			#pic{
+				width:500px;
+				height:360px;
+				position:relative;
+			}
+
+			#pic img{
+				position:absolute;
+				top:0;
+				left:0;
+				display:none;
+			}
+
+			#tab{
+				width:105px;
+				height:10px;
+				position:absolute;
+				bottom:10px;
+				left:50%;
+				margin-left:-50px;
+			}
+
+			#tab ul li{
+				width:10px;
+				height:10px;
+				margin:0 5px;
+				background:#bbb;
+				border-radius:100%;
+				cursor:pointer;
+				list-style:none;
+				float:left;
+			}
+			#tab ul li.on{ background:#f60;}
+
+			#btn div{
+				width:40px;
+				height:40px;
+				position:absolute;
+				top:50%;
+				margin-top:-20px;
+				color:#fff;
+				background:#999;
+				background:rgba(0,0,0,.5);
+				font-size:20px;
+				font-weight:bold;
+				font-family:'Microsoft yahei';
+				line-height:40px;
+				text-align:center;
+				cursor:pointer;
+			}
+			#btn div#left{ left:0;}
+			#btn div#right{ right:0;}
+		</style>
+	</head>
+	<body>
+		<!--
+			面向对象写轮播器
+		-->
+		<div id="wrap">
+			<div id="pic">
+				<img src="../img/1.jpg" width="500" height="360"/>
+				<img src="../img/2.jpg"/>
+				<img src="../img/3.jpg"/>
+				<img src="../img/4.jpg"/>
+				<img src="../img/5.jpg"/>
+			</div>
+			<div id="tab">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div id="btn">
+				<div id='left'>&lt;</div>
+				<div id='right'>&gt;</div>
+			</div>	
+		</div>
+	</body>
+</html>

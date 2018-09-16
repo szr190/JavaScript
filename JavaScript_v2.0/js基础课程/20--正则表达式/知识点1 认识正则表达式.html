@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		<!--
+			正则表达式
+				一个匹配规则,用来检测字符串满不满足这个规则的东西
+		-->
+		
+		
+		<script>
+			var szr='afei520xinai1314';
+			//希望把数字提取出来,放到数组里面
+			
+//			var arr=[];
+//			var news='';
+//			for (var i=0;i<szr.length;i++) {
+//				if(!isNaN(szr[i])){//是数字
+//					news+=szr[i];
+//				}else{
+//					if(news.length!=0){
+//						arr.push(news);
+//						news='';
+//					}
+//				}
+//			}
+//			if(news.length!=0){
+//				arr.push(news);
+//			}
+
+
+		//正则表达式
+		var arr=szr.match(/\d+/g);
+			
+		console.log(arr);
+			
+		//两者一比较,就突显了正则表达式的高效性	
+			
+		</script>
+		
+	</body>
+</html>

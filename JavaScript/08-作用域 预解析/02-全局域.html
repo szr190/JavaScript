@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<script>
+
+    /*
+       作用域:作用范围，有效范围
+
+       全局域：直接在script标签下的
+            直接在script标签下的变量称之为 全局变量
+       局部域：每一个函数都会生成一个局部的域
+            在函数内部申明的变量称之为 局部
+    */
+    // var a  = 'hello';
+    // //alert(a);
+
+    // function fn(){
+    //     var b = 120;
+    //      alert(b);//120
+    // }
+    // fn();
+    // //alert(b);//b is not defined
+    //var a = 'hello';
+    //alert(a);
+</script>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+
+</ul>
+<script>
+    //fn();
+   // var b = 123;
+    //alert(b);
+    //alert( a );
+
+   //  var a = 666;
+   // // alert( window.a);
+   //  function fn(){
+   //      alert('fn');
+   //  }
+   //  window.fn();
+   //var a = 666;//变量要先声明，在使用
+
+   // function fn(){//全局函数
+   //     // alert('fn');
+   //      // var bbb = 'hello world';
+   //      // alert( window.bbb);//undefined
+   //      //window.fn2();//报错
+
+   //      function fn2(){
+   //          alert('fn2');
+   //      }
+   // }
+
+   // window.fn();
+
+   /*
+     作用域链
+        局部可以访问全局(外部)变量 --从内向外
+        内部变量会覆盖外部变量
+        如果内部有和外部相同的形参、申明变量,那么修改的是和访问的是形参、声明变量 ---就近原则
+
+   */
+
+    // var a = 'hello';
+
+    // function fn(){
+    //     alert(a);//hello
+    // }
+    // fn();
+    //局部可以访问全局(外部)变量
+
+    // function fn(){
+    //     var a = 'hello';
+    //     function fn2(){
+    //         alert(a);
+    //     }
+    //     fn2();
+
+    // }
+    // fn();
+
+    //
+    // var a = 'hello';
+    // function fn(){
+    //     alert(a); //undefined;
+    //     //alert(a);//123
+    //     var a = 123;
+    // }
+    // fn();
+    // alert(b);//undefined;
+    // var b = 123;
+
+    // var a;//默认赋值undefined
+    // alert(a);
+
+
+    // var a = 'hello';
+
+    // function fn(a){
+    //     alert(a);//123
+    // }
+    // fn(123);
+
+    // var a = 'hello';
+
+    // function fn(a){
+    //     var a= '二狗';
+    //     alert(a);//二狗
+    // }
+    // fn(123);
+
+    // var a = 'hello';
+
+    // function fn(a){
+    //     alert(a);//123
+    //     var a = '二狗';
+    // }
+    // fn(123);
+
+    // var a = 'hello';
+    // function fn(a){
+    //     //alert(a);//123
+    //     a= '二狗';
+    //     //如果内部有和外部相同的形参、申明变量,那么修改的是和访问的是形参、声明变量 ---就近原则
+    // }
+    // fn(123);
+    // alert(a);
+
+
+    /*
+        js代码解析:
+            预解析: 去找带var 变量及 函数申明
+                var a=undefined  --变量提升
+                function fn(){}  --函数提升
+                遇到同名函数，后面定义的会覆盖前面的
+            解析
+
+    */
+
+        // alert(a);//undefined;
+        // fn();
+        // var a = 'hello';
+        // a = 123;
+        // function fn(){
+        //     alert(b);//undefined
+        //     a = 888;
+        //     var b = 55;
+        //     alert(b);//55
+
+        // }
+
+        //fn();
+        // alert(fn);//undefined
+        // var fn = function(){
+        //     alert('ok');
+        // }
+
+        //案例
+
+
+        // alert(a);//undefined
+        // //alert(b);//报错
+        // var a=123;
+
+        // function fn(){
+        //     alert(a);
+        //     var a = 20;
+        //     alert(a);
+        //     a = 60;
+
+        // }
+
+        // alert(a);//123
+        // a = 80;
+        // var a = 100;
+        // alert(a);//100
+
+
+        // var a = 'hello';
+        // alert(a);//hello
+        // a = 20;
+        // function fn(){//不是走的这里
+        //     alert(a);
+        //     var a = 40;
+        //     a  = 60;
+        //     alert(a);
+        // }
+        // fn();//undefined 120
+        // alert(a);//20
+        // a = 80;
+        // function fn(){//走的这一个
+        //     alert(a);//undefined
+        //     var a = 100;
+        //     a  = 120;
+        //     alert(a);//120
+        // }
+
+        // alert(a);//80
+
+    /*
+        闭包(return 的函数)
+    */
+    // var a = 'hello';
+    // function fn(){
+    //     var b = 123;
+    // }
+    // fn();
+    // alert(b);
+
+    //闭包
+
+    /* 条件
+        至少有2个函数
+        return 内部函数
+    */
+    /*
+        内部函数使用了的外部变量，那么此变量会保存，不会被js垃圾回收机制回收
+
+    */
+
+    // function fn(){
+    //     var a = 'hello';
+    //     function fn2(){
+    //         alert('闭包');
+    //         alert(a);
+    //     }
+    //     return fn2;
+
+    // }
+    // var f = fn();
+    // f();//hello
+
+    // function fn(){
+    //     var a = 'hello';
+    //     function fn2(){
+    //         alert('闭包');
+    //         alert(a);
+    //     }
+    //     return a;
+
+    // }
+    // var f = fn();
+    // alert( typeof f );//string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+
+</html>

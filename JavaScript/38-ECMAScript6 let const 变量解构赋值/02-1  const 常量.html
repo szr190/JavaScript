@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+            /*
+                let 命令,块级变量          全局 function 块级
+                    ---块级变量，作用于块级
+                    ---不存在变量提升 ->先声明再使用，提前使用报错
+                    ---暂时性死区,不可重复申明
+                const 命令，常量
+                    --- 声明即赋值,修改值会报错
+                    ---作用于块级
+                    ---不存在变量提升 ->先声明再使用，提前使用报错
+                    ---暂时性死区,不可重复申明
+
+
+
+
+            */
+
+            // {
+            //     const a = 20;
+            // }
+            // console.log(a);//ReferenceError
+
+
+            // {
+            //      console.log(a);//ReferenceError
+            //     const a = 20;
+            //     //console.log(a);//20
+            // }
+            //ReferenceError
+
+
+            // const a = 20;
+            // const a = 30;//SyntaxError
+
+
+            //区别
+            // const a = 20;
+            // a = 123;//TypeError
+
+            // let a;
+            // console.log(a);//undefined;
+            // const a;
+
+            // const a =  'hello';
+            // // a  = '二狗';//修改了内存地址会报错
+
+            // const a = [];
+            // a[0] = 123;//并没有修改内存地址，所以不会报错
+            // console.log( a[0]);
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+		</style>
+	</head>
+	<body>
+	<div id="box"></div>
+		
+		
+		
+	<script>
+		var oBox=document.getElementById("box");
+		
+		
+		
+		/*
+		         显示类型转换 ----把一个东西正儿八经的转化成数字或者别的类型---尽量避免添加空格
+		         Number()---把一个数据转换成number类型
+		    	 parseInt()---从第一位强制取整数
+		    	 parseFloat()---从第一位强制取数字
+		*/
+		
+		var a='50';
+		var a='+50'
+		//console.log(Number(a));
+		var b='-50.2';
+		//console.log(Number(b));
+		var d='5.0';
+		//console.log(parseInt(d));
+		var e='5.2';
+		//console.log(parseFloat(e));
+		
+		
+		
+		/*
+		    NaN---not a number 不是一个数字  是一个关键字   但是它的数据类型是number 不可以做运算
+		    isNaN---如果是NaN则返回true,否则返回false 
+		    ---非常讨厌数字  
+		    ---是数字就返回false
+		    ---先把数字用Number()转换一下,再进行判断
+		*/
+		var c='    a    50';
+		//console.log(Number(c));
+		
+		var f=NaN;
+		var h=isNaN(f);
+		//console.log(h);
+		
+		
+		/*
+		       补充 
+		*/
+		//console.log(NaN==NaN);   //false
+		//console.log(null==null);    //true
+		//console.log(undefined==undefined);  //true
+		
+	</script>
+	</body>
+</html>

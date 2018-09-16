@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{position: relative;width: 200px;height: 200px;background: red;}
+			#wrap{position: absolute;width: 100px;height: 100px;background: greenyellow;
+			          left: 50px;top:10px;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="wrap"></div>
+		</div>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			var oWrap=document.getElementById("wrap");
+			
+			
+			/*
+				 offsetParent 定位父级
+				 offsetLeft 距离左侧
+				 offsetTop 距离顶部
+				 
+				 元素在没有定位父级的时候就是body
+			*/
+			console.log(oWrap.offsetParent.className);
+			console.log(oWrap.offsetLeft);
+			console.log(oWrap.offsetTop);
+
+			
+			
+		</script>
+	</body>
+</html>

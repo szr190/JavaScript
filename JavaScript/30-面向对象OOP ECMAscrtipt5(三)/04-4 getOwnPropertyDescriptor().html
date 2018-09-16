@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+         /*
+           一 对象的类型:
+                本地对象:Number,String,Array......Error,这些需要加new
+                内置对象:window、Math
+                宿主对象:DOM、BOM
+                自定义对象:
+
+           二，对象中的this
+
+           三 对象方法改写
+           四 ECMAscript5 对象属性和方法
+
+            isPrototypeOf();
+            obj.hasOwnProperty(o); o是不是obj自有属性,非继承
+
+
+
+         */
+
+            //fn.prototype.isPrototypeOf( obj );
+
+            // var obj = {
+
+            //     age:20
+
+            // }
+            // var obj2 = {
+            //     name:'二狗',
+            //     __proto__:obj
+
+            // }
+
+            // console.log( obj.isPrototypeOf( obj2 ) );//true
+
+            // var obj = {age:20 }
+            // var obj2 = {name:'二狗',__proto__:obj }
+            // //console.log( obj2.age );//20
+            // //console.log( obj2.hasOwnProperty('name') );//true
+            // console.log( obj2.hasOwnProperty('age') );//false
+
+
+            /*
+                obj.propertyIsEnumerable( o )
+                obj的o属性是不是可枚举,——是否可for in循环
+            */
+
+
+            /*
+                定义一个属性及描述符
+                Object.defineProperty(o,prop,descriptor);
+                    o--对象
+                    prop ----属性
+                    descriptor ----属性描述符
+                        value:属性的值
+                        writable 属性是否可修改,默认false
+                        enumerable 属性是否可枚举,默认false
+                        configurable: 属性是否可配置(删除),默认false
+
+
+            */
+           var  obj = {}
+
+           //定义obj对象的name属性，值为value
+           // Object.defineProperty(obj,'name',{
+           //   value:'二狗', //name
+           //   writable:false, //writable是否可修改
+
+           // });
+           // console.log( obj.name );//二狗
+           // obj.name = 8888;
+           // console.log( obj.name );//二狗
+
+           // Object.defineProperty(obj,'name',{
+           //   value:'二狗', //name
+           //   writable:true,
+           //   enumerable:false,
+
+           // });
+
+           // for(key in obj){
+           //  console.log( key )
+           // }
+
+
+           // Object.defineProperty(obj,'name',{
+           //   value:'二狗', //name
+           //   writable:true,
+           //   enumerable:true,
+           //   configurable:false
+
+           // });
+           // console.log(obj.name);
+           // delete obj.name
+           // console.log(obj.name);
+
+           /*
+                定义多个属性及描述符
+                Object.defineProperties(o,descriptors);
+                    o--对象
+                    prop ----属性
+                    descriptor ----属性描述符
+                        value:属性的值
+                        writable 属性是否可修改,默认false
+                        enumerable 属性是否可枚举,默认false
+                        configurable: 属性是否可配置(删除),默认false
+
+
+            */
+
+            // var obj = {age:20 };//外面的属性描述符默认全部是true
+            // Object.defineProperties(obj,{
+            //     name:{
+            //         value:'二狗',
+            //         writable:true
+            //     },
+            //     sex:{
+            //         value:'男'
+            //     }
+
+            // });
+            // console.log( obj );
+
+
+            // var obj = {age:20 };//外面的属性描述符默认全部是true
+            // Object.defineProperties(obj,{
+            //     name:{
+            //         value:'二狗',
+
+            //     },
+            //     _num:{value:1,writable:true},
+            //     num:{
+            //         //写了get 和set 函数不能写value属性了
+            //         get(){
+            //             return this._num;
+            //         },
+            //         set(val){
+            //             console.log('set')
+            //             this._num = val;
+            //         }
+            //     }
+
+            // });
+            //  console.log( obj.num );
+            //  obj.num = 888;
+            //  console.log( obj.num );
+
+
+/*
+
+    Object.getOwnPropertyDescriptor(o,Property)
+    获取o对象的Property属性描述符
+
+
+*/
+
+
+            // var obj2 = {name:'二狗'}
+            // var obj = {age:20,__proto__:obj2}
+
+            // var des = Object.getOwnPropertyDescriptor(obj,'age');
+            // console.log( des );//{value: 20, writable: true, enumerable: true, configurable: true}
+
+            // var des = Object.getOwnPropertyDescriptor(obj,'name');
+            // console.log( des );//undefined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    .clearfix:after{content:'';display:block;clear:both;}
+    .fl{float:left;}
+    .fr{float:right;}
+    #box{
+        width:100px;
+        height:100px;
+        background: green;
+        position: absolute;
+        left:0px;
+        top:10px;
+        opacity:1;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+
+</body>
+    <script>
+        /*
+            requestAnimationFrame() 请求动画
+                每次请求一次
+            cancelAnimationFrame(timer) 删除动画
+        */
+        var oBox = document.getElementById('box');
+        var num =0;
+        var timer;
+        //兼容写法：
+        window.requestAnimationFrame = window.requestAnimationFrame || function (fn){
+            return setTimeout(fn,1000/60);
+        }
+        window.cancelAnimationFrame = window.cancelAnimationFrame ||clearTimeout;
+
+        animation(oBox,'left',800,3000);
+        //速度版的运动框架
+        function animation(obj,attr,target,tar_t){ //
+            var init =  parseFloat( getStyle(obj,attr));//获取初始值并去除单位
+            //alert(init);
+            var init_t = new Date();//开始时间
+           (function run(){//函数自执行
+                var cur_t = new Date();//当前时间;
+                var ani_t = cur_t - init_t; //动画时长
+                var  prop = ani_t/tar_t;//时间比例
+
+                var time = window.requestAnimationFrame(run);
+                if(prop>=1){
+                    prop = 1;
+                    window.cancelAnimationFrame(time);//停止动画
+                }
+                console.log('ok');
+                var val = (target-init)*prop;//当前走路程
+
+
+               //设置样式
+               // if(attr == 'opacity'){
+               //      obj.style[attr] = init;
+               // }else{
+
+               // }
+
+               obj.style[attr] = init+val+'px';//开始位置加移动的值
+
+
+           })()
+
+        }
+        //获取样式
+        function getStyle(obj,attr){
+
+            return window.getComputedStyle? getComputedStyle(obj)[attr]:obj.currentStyle[attr];
+
+        }
+
+
+
+
+
+
+    </script>
+</html>

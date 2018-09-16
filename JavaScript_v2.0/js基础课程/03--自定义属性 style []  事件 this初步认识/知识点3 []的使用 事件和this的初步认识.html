@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#szr{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+	<div id="box"></div>
+	<div id="szr"></div>
+	
+	
+	<script>
+	var oBox=document.getElementById("box");
+		/*
+		   []的使用 ----相当重要
+		   (1)数组中
+		   (2)样式改变中---'几乎'.的都可以改写
+		*/
+		//(1)
+		var arr=[1,2,3,4,5,6];
+		//(2)
+		oBox.style.width='100px';
+		var a='height';
+		oBox.style[a]='100px';//oBox.style['height']='100px';
+		
+		
+		
+		/*
+		       事件和this的初步认识 
+		       和用户操作相关的都叫做事件
+		       this谁触发就是谁,具体会在面向对象中具体理解,相当重要,但是也相当难理解
+		       (能用this代替本身就用this,原因是不会被垃圾回收,避免泄露)
+		       
+		*/
+		var oSzr=document.getElementById("szr");
+		oSzr.onclick=function(){//事件太多,不一一列举
+			//console.log(1);
+			//console.log(this.id);
+		}
+		
+		
+		
+	</script>
+	</body>
+</html>

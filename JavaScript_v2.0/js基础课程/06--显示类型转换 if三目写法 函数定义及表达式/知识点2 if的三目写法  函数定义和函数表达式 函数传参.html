@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+	<div id="box"></div>	
+	
+	
+	
+	<script>
+		var oBox=document.getElementById("box");
+		
+		/*
+		    if 三目写法 
+		           当只有一句话的时候可以写成这种写法
+		           (条件)?(真):(假)
+		           2<3?console.log('s'):console.log('z');
+		*/
+		if(2<3){
+			//console.log('s');
+		}else{
+			//console.log('z');
+		}
+		
+		//不写大括号的情况,只有一个真情况
+		//if(2<3)console.log(1);
+		
+		
+		
+		/*
+		          函数 
+		          有名函数和匿名函数
+		          
+		          (1)函数表达式
+		          
+		          - + ~ !
+		          -/+/~/!function(){
+		          	
+		          }
+		          
+		          (2)函数定义
+		          区别：函数表达式可以加括号执行
+		         var b=function(){
+						console.log(2);
+					}();
+		                     函数定义加括号就会报错
+		                     function a(){
+									//console.log(1);
+							}();
+		*/
+		
+		//(2)
+		function a(){
+			//console.log(1);
+		}
+		//(1)
+		var b=function() {
+			//console.log(2);
+		};
+		
+		/*
+		        注意：
+		        function(){
+				    console.log(1);
+				}();//这样就会报错
+				
+				下面的这种函数表达式的方式就不会报错,结合闭包用的时候会相当有用
+		*/
+		(function(){
+			//console.log(2);
+		}());
+		
+		
+		
+		/*
+		         函数的参数 
+		         szr---形参
+		           5---实参
+		*/
+		function c(szr){
+			console.log(szr);
+		}
+		c(5);
+		
+		
+	</script>
+	</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+        /*
+            Symbol.iterator函数
+                --iterator对象
+                --统一的数据
+                --主要供for...of使用
+                --iterator对象包含value done
+                    done:false 没有遍历完成
+                    done:true  遍历完成
+
+            generator函数
+                异步编程解决方案
+                generator特征：
+                    --带星号*
+                    --yield
+                    --调用不会执行
+                next 返回一个对象包含value done
+                        done:false 没有遍历完成
+                        done:true  遍历完成
+                    yield 表达式的值会成为对象value的值
+                    每次调用next 执行一条yield语句
+
+
+
+
+        */
+
+
+        // function* fn(){
+        //     yield 'hello';
+
+        // }
+
+        // var f = fn();
+
+        // function* fn(){
+
+        //     yield 'hello';
+        //     yield 'world';
+        //     yield 'ending';
+        // }
+        // var f = fn();//返回一个iterator对象
+        // console.log( f );
+        // console.log( f.next() );//{value: "hello", done: false}
+        // console.log( f.next() );//{value: "world", done: false}
+        // console.log( f.next() );//{value: "ending", done: false}
+
+        //分段执行
+
+//-------------------
+       //  function* fn(){
+       //      console.log('ok1');
+       //      yield 'hello';
+       //      console.log('ok2');
+       //      yield 'world';
+       //      console.log('ok3');
+       //      yield 'ending';
+       //      console.log('ok4');
+       //  }
+       //  var f = fn();//返回一个iterator对象
+       //  console.log('yes');
+       // console.log( f.next() );//{value: "hello", done: false}
+       // console.log( f.next() );//{value: "world", done: false}
+       // console.log( f.next() );//{value: "ending", done: false}
+       // console.log( f.next() );//{value: "ending", done: false}
+
+//函数申明
+       //function* fn(){}
+       //function * fn(){}
+       //function *fn(){}
+       //function*fn(){}
+//表达式
+       //var fn =  function*(){}
+//对象方法
+       // var obj = {
+       //  * show(){
+       //      console.log('ok')
+       //  }
+       // }
+       // console.log( obj.show() );
+
+   // function* generator(){
+   //      console.log('ok');
+   // }
+
+   // var f = generator();
+   // f.next();//ok
+//非generator报错
+   // function generator(){
+   //      yield 'hello';//SyntaxError: Unexpected string
+   // }
+
+//
+
+   //  function* generator(){
+   //      console.log('hello' + yield 'world');//报错
+   // }
+
+   // function* generator(){
+   //      console.log('hello' + (yield 'world'));//OK
+   // }
+
+//return
+   // function* generator(){
+   //      yield 'hello';
+   //      yield 'world';
+   //      return 'ending';
+   // }
+
+   // var f = generator();
+   // console.log( f.next() );//{value: "hello", done: false}
+   // console.log( f.next() );//{value: "worldd", done: false}
+   // console.log( f.next() );//{value: "ending", done: true}
+
+
+   // function* generator(){
+   //      yield 'hello';
+   //      yield 'world';
+   //      yield 'ending';
+   // }
+
+   // var f = generator();
+   // console.log( f.next() );//{value: "hello", done: false}
+   // console.log( f.next() );//{value: "worldd", done: false}
+   // console.log( f.next() );//{value: "ending", done: false}
+   // console.log( f.next() );//{value: undefined, done: true}
+
+
+//yield 返回值
+//默认undefined
+
+  //   function* generator(){
+  //      var a =  yield 'hello';
+  //      console.log(a);
+
+  //  }
+  //  var g = generator();
+  // console.log(  g.next() );
+  // g.next();//undefined
+
+
+//与iterator关系
+    // function* generator(){
+    //     yield 1;
+    //     yield 2;
+    //     yield 3;
+    // }
+    // //generator返回iterator对象
+
+
+    // var arr = ['a','b','c'];
+    // arr[Symbol.iterator] = generator;
+
+    // for (key of arr) {
+    //    console.log( key );//1 2 3
+    // }
+
+    // function* generator(){
+    //     yield this[0];
+    //     yield this[1];
+    //     yield this[2];
+    // }
+    // //generator返回iterator对象
+
+
+    // var arr = ['a','b','c'];
+    // arr[Symbol.iterator] = generator;
+
+    // for (key of arr) {
+    //    console.log( key );//a b c
+    // }
+
+
+    //  function* generator(){
+    //     yield 1;
+    //     yield 2;
+    //     yield 3;
+    // }
+
+    // for (key of generator()) {
+    //    console.log( key );// 1 2 3
+    // }
+
+
+//next() 参数,是改变yield的返回值
+//
+     // function* fn(){
+     //    console.log('ok');
+     //    var a = yield 'hello';
+     //    console.log(a);//20
+     //    var b = yield 'world';
+     //    console.log(b);//30
+     //    var c = yield 'ending';
+
+     // }
+     // var f = fn();
+     // console.log( f.next() );//
+     // console.log( f.next(20) );
+     // console.log( f.next(30) );
+
+//throw 抛出异常，内部可以捕获
+    //  function* fn(){
+    //     try{
+    //         yield;
+    //     }catch(e){
+    //         console.log(e);
+    //     }
+    //  }
+    //  var f = fn();
+    // // f.next();
+    //  f.throw('出错了');//Uncaught 出错了
+
+//return() 参数，修改对象返回值
+
+    // function* fn(){
+    //     yield 'hello';
+    //     yield 'world';
+    //     yield 'ending';
+    // }
+
+    // var f = fn();
+    // //console.log( f.next() );//{value: "hello", done: false}
+    // console.log( f.return(1) );//{value: 1, done: true}
+    // console.log( f.return(5) );//{value: 5, done: true}
+
+
+    // function* foo(){
+    //     yield 'hello'
+    //     yield 'world'
+    // }
+    // function* bar(){
+    //     yield 'a'
+    //     yield 'b'
+    // }
+    // function* fn(){
+    //     yield 1;
+    //     yield foo();
+    //     yield bar();
+    //     yield 2;
+
+    // }
+
+    // //var f = fn();
+    // for (key of fn()) {
+    //    console.log(key)
+    // }
+////////////////////
+    // function* foo(){
+    //     yield 'hello'
+    //     yield 'world'
+    // }
+    // function* bar(){
+    //     yield 'a'
+    //     yield 'b'
+    // }
+    // function* fn(){
+    //     yield 1;
+    //     yield* foo();
+    //     yield* bar();
+    //     yield 2;
+
+    // }
+
+    // //var f = fn();
+    // for (key of fn()) {
+    //    console.log(key)
+    //    //1 hello world a b 2
+    // }
+
+//yield后面跟iterator对象
+    // function* fn(){
+    //     yield* 'hello';//
+    //     yield* 2;//报错
+
+    // }
+    // var f = fn();
+    // console.log( f.next() );
+//this
+
+    // function* fn(){
+    //     console.log(this);//window
+    // }
+    // var f = fn();
+    // f.next(0);
+
+    // function* fn(){
+
+    // }
+    // fn.prototype.show=function(){
+    //     console.log('ok');
+    // }
+    // var f = fn();
+    // f.show();//ok
+
+////////////////////////////////////////
+    // function* fn(){
+    //     this.a = 10;
+    //     yield this.b = 20;
+    // }
+    // fn.prototype.show=function(){
+    //     console.log('ok');
+    // }
+    // var obj = {};
+    // var f = fn.call(obj);
+    // f.next();
+    // console.log(obj.a);//10
+    // console.log(obj.b);//20
+//////////////
+
+    // function* fn(){
+    //     this.a = 10;
+    //     yield this.b = 20;
+    // }
+
+    // fn.prototype.show=function(){
+    //     console.log('ok');
+    // }
+
+    // var f = fn.bind(fn.prototype)();
+    // f.next();
+    // console.log(f.a);//10
+    // console.log(f.b);//20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;color: #333;}
+			.active{
+				color: #f00;
+			}
+			.on{color: green;}
+		</style>
+	</head>
+	<body>
+	<div id="wrap">
+		<ul>
+			<li>1</li>
+			<li class="on">2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+	<input type="text" name="" id="" value="123" />
+		
+	<script type="text/javascript" src="../js/jquery-1.12.1.min.js" ></script>
+	<script>
+	/*
+		addClass()---添加class名 
+	*/
+		$("#wrap ul li").addClass("active");
+	/*
+		removeClass()---移除class名 
+	*/
+		$("#wrap ul li").removeClass("active");
+	/*
+		toggleClass()---切换class,有的添加,没有的删除
+	*/
+		$("#wrap ul li").toggleClass("on");
+	/*
+		val()---有参数(设置value值);无参数(获取value值) 
+	*/
+		var a=$("input").val();
+		//console.log(a);
+	
+	</script>
+	</body>
+</html>

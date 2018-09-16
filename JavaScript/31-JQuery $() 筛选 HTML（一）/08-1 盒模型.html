@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        div{
+
+            width:100px;
+            height:100px;
+            background: green;
+            margin:20px 20px;
+            padding:5px;
+            border:1px solid red;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class='box'>
+
+    </div>
+
+
+
+
+</body>
+    <!-- 引入jquery -->
+    <script src='js/jquery-3.2.1.js'></script>
+    <script>
+        /*
+
+            原生对象 jQuery代理对象
+
+        一 $的四大用法
+            一 $(element)
+                $(doument).ready() 当DOM加载完毕
+            二 $(function(){}) 当DOM加载完毕
+            三 $(selector,start)  selector 是一个选择器
+                length 集合的个数
+            四 $('<li></li>',Object) 创建元素,Object对象 给创建的元素添加属性
+
+        二  css()   设置样式
+            css(key,val)
+            css({key1:val1,key2:val2,key23:val3,})
+
+        三 筛选
+            //当前对象
+            eq() 下标 默认是0
+            index() 索引是指在兄弟元素中的位置
+            filter(selector) 包含
+            not(selector) 不包含
+            first() 第一个
+            last() 最后一个
+            has(selector) 后代中有selector
+            add() 添加对象
+
+            //子集
+
+            children() 所有子元素
+            find(selector) 查找包含selector后代
+
+            //兄弟
+            prev() 上一个兄弟
+            next() 下一个兄弟
+            siblings  除自己外的其他兄弟
+
+        四 HTML
+            1.class操作
+                hasClass()  是否有class
+                addClass()  添加class
+                removeClass() 移除class
+                toggleClass() 没就添加，有就移除
+
+            2.内容操作
+                text();//获取/设置 所有文本内容
+                html(); //获取集合第一个，设置所有
+                val()  //
+            3.attr data
+
+                attr(attibute) 获取属性
+                attr(attibute,val) 设置属性
+                removeAttr(attibute) 移除属性
+
+                data(data,val) 设置data
+                data(data)  获取data ,可以获取标签中 data-xxx形式设置的数据
+
+                removeData()  移除data
+
+            3.盒模型
+                width() 宽                       -----width
+                innerWidth() 宽+padding          -----clientWidth
+                outerWidth() 宽+padding+border   -----offsetWidth
+                outerWidth(true) 宽+padding+border+margin
+
+
+
+
+        width:100px;
+        height:100px;
+        background: green;
+        margin:20px 0;
+        padding:5px;
+        border:1px solid red;
+
+
+        */
+
+        // var val  = $('.box').width();
+        // console.log( val );//100
+
+        // var val  = $('.box').innerWidth();
+        // console.log( val );//110
+
+        // var val  = $('.box').outerWidth();
+        // console.log( val );//112
+
+        var val  = $('.box').outerWidth(true);
+        console.log( val );//152
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

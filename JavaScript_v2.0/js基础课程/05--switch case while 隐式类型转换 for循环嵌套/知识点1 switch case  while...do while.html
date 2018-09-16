@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+	<div id="box"></div>
+	
+	
+	<script>
+		var oBox=document.getElementById("box");
+		
+		/*
+		   switch...case... 
+		*/
+		var a='szr';
+		switch (a){//要判断什么写什么
+			case 'zss'://种类,进行判断
+			    console.log(0);
+				break;//截断
+			case 'szr':
+				console.log(1);
+				break;
+			default://以上都不满足
+			    console.log('sorry')
+				break;
+		}
+		
+		
+		
+		/*
+		   while
+		   do...while
+		*/
+		
+		//先做判断
+		var i=0;
+		while (i<5){
+			document.write(i+'<br />');
+		}//类似于for(var i=0;i<5;i++){}
+		
+		//先执行一次,再进行判断
+		var i=5;
+		do{
+			document.write(i+'<br />');
+		}while(i<5)
+		
+		
+	</script>
+	</body>
+</html>

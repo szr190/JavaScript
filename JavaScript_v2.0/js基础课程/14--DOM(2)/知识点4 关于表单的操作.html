@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<form action="" method="post" id="form">	
+			<input type="text" value="" id="txt" name="user"/>
+			<input type="password" id="pwd" name="password" />
+			<input type="radio" name="sex" id="" value="0" checked="checked" />男
+			<input type="radio" name="sex" id="" value="1" />女
+		</form>
+		<button id="btn">Button</button>
+		<br />
+		<br />
+		<br />
+		<!--
+			全选 反选 全不选
+		-->
+		<button id="b1">全选</button>
+		<button id="b2">反选</button>
+		<button id="b3">全不选</button>
+		
+		<input type="checkbox" />苹果
+		<input type="checkbox" />梨子
+		<input type="checkbox" />桃子
+		<input type="checkbox" />石榴
+		<input type="checkbox" />大枣
+		<input type="checkbox" />核桃
+		
+		
+		<script>
+			var oBox=document.getElementById("box");
+			var oTxt=document.getElementById("txt");
+			var oBtn=document.getElementById("btn");
+			var oPwd=document.getElementById("pwd");
+			//var oRadio=document.getElementById("radio");
+			/*
+				关于表单的操作 
+				
+				(1)value---表单的值
+				(2)ByName
+				(3)在form里面可以直接.name名去获取元素节点
+				(4)checked的true和false
+			*/
+			var oSex=document.getElementsByName("sex");
+			var oForm=document.getElementById("form");
+			
+			oBtn.onclick=function(){
+				//console.log(oTxt.value);
+				//console.log(oPwd.value);
+				//console.log(oRadio.value);//单选按钮在传输数据的时候都有name和value
+				//console.log(oSex[1].value);//获取男女的value值来判断男女
+			}
+			
+			//from.name.value  ----用来改变input的value值
+			oForm.user.value='123456';
+			
+			//单选按钮默认选中男checked="checked" ---用js控制
+			//清除checked
+			//oForm.sex[0].removeAttribute('checked');
+			
+			oForm.sex[0].checked=false;
+			oForm.sex[1].checked=true;
+			
+			/*
+				全选  反选  全不选 
+			*/
+			var oB1=document.getElementById("b1");
+			var oB2=document.getElementById("b2");
+			var oB3=document.getElementById("b3");
+			var oInput=document.getElementsByTagName("input");
+			
+			oB1.onclick=function(){
+				for (var i=0;oInput.length;i++) {
+					oInput[i].checked=true;
+				}
+			}
+			oB3.onclick=function(){
+				for (var i=0;oInput.length;i++) {
+					oInput[i].checked=false;
+				}
+			}
+			oB2.onclick=function(){
+				for (var i=0;oInput.length;i++) {
+					oInput[i].checked=!oInput[i].checked;
+				}
+			}
+			
+		</script>
+	</body>
+</html>

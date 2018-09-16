@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		
+	<script>
+		var xhr = new XMLHttpRequest();
+			xhr.open( 'get' , 'get.php?user=afei&pwd=789456' , true );
+			xhr.setRequestHeader('content-type' , 'application/x-www-form-urlencoded');
+			xhr.send();
+			xhr.onreadystatechange = function(){
+				if ( xhr.readyState == 4 )
+				{
+					if ( xhr.status >= 200 && xhr.status < 300 )
+					{
+						alert( xhr.responseText )
+					}else
+					{
+						alert( '请求好像遇到了点问题，状态码：' + xhr.status );
+					};
+				}
+			};
+		
+	</script>
+	</body>
+</html>

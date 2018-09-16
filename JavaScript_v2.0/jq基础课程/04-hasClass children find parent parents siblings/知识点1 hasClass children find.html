@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <style>
+	    	*{margin: 0;padding: 0;}
+	    </style>
+	</head>
+	<body>
+		
+	<div class="wrap">1</div>	
+	<div id="box">
+		<p>p1</p>
+		<p>p2</p>
+		<p>p3</p>
+		<a href="">a1</a>
+		<a href="">a2</a>
+	</div>
+		
+		
+	<script type="text/javascript" src="../js/jquery-1.12.1.min.js" ></script>
+	<script>
+		/*
+			 hasClass()
+			       功能：对象是否有某个class名字,有返回true,没有的话返回false
+			 	参数：class名
+		*/
+		//alert($("div").hasClass("wrap"));
+		
+		/*
+			children()
+				功能：选中第一级子元素集合,返回jq对象
+				参数：无参数找所有,有参数筛选
+		*/
+		//$("#box").children("p").css("color","red");
+		
+		/*
+			find()
+				功能：查找所有的子元素,返回jq对象
+				参数：必须有参数才能找,无参数没任何显示
+		*/
+		//$("#box").find("p").css("color","red");
+		
+		
+	</script>
+	</body>
+</html>

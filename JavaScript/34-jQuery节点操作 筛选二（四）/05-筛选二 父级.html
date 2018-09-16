@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        div{
+            width:200px;
+            height:200px;
+            background: green;
+            margin:10px 0;
+        }
+        a{
+            display:block;
+            width:100%;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div >
+            <ul class='box'>
+                <li class='box'>
+                    <a class='ccc' href="javascript:void(0)"> 0001 </a>
+                    <a href="javascript:void(0)"> 0002 </a>
+                    <a href="javascript:void(0)"> 0003 </a>
+                    <a  id='box' href="javascript:void(0)"> box </a>
+                    <a href="javascript:void(0)"> 0005 </a>
+                    <a href="javascript:void(0)"> 0006 </a>
+                    <a href="javascript:void(0)"> 0007 </a>
+                    <a href="javascript:void(0)"> 0008 </a>
+                    <a href="javascript:void(0)"> 0009 </a>
+                    <a class='ccc' href="javascript:void(0)"> 0010 </a>
+                </li>
+            </ul>
+
+    </div>
+
+
+</body>
+    <script src='js/jquery-3.2.1.js'></script>
+    <script>
+
+
+        /*
+            $(target).method( content );
+                before        在目标前面插入内容
+                after         在目标后面插入内容
+                prepend       在目标内部头部插入内容
+                append        在目标内部尾部插入内容
+                replaceWith   在目标替换为内容
+
+            $(content).method( target );
+                insertBefore    在目标前面插入内容
+                insertAfter      在目标后面插入内容
+                prependTo       在目标内部头部插入内容
+                appendTo        在目标内部尾部插入内容
+                replaceAll   在目标替换为内容
+
+            clone() 默认会拷贝后代,不能克隆事件,参数true深拷贝
+            empty() 清空内容
+            remove() 移除元素,会返回删除的对象，但是不会保留事件
+            detach() 移除元素,会返回删除的对象，还会保留事件
+
+            父级
+                parent 最近的父级
+                offsetParent() 定位父级
+                parents()  所有父级
+                parentsUntil([selector]) 截止到selector的父级，不包含selector
+                closest(selector)  最近的selector父级，可以包含自身
+
+
+                prevAll([selector]) 上面的所有兄弟
+                prevUntil() 截止到selector
+                nextAll() 下面的所有兄弟
+                nextUntil([selector]) 截止到selector
+
+
+            slice(start,end) 筛选集合中下标为start至end的元素，但是不包含end
+
+
+
+        */
+
+
+
+        //var val = $('#box').parent();
+        //var val = $('#box').offsetParent();
+        //var val = $('#box').parents();
+        //var val = $('#box').parentsUntil('body');
+        // var val = $('#box').closest('.box');
+        // console.log( val );
+
+
+        // var val = $('#box').prevAll('.ccc').css({background:'red'});
+        // console.log(val);
+
+        //$('#box').prevUntil().css({background:'red'});
+
+        //  var val = $('#box').nextAll().css({background:'red'});
+        // console.log(val);
+        //$('#box').nextUntil('.ccc').css({background:'red'});
+
+        //$('a').slice(5,8).css({background:'red'});
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

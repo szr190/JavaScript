@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>案例_点击图片自动替换</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css/js-->
+
+	</head>
+
+<body>
+
+<img src="images/1.jpg"  id="pic"/>
+<script type="text/javascript">
+var oPic=document.getElementById("pic");
+var onOff=true;
+
+oPic.onclick=function(){
+	if(onOff){
+		oPic.src="images/2.jpg";
+	}else{
+		oPic.src="images/1.jpg";
+	}
+	onOff=!onOff;
+}
+</script>
+
+</body>
+</html>

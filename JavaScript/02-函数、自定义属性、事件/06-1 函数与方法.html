@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+    *{margin:0;padding: 0;}
+    #box{
+        width:100px;
+        height:100px;
+        background-color: green;
+
+    }
+
+</style>
+</head>
+<body>
+
+    <div id='box' onclick='' style=''></div>
+
+</body>
+<script>
+    // 函数的两种创建方式
+   /* //function(){} // 匿名函数
+    function aaa(){
+        alert('ok');
+        return 123;
+    }//有名函数 它的名字是aaa
+    //alert( aaa );
+    alert( aaa() );//执行aaa函数,又叫调用aaa
+
+   */
+
+    // function _fn(){ //创建有名函数 ---函数申明
+    //     alert('ok');
+    // }
+    // //_fn()
+    // //alert( _fn.name );//访问函数名称 _fn
+    // var fn2 = function(){// 对匿名函数进行赋值----函数表达式
+    //     alert('匿名函数');
+
+    // }
+    // //alert( fn2.name );//fn2
+
+    // var fn3 = function bbb(){ alert('content');};
+    // //fn3(); 可以执行
+    // //bbb(); 报错
+    // //alert(fn3.name);//bbb
+
+    // 函数与方法
+
+    // var oBox = document.getElementById('box');
+    // //函数
+    // function fn(){
+    //         alert('我是fn');
+
+    // }
+    // //fn();
+    // //方法
+    // // var a = 123;
+    // // var b = function(){}
+    // oBox.aaa = 123;
+    // //oBox 有aaa属性
+    // oBox.bbb = function(){
+    //     alert('我是函数');
+    // }
+    // //oBox有bbb方法
+    // oBox.bbb();
+
+    //事件 在某时某地方法了什么事
+    var oBox = document.getElementById('box');
+    //onclick 点击事件
+    // oBox.onclick = function(){//事件函数
+    //     alert('我被点击了');
+    // };
+    // oBox.onclick();
+    //鼠标滑入事件
+    // oBox.onmouseover = function(){
+    //    console.log( 'onmouseover' );
+    // }
+    // //鼠标滑出事件
+    // oBox.onmouseout =function(){
+    //     console.log( 'onmouseout' );
+
+    // }
+    //双击事件
+    // oBox.ondblclick = function(){
+    //     alert( 'ondblclick');
+
+    // }
+
+    //鼠标滑入事件（不会 冒泡）
+    oBox.onmouseenter = function(){
+        console.log('onmouseenter');
+
+    }
+    //鼠标滑出事件（不会 冒泡）
+    oBox.onmouseleave = function(){
+        console.log('onmouseleave');
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

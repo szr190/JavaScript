@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		
+		
+		<script>
+			//转义
+			/*
+				\d-----代表所有数字,不针对某一个,针对某一类 
+				\D-----非数字
+				
+				\s-----空格
+				\S-----非空格
+				
+				\w-----字符(字母、数字和下划线)
+				\W-----非字符
+				
+				\b-----独立部分(空格,开始,结束,-)
+				\B-----非独立部分
+				
+			*/
+			
+			var str='jcy520xinai1234';
+			var reg=/\d/;
+			console.log(reg.test(str));
+		</script>
+	</body>
+</html>

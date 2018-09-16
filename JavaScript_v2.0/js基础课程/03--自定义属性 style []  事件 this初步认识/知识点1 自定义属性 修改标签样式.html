@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style id="css">
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+	<!--<div id="box" data-szr="szr"></div>-->
+	<div id="box" style="width: 100px;"></div>
+	
+	
+	<script>
+	    var oBox=document.getElementById("box");
+		/*
+		       自定义属性操作 
+		       getAttribute()    //得到属性
+		       setAttribute()    //设置属性
+		       removeAttribute() //移除属性
+		*/
+		//console.log(oBox.getAttribute('data-szr'));
+		//console.log(oBox.setAttribute('data-zss','xss'));
+		//console.log(oBox.removeAttribute('data-szr'));
+		
+		
+		
+		/*
+		   js修改标签样式 
+		       直接修改style是不常用的  (+= 的含义：原来的内容拼接上一个新的控制)
+		       通过内联样式style(很少用来读取属性,因为它只能获取行内样式的值)
+		*/
+		
+		
+		var oCss=document.getElementById("css");
+		//oCss.innerHTML+='#box{width:100px;height:100px;background:red;}';
+		
+		//console.log(oBox.style.width)
+		
+		//如何设置行内样式
+		oBox.style.width='200px';
+		oBox.style.height='200px';
+		oBox.style.background='red';
+		oBox.style.marginLeft='50px';
+	</script>
+	</body>
+</html>

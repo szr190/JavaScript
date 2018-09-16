@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    .clearfix:after{content:'';display:block;clear:both;}
+    .fl{float:left;}
+    .fr{float:right;}
+    #box{
+        width:100px;
+        height:100px;
+        background: green;
+        position: absolute;
+        left:0px;
+        opacity:1;
+        z-index:1;
+
+
+    }
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+
+</body>
+    <script src='js/self.js'></script>
+    <script>
+        /*
+            requestAnimationFrame() 请求动画
+                每次请求一次
+            cancelAnimationFrame(timer) 删除动画
+        */
+        var oBox = document.getElementById('box');
+        animation(oBox,{width:'200px',height:200,left:1200,opacity:1,zIndex:100},1500,'easeIn');
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

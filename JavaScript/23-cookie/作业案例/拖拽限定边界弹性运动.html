@@ -1,0 +1,142 @@
+<!doctype html>			<!--申明文档类型： html-->
+<html lang="en">		<!--html 根标签  lang:language--en:english--'zh-CN'中文简体-->
+	<head>				<!--网页头部-->
+		<meta charset="UTF-8">					<!--字符集：UTF-8编码-->
+		<meta name="Generator" content="EditPlus®">
+		<meta name="Author" content="">			<!--作者-->
+		<meta name="Keywords" content="">		<!--关键词-->
+		<meta name="Description" content="">	<!--描述-->
+		<title>Document</title>					<!--网页标题-->
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			body{background:#555;font-size:20px;}
+			.clearfix:after{
+				content:'';
+				display:block;
+				clear:both;
+
+			}
+			.fl{float:left;}
+			.fr{float:right;}
+			.box{width:100px;height:100px;position: absolute;background-color: green;}
+
+
+
+
+		</style>
+	</head>
+	<body>										<!--网页主体：结构 可视化区域<-->
+		<div class="box">
+		</div>
+	</-->
+
+	</body>
+	<script  src='js/self.js'></script>
+	<script>
+		var oBox = document.querySelector('.box');
+		var disX,disY;
+		var moveX,moveY,timer,l,t;
+		var lef_Max;
+		var top_Max;
+		var init_x=0;
+		var init_y=0;
+			oBox.onmousedown = function(e){
+				var e = e || window.event;
+				var X = e.clientX;
+				var Y = e.clientY;
+				init_x = oBox.offsetLeft;
+				init_y = oBox.offsetTop;
+				maxX = document.documentElement.clientWidth- oBox.offsetWidth;
+				maxY = document.documentElement.clientHeight- oBox.offsetHeight;
+				//console.log(X - oBox.offsetLeft);
+
+				document.onmousemove = function(e){
+					speedX = e.clientX-X;
+					speedY = e.clientY-Y;
+					X = e.clientX;
+					Y = e.clientY;
+					l = oBox.offsetLeft + speedX;
+					t = oBox.offsetTop + speedY;
+
+						bianjie();
+
+
+				}
+
+				document.onmouseup= function(e){
+					clearInterval(timer);
+
+					timer = setInterval(function(){
+						speedY+=3;
+						var x = oBox.offsetLeft + speedX;
+						var y = oBox.offsetTop + speedY;
+
+
+	                if (x > maxX || x < 0) {
+	                    x = Math.min(x,maxX);
+	                    x = Math.max(x,0);
+	                    speedX *= -0.9;
+	                    speedY *= 0.95;
+
+	                };
+
+	                if (y > maxY || y < 0) {
+	                    y = Math.min(y,maxY);
+	                    y = Math.max(y,0);
+	                    speedY *= -0.9;
+	                    speedX *= 0.95;
+
+	                };
+
+						if(Math.abs(speedY)<1){
+							speedY=0;
+						}
+						if(Math.abs(speedX)<1){
+							speedX=0;
+						}
+
+						if( Math.abs(speedX)<1 && Math.abs(speedY)<1 ){
+							clearInterval(timer);
+						}
+
+						oBox.style.left = x+'px';
+						oBox.style.top = y+'px';
+
+
+					},50)
+					document.onmousemove=null;
+					//document.onmousemove=null;
+
+				}
+			 return false;
+
+			}
+
+			function bianjie(){
+
+				if(l>=maxX || l<=0){
+					l = Math.min(maxX,l);
+					l = Math.max(0,l);
+
+				}
+				if( t>=maxY ||  t<=0){
+					t = Math.min(t,maxY);
+					t = Math.max(0,t);
+				}
+
+				oBox.style.left = l+'px'
+				oBox.style.top = t+'px';
+
+
+			}
+
+
+
+
+	</script>
+</html>
+
+

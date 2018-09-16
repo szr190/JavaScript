@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="wrap"></div>
+
+<script src="../js/jquery-1.12.1.min.js"></script>
+<script>
+    /*
+        ready
+        ----只会等到所有的DOM树加载完成以后触发----可以很多次
+
+        window.onload=function(){}----是等到所有的东西全部加载完毕后触发---一个页面只能一次
+
+        ready更加贴切用户的体验
+    */
+    $(document).ready(function(){
+
+    });
+    //简写
+    $(function(){});
+
+    /*
+        click
+            参数：必须是函数(这个函数就是事件函数)
+    */
+
+    /*
+        hover
+            是onmouseenter和onmouseleave的综合
+            两个参数：一个enter , 一个leave
+            一个参数：enter和leave是一样的
+    */
+
+    /*
+        on 绑定事件
+            好处：可以解绑 off
+    */
+    $(".wrap").on('click',function(){
+
+    });
+    $(".wrap").off('click');
+</script>
+</body>
+</html>

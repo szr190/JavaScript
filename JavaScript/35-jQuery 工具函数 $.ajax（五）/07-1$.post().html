@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #box{
+            width:100px;
+            height:100px;
+            background: green;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+
+
+    </div>
+</body>
+    <script src='js/jquery-3.2.1.js'></script>
+
+
+    <script>
+        //console.log( $ );
+        //console.log( jQuery)
+        //$是jQuery的小名
+        // jQuery(function(){
+        //     alert('ok');
+
+        // })
+        //$('#box').text();//只能给jQuery对象用
+        //$.xxx();//工具函数,既能给jQuery对象用，也能给原生javascript对象用
+
+        /*
+           一 工具函数
+
+            $.type( obj )  判断对象类型
+            $.each(obj,fn); 遍历对象,可以遍历任何对象
+            $.proxy(fn,obj)  让fn的作用域指向obj对象
+            $.noConflict(boolean)   避免冲突
+
+            二 HTTP XHR
+            load(url,data,success(response,status,xhr));
+            $.ajax({})
+            $.get(url,data,success(response,status,xhr),dataType);
+            $.post(url,data,success(response,status,xhr),dataType);
+
+
+
+
+
+        */
+
+        // $('#box').on('click',function(){
+        //     $('#box').load('hello.txt');
+        //     //把hello.txt的文本内容加载至$('#box');
+
+        // })
+
+        // $('#box').on('click',function(){
+        //     $('#box').load('test.html #box2');
+        //     //把hello.txt的文本内容加载至$('#box');
+        // })
+
+        // $('#box').on('click',function(){
+        //     $('#box').load('04-1load.php');
+        //     //把hello.txt的文本内容加载至$('#box');
+        // })
+
+        //POST
+        // $('#box').on('click',function(){
+        //     $('#box').load('04-5load_post.php',{age:60},function(res,sta,xhr){
+        //         console.log( res,sta,xhr)
+        //     });
+        //     //把hello.txt的文本内容加载至$('#box');
+        // })
+
+        $('#box').click(function(){
+
+            // $.get('06-1ajax_get.php',{age:888},function(res,sta,xhr){
+            //     console.log(res,sta,xhr);
+            // },'text');
+
+            $.post('07-1ajax_post.php',{age:888},function(res,sta,xhr){
+                console.log(res,sta,xhr);
+            },'text');
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

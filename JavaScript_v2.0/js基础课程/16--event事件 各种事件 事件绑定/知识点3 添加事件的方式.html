@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				添加事件的方式 
+			*/
+			
+			//添加2次,只会最后一次有效
+			oBox.onclick=function(){
+				//console.log(1);
+			}
+			oBox.onclick=function(){
+				//console.log(2);
+			}
+			
+			//解决添加2次都有效---attachEvent---有兼容性问题,如何解决?
+			oBox.attachEvent('onclick',function(){
+				
+			});
+			
+			//FF
+			oBox.addEventListener('click',function(){
+				
+			},true);
+			
+			
+			//绑定事件的方法
+			bind(oBox,'click',function(){});
+			function bind(obj,eventname,eventfn){
+				//判断支不支持ie
+				if(obj.attachEvent){
+					obj.attachEvent('on'+eventname,function(){
+						eventfn.call(obj);//用call()函数来执行这个函数,其第一个参数就是this指向
+					});
+				}else{
+					obj.addEventListener(eventname,eventfn,false);
+				}
+			}
+			
+		</script>
+	</body>
+</html>

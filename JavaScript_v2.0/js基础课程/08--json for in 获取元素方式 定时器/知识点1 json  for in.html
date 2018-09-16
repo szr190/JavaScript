@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				json 
+				属性：值,
+				属性：值
+				
+				一般在传数据的时候最好要带上引号
+				
+				json是所有语言都支持的数据格式
+				
+				调用json里的属性
+				对象.属性
+			*/
+			var a={
+				'name':'szr',
+				'age':22,
+				'sex':'男',
+				'say':function(){
+					//console.log(3);
+					//alert('Hello')
+					//return this;
+				}
+			};
+			//a.say();
+			//console.log(a.name);
+			
+
+			
+			/*
+				for in 
+				
+				想知道数组和json数据里面的属性应该怎么办？就用for in进行遍历
+			*/
+			for (var x in a) {
+				console.log(a[x]);
+			}
+			
+			
+		</script>
+	</body>
+</html>

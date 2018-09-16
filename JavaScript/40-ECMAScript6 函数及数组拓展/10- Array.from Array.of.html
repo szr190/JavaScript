@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+    <ul>
+
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+    </ul>
+</body>
+    <script>
+
+        /*
+            函数拓展
+                一 函数参数默认值
+                二 函数参数位置
+                三 函数参数默认值作用域
+                四 函数length属性
+                五、...rest(剩余参数)
+                    --- 剩余参数后面不要在写参数，否则报错
+
+                六、箭头函数
+
+                    var fn = x => x; //fn是函数名,x是参数 ，箭头后面是默认是return值;
+                    var fn = (x,y) => x+y; //fn是函数名,x是参数 ，箭头后面是默认是return值;
+                    var fn = (x,y) => { return ... };
+
+                    注意的事项
+                        this对象
+                        不可用于new构造函数
+                        不可使用 arguments
+
+
+
+
+
+
+        */
+
+
+        //  function fn(x){ return x; }
+        // var r =  fn('hello');
+        // console.log( r );//hello
+        // var fn = x => x;
+        // console.log( fn('旺财') );
+
+        // var fn = x => 5;
+        // console.log( fn('旺财') );
+
+        // var fn = (x,y) => x + y;
+        // console.log( fn(10,'二狗'));
+
+        // var fn = (x,y) => {
+        //     var a = x;
+        //     var b = y;
+        //     return a+b;
+        // };
+
+        // console.log( fn('二狗','很帅') );//二狗很帅
+        // var fn = () => {
+        //     return 100;
+        // };
+        // console.log( fn() );
+
+        //var fn = f() => {};//SyntaxError
+        //fn() => {};//SyntaxError
+
+        // function fn(){};
+
+
+        // console.log( fn() );
+
+
+      // function fn(){
+      //      //this ----{age: 10};
+      //       setInterval(()=>{
+      //           console.log( this );
+      //       },1000);
+      //  }
+      //  fn.call({age:10});
+
+
+     //  var obj = {
+     //    show:(x)=>{ console.log( x) }
+     //  }
+     // obj.show('hellow');//hellow
+
+     // var obj = {
+     //    show:function(){
+     //        console.log(this);//obj {}
+     //    },
+     //    show2:()=>{
+     //        console.log( this );//window
+     //    }
+     //  }
+     // obj.show();//hellow
+
+     // var fn = ()=>{};
+     // var obj = new fn;//TypeError: fn is not a constructor
+
+     // var fn = ()=> {
+     //    console.log( arguments );
+     // }
+     // fn();//arguments is not defined
+
+     // function fn(){ };
+     // console.log( fn.name );
+
+
+    //全局的严格模式
+     // 'use strict';
+     // x = 20;//ReferenceError
+     // console.log( x );//20
+
+     // //布局的严格模式
+     // function fn(){
+     //    'use strict';
+     //    x = 20;
+     //    console.log( x);
+
+     // }
+     // fn();
+
+
+     //  function fn(y = 10,z =50){
+     //    'use strict';//SyntaxError
+     //    var x = 20;
+     //    console.log( x);
+
+     // }
+     // fn();
+
+
+     // function fn({x,y}){
+     //    'use strict';//SyntaxError
+     //    console.log( x);
+     // }
+     // fn({x:10,y:30});
+
+     // function fn(...x){
+     //    'use strict';//SyntaxError
+     //    console.log( x);
+     // }
+     // fn(20);
+
+    // 'use strict';
+    //  function fn(...x){
+    //     var x = 20;
+    //  }
+    //  fn(20);
+
+
+
+    // var arr = ['a','b','c'];
+    // var r = [...arr];//去除[]
+    // console.log( r );
+
+    // var arr1 = [1,2,3];
+    // var arr2 = [4,5,6];
+    // var arr3 = [...arr1,...arr2];
+    // console.log( arr3 );//[1, 2, 3, 4, 5, 6]
+
+
+    //复制数组
+    // var arr1 = [1,2,3];
+    // var arr2 = ['c',...arr1,'a'];
+
+    // var str = 'hello';
+    // var arr = [...str];
+    // console.log( arr );//["h", "e", "l", "l", "o"];
+
+
+    var aLi = document.getElementsByTagName('li');
+    //console.log(aLi);//[li, li, li, li]
+    //console.log(...aLi);//<li><li> <li> <li> <li> <li> <li>
+
+
+    // var aLi = Array.from(aLi);//类数组转化成真实的数组
+    // console.log( aLi instanceof Array );//true 转化成真实的数组
+
+
+    // var arr = Array.of(1,2,3);//把数列转化为真实数组
+    // console.log( arr );//[1, 2, 3]
+
+
+    // var arr = new Array(3);
+    // console.log(arr.length);//[,,];
+
+    // var arr = Array.of(3);
+    // console.log(arr);//[3];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

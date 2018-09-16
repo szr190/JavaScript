@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Fly">
+    <title>Title</title>
+    <style>
+        *{ margin: 0; padding: 0; font-family:Microsoft yahei,serif;}
+        li{ list-style:none;}
+        #box{
+            width: 500px;
+            height: 130px;
+            background: #ccc;
+            margin: 50px auto;
+            padding-top: 10px;
+            border-radius: 5px;
+        }
+        #box #text{
+            display: block;
+            width: 480px;
+            height: 80px;
+            margin: 0 auto;
+            border-radius: 5px;
+            resize: none; /*禁止拉伸*/
+        }
+        #box p{
+            position: relative;
+            float: left;
+            width: 30px;
+            height: 30px;
+            margin: 5px 10px;
+            padding: 2px;
+            border: 1px solid #eee;
+            cursor: pointer;
+        }
+        #box p img{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #box #btn{
+            float: right;
+            width: 80px;
+            height: 30px;
+            background: #f60;
+            line-height: 30px;
+            text-align: center;
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        #list{
+            width: 500px;
+            margin: 0 auto;
+        }
+        #list li{
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        #list li::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #list li img{
+            float: left;
+            width: 40px;
+            height: 40px;
+        }
+        #list li p{
+            float: right;
+            width: 430px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <textarea name="" id="text"></textarea>
+        <p>
+            <img style="display: block" src="images/tx1.jpg" alt="">
+            <img src="images/tx2.png" alt="">
+        </p>
+        <div id="btn">发表</div>
+    </div>
+    <div id="list">
+        <ul>
+            <!--<li>-->
+                <!--<img src="images/tx1.jpg" alt="">-->
+                <!--<p>dddddd等等</p>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<img src="images/tx1.jpg" alt="">-->
+                <!--<p>dddddd等等</p>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<img src="images/tx1.jpg" alt="">-->
+                <!--<p>dddddd等等</p>-->
+                <!--<div style="clear: both;"></div>-->
+            <!--</li>-->
+        </ul>
+    </div>
+    <script>
+        var oBtn = document.getElementById("btn");
+        var oText = document.getElementById("text");
+        var aImg = document.querySelectorAll("#box p img");
+        var oUl = document.querySelector("#list ul");
+        var src = aImg[0].src;
+
+        oBtn.onclick = function () {
+            var val = oText.value;
+            oText.value = "";
+            oUl.innerHTML += '<li><img src="'+src+'" alt=""><p>'+ val +'</p></li>';
+        };
+        aImg[0].onclick = function () {
+            this.style.display = 'none';
+            aImg[1].style.display = 'block';
+            src = aImg[1].src; // "images/tx2.png"
+        };
+        aImg[1].onclick = function () {
+            this.style.display = 'none';
+            aImg[0].style.display = 'block';
+            src = aImg[0].src;
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

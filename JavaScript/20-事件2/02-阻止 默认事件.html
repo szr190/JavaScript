@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';height:2000px;}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        ul{
+
+            width:300px;
+            height:300px;
+            border:1px solid #ccc;
+            margin:auto;
+        }
+        li{
+            list-style:none;
+            width:100px;
+            height:100px;
+            background: green;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+    </ul>
+</body>
+    <script>
+        var oUl = document.getElementsByTagName('ul')[0];
+        var oLi = document.getElementsByTagName('li')[0];
+        /*
+            右键菜单：又称上下文菜单
+
+            阻止默认事件
+            return false;//在函数尾部 return false阻止默认事件
+
+        */
+
+        document.oncontextmenu = function(e){
+
+            console.log('oncontextmenu');
+
+
+            return false;//在函数尾部 return false阻止默认事件
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+       //注册封装
+        function addEvent(obj,type,fn,boolen){
+            obj[type]= handle;
+            if(obj.addEventListener){//标准
+                obj.addEventListener(type,obj[type],boolen);
+            }else{
+                obj.attachEvent('on'+type,obj[type]);
+            }
+
+            function handle(e){
+                e = e|| window.event;
+                fn.call(obj,e);
+
+            }
+
+
+        }
+
+        function removeEvent(obj,type,fn,boolen){
+
+            if(obj.removeEventListener){
+                obj.removeEventListener(type,obj[type],boolen);
+            }else{
+                obj.detachEvent('on'+type,obj[type]);
+
+            }
+
+        }
+
+
+
+
+
+    </script>
+</html>

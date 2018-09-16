@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				return 
+				
+				函数----每一个函数都有return,没有return相当于undefined
+				   ----函数一旦return之后后面不管什么代码都不会执行
+					过程
+					结果
+					
+				整个函数执行完之后相当于什么---return---根据实际需要想return什么就return什么
+				
+				//(2)
+				return (返回)函数 不会执行
+			*/
+			function a(){
+				//console.log(1);
+				return function(){
+					//console.log(2);
+				}
+			}
+			a();
+			//上面这种情况只会打印出1,不会打印出2,原因是：return一个函数,但函数本身不会执行,所以什么都不会打印
+			
+			function b(){
+				//console.log(3);
+				return function(){
+					//console.log(4);
+				}
+			}
+			b()();
+			//这种情况调用的是函数执行,所以return部分也会打印出来
+			
+			//b()()()  ---执行、执行、报错
+			
+			//例子2：
+			document.onclick=c();
+			function c(){
+				console.log(5);
+				var d=function(){
+					console.log(this);
+				};
+				return d;
+			}
+			//加()函数执行,打印5,返回d,也就是返回函数d=function(){}整块,this表示document,故打印出document
+			
+		</script>
+	</body>
+</html>

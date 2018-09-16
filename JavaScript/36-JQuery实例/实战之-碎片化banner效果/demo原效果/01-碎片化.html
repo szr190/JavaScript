@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';background:#336688;}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        li{
+            list-style:none;
+
+        }
+        #wrap{
+            width:1226px;
+            height:460px;
+            position: relative;
+            margin:50px auto;
+            overflow:hidden;
+        }
+        ul li{
+             float:left;
+        }
+        ul,ol,a{
+            position: absolute;
+        }
+        #mark{
+            position: absolute;
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0,0.5);
+
+        }
+        #mark li{
+            float:left;
+        }
+        ol{
+           bottom:20px;
+           width:220px;
+           left:50%;
+           margin-left:-110px;
+           padding:5px 10px;
+           background-color: rgba(0,0,0,0.5);
+           text-align: center;
+
+           border-radius:20px;
+
+
+        }
+        ol li{
+            display:inline-block;
+            width:20px;
+            height:20px;
+            line-height:20px;
+            margin:0 5px;
+            background-color: #fff;
+            border-radius:50%;
+            cursor:pointer;
+
+        }
+        ol li.on{
+            background: #336688;
+            color:#fff;
+        }
+        a{
+            top:50%;
+            width:42px;
+            height:70px;
+            margin-top:-35px;
+            background:url('./images/icon-slides.png');
+        }
+        a.prev{
+            left:1px;
+            background-position: -84px 0;
+        }
+        a.next{
+            right:1px;
+            background-position: -124px 0;
+
+        }
+        a.prev:hover{
+
+            background-position: 0 0;
+        }
+        a.next:hover{
+            right:0;
+           background-position: -41px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="box">
+            <ul class="banner clearfix">
+                <li class='on'><img src="images/1.jpg" alt="Tmall" width="" height=""/></li>
+                <li><img src="images/2.jpg" alt="Tmall" width="" height=""/></li>
+                <li><img src="images/3.jpg" alt="Tmall" width="" height=""/></li>
+                <li><img src="images/4.jpg" alt="Tmall" width="" height=""/></li>
+                <li><img src="images/5.jpg" alt="Tmall" width="" height=""/></li>
+                <li><img src="images/6.jpg" alt="Tmall" width="" height=""/></li>
+                <li><img src="images/1.jpg" alt="Tmall" width="" height=""/></li>
+            </ul>
+            <ul id='mark'>
+
+            </ul>
+            <ol>
+                <li class='on'>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ol>
+            <a class='prev' href="javascript:void(0);"></a>
+            <a class='next' href="javascript:void(0);"></a>
+        </div>
+    </div>
+</body>
+    <script src='js/jquery-3.2.1.js'></script>
+
+    <script>
+        $(function(){
+            var $aIi = $('ul.banner li'),
+            $aImg = $('ul.banner li img'),
+            $oMark = $('#mark').eq(0),
+            $aTab = $('ol li');
+            var w_num = 20;
+            var h_num = 10;
+            var index = 0;
+            var m_w =  $oMark.width();
+            var m_h =  $oMark.height();
+            var w =  $oMark.width()/w_num;
+            var h =  $oMark.height()/h_num;
+            var src = $aImg.eq(index).attr('src');
+            var arr = [];
+            var a;
+            //createLi();
+            var timer;
+            $('ol li').on('click',function(){
+
+                //clearInterval(timer);
+                // var arr = [];
+                // arr = $.extend(arr,arr);
+                // arr= [];
+
+                $aTab.eq(index).removeClass('on');
+                $aIi.eq(index).fadeOut();
+                src = $aImg.eq(index).attr('src');
+                createLi();
+                index = $(this).index();
+                $aIi.eq(index).fadeIn();
+                // console.log(index);
+                $aTab.eq(index).addClass('on');
+
+
+
+            })
+
+            function createLi(){
+                $oMark.empty();
+                for(var i=0;i<h_num;i++){
+                    for(var j=0;j<w_num;j++){
+                       var $oLi = $('<li></li>');
+
+                       $oLi.css({
+                            width: w,
+                            height: h,
+                            transition: 'all .5s ease',
+                            background: 'url('+src+')',
+                            backgroundPosition: -(j*w)+'px -'+(i*h)+'px',
+                            backgroundSize: m_w+'px '+m_h+'px',
+
+                        });
+
+                        $oMark.append($oLi);
+                        $oLi.css({
+                            left:$oLi.position().left,
+                            top:$oLi.position().top,
+                        })
+                         arr.push($oLi);
+
+                     }
+                };
+
+                $(arr).each(function(index,item){
+                    item.css({
+                        position:'absolute'
+                    })
+                });
+                timer = setInterval(function(){
+                    var index = Math.floor( Math.random()*arr.length );
+                   $(arr[index]).css({
+                        transform:'translate('+(Math.random()*w*5-w*2)+'px,'+(Math.random()*h*5-h*2)+'px ) scale(0.5) skew('+(Math.random()*40-80)+'deg) '
+
+                    }).fadeOut(400);
+                    arr.splice(index,1);
+                    if( arr.length === 0){
+                        clearInterval(timer);
+                    }
+                },1000/60);
+
+            }
+
+
+        })
+
+
+
+
+
+
+
+
+    </script>
+</html>

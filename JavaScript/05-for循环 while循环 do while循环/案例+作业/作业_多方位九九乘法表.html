@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码集GBK,gb2312(中文编码)，UTF-8(国际编码)-->
+		<meta charset="UTF-8">
+
+		<!--声明当前页面三要素-->
+		<title>网页标题</title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="网页描述">
+		<meta name="Author" content="潭州教育-追梦">
+		
+
+		<!--css样式 层叠样式表 化妆品 衣服-->
+		<style type="text/css">
+			*{
+				margin:0;
+			}
+			span{
+				width:65px;
+				height:35px;
+				font:14px/35px 'Microsoft Yahei';
+				text-align:center;
+				border:1px solid blue;
+				margin:5px;
+				display:inline-block;
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<div id="div1"></div>
+		<hr>
+		<hr>
+		<div id="div2"></div>
+		<hr>
+		<hr>
+		<div id="div3"></div>
+		<hr>
+		<hr>
+		<div id="div4"></div>
+
+		<script type="text/javascript">
+			
+			for (var i=1;i<=9;i++ ){
+				for ( var j=1;j<=i;j++ ){
+					div1.innerHTML += "<span>"+i+"*"+j+"="+i*j+"</span>";
+				};
+				div1.innerHTML +="<br>";
+			};
+			
+			for (var i=1;i<=9;i++ )
+			{
+				for (var j=i;j<=9;j++ )
+				{
+					div2.innerHTML += '<span>'+i+'*'+j+'='+i*j+'</span>';
+				};
+				div2.innerHTML +='<br>';
+			};
+
+			for (var i=9;i>0;i-- )
+			{
+				for (var j=1;j<=i;j++ )
+				{
+					div3.innerHTML += '<span>'+i+'*'+j+'='+i*j+'</span>';
+				};
+				div3.innerHTML +='<br>';
+			};
+
+			for (var i=9;i>=1;i-- )
+			{
+				for (var j=i;j<=9;j++ )
+				{
+					div4.innerHTML += '<span>'+i+'*'+j+'='+i*j+'</span>';
+				};
+				div4.innerHTML +='<br>';
+			};
+
+
+		</script>
+	</body>
+</html>

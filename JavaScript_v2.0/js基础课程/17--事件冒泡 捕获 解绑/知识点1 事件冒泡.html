@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{
+				width: 250px;
+				height: 250px;
+				background: red;
+				padding: 50px;
+			}
+			#wrap{
+				width: 100px;
+				height: 100px;
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="wrap">
+			</div>
+		</div>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			var oWrap=document.getElementById("wrap");
+			/*
+				事件冒泡---从子元素身上产生事件的时候会传递到父元素上 
+				
+				阻止冒泡---
+				        e.cancelBubble  默认false 也就是不阻止冒泡
+				        
+				       	 兼容写法：
+						e.stopPropagation?e.stopPropagation():e.cancelBubble=true;
+			*/
+			oWrap.onclick=fn;
+			oBox.onclick=fn;
+			
+			function fn(ev){
+				ev=ev||window.event;
+				ev.stopPropagation?ev.stopPropagation():ev.cancelBubble=true;
+				alert(this.id);
+			}
+			
+		</script>
+	</body>
+</html>

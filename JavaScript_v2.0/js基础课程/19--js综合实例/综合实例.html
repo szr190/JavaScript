@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>打飞机游戏--js综合实例</title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		
+	
+	
+	<script>
+	
+	//单体单例模式
+	
+		window.onload=function(){
+			Game.exe();
+		}
+	
+		var Game={
+			
+			//启动程序
+			exe:function(){
+				this.init();
+			},
+			//初始化
+			init:function(){
+				//把背景变为黑色
+				document.body.style.backgroundColor='#000';
+				//
+				var This=this;
+				//创建div
+				var oDiv=document.createElement('div');
+				//设置id
+				oDiv.id="GameBox";
+				//添加样式
+				oDiv.style.cssText='width: 300px;height: 500px;border: 10px solid #fff;margin: 50px auto;font-family: microsoft yahei;text-align: center;position: relative;';
+				//追加div
+				document.body.appendChild(oDiv);
+				
+				var oH=document.createElement('h1');
+				oH.innerHTML='飞机大战';
+				oH.style.cssText='color: #fff;font-size: 26px;font-weight: normal;padding-top:50px ;';
+				oDiv.appendChild(oH);
+				
+				for (var i=0;i<4;i++) {
+					var oP=document.createElement('p');
+					oP.index=i;//序列号
+					oP.style.cssText="font-size: 14px;color: #000;width: 150px;height: 40px;margin: 50px auto;text-align: center;line-height: 40px;background: #fff;cursor: pointer;";
+					var html='';
+					oP.onmouseenter=function(){
+						this.style.backgroundColor='#f60';
+						this.style.color='#fff';
+					};
+					oP.onmouseleave=function(){
+						this.style.backgroundColor='#fff';
+						this.style.color='#000';
+					};
+					oP.onclick=function(){
+						This.start(this.index,oDiv);
+					};
+					switch (i){
+						case 0:
+							html='简单难度';
+							break;
+						case 1:
+							html='中等难度';
+							break;
+						case 2:
+							html='困难难度';
+							break;
+						case 3:
+							html='瑞哥附体';
+							oP.style.color='#f00';
+							oP.style.fontWeight='bold';
+							oP.onmouseleave=function(){
+								this.style.backgroundColor='#fff';
+								this.style.color='#f00';
+							};
+							break;
+
+					}
+					oP.innerHTML=html;
+					oDiv.appendChild(oP);
+				};
+				
+				
+
+			},
+			
+			//游戏开始
+			start:function(index,OGameBox){
+				//oGameBox就是oDiv
+				//清空
+				OGameBox.innerHTML='';
+				//alert(index);//想要的序列号已经有了
+				
+				//做一个飞机的函数
+				this.plane(OGameBox);
+			},
+			//关于飞机
+			plane:function(OGameBox){
+				//var oPlane=document.createElement('img');
+				var oPlane=new Image();
+				oPlane.src='../img/plane.png';
+				oPlane.width=60;
+				oPlane.height=36;
+				oPlane.style.cssText='display: block;position: absolute;top: 0;left: 0;';
+				
+				OGameBox.appendChild(oPlane);
+			}
+		};
+	</script>
+	</body>
+</html>

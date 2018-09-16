@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';background:#336688;}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        li{
+            list-style:none;
+
+        }
+        #wrap{
+            width:1226px;
+            height:460px;
+            position: relative;
+            margin:50px auto;
+            /*overflow:hidden;*/
+        }
+        ul.banner li{
+          position: absolute;
+          display:none;
+
+        }
+        ul.banner li.on{
+
+            display:block;
+        }
+        ul li{
+             float:left;
+        }
+        ul,ol,a{
+            position: absolute;
+        }
+        #mark{
+            position: absolute;
+            width:100%;
+            height:100%;
+          /*  background: rgba(0,0,0,0.5);*/
+
+        }
+        #mark li{
+            float:left;
+        }
+        ol{
+           bottom:20px;
+           width:220px;
+           left:50%;
+           margin-left:-110px;
+           padding:5px 10px;
+           background-color: rgba(0,0,0,0.5);
+           text-align: center;
+
+           border-radius:20px;
+
+
+        }
+        ol li{
+            display:inline-block;
+            width:20px;
+            height:20px;
+            line-height:20px;
+            margin:0 5px;
+            background-color: #fff;
+            border-radius:50%;
+            cursor:pointer;
+
+        }
+        ol li.on{
+            background: #336688;
+            color:#fff;
+        }
+        a{
+            top:50%;
+            width:42px;
+            height:70px;
+            margin-top:-35px;
+            background:url('./images/icon-slides.png');
+        }
+        a.prev{
+            left:1px;
+            background-position: -84px 0;
+        }
+        a.next{
+            right:1px;
+            background-position: -124px 0;
+
+        }
+        a.prev:hover{
+
+            background-position: 0 0;
+        }
+        a.next:hover{
+            right:0;
+           background-position: -41px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="box">
+            <ul class="banner clearfix">
+                <li class='on'><img src="images/1.jpg" alt="Tmall" width="" height=""/></li>
+                <li><img src="images/2.jpg" alt="Tmall" width="" height=""/></li>
+                <li><img src="images/3.jpg" alt="Tmall" width="" height=""/></li>
+                <li><img src="images/4.jpg" alt="Tmall" width="" height=""/></li>
+                <li><img src="images/5.jpg" alt="Tmall" width="" height=""/></li>
+                <li><img src="images/6.jpg" alt="Tmall" width="" height=""/></li>
+
+            </ul>
+            <ul id='mark'>
+
+            </ul>
+            <!-- 按钮 -->
+            <ol>
+                <li class='on'>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ol>
+            <a class='prev' href="javascript:void(0);"></a>
+            <a class='next' href="javascript:void(0);"></a>
+        </div>
+    </div>
+</body>
+    <script src='js/jquery-3.2.1.js'></script>
+    <script>
+        $(function(){
+            var $banner_aLi = $('ul.banner li'),
+            $banner_aImg = $('ul.banner li img'),
+            $tab_ali = $('ol li'),
+            $mark = $('#mark').eq(0);
+            var w_num = 20;//$mark里面水平方向li的个数
+            var h_num = 15;//$mark里面垂直方向li的个数
+            var w = $mark.width()/w_num;//一个li的宽
+            var h = $mark.height()/h_num;//一个li的宽
+            var num = 0;//设置默认下标
+            var src;
+            var timer;
+            var arr = [];//用来放li
+
+            $tab_ali.click(function(){
+                $tab_ali.eq(num).removeClass('on');//按钮
+                $banner_aLi.eq(num).removeClass('on');
+                src = $banner_aImg.eq(num).attr('src');
+                //console.log( src );
+                createLi();
+
+
+
+
+                num = $(this).index();//更新num
+                $tab_ali.eq(num).addClass('on');//有img的li
+                $banner_aLi.eq(num).addClass('on');
+
+
+
+            })
+
+            function createLi(){
+                $mark.empty();//清空$mark内容
+                clearInterval(timer);
+                //console.log( $mark.children().length);
+                for(var i=0;i<h_num;i++){//一起10行
+                    for(var e=0;e<w_num;e++){//一行20个li
+                        var $oLi = $('<li></li>');//生成li
+                        $oLi.css({
+                            width:w,
+                            height:h,
+                            transition:'1s',
+                            backgroundImage:'url('+src+')',
+                            backgroundPosition:'-'+(e*w)+'px -'+(i*h)+'px',
+                            // transform:'rotate(45deg)'
+                        });
+                        //自定义坐标
+                        $oLi.x = e;
+                        $oLi.y = i;
+
+                        $mark.append($oLi);//写入页面
+                        $oLi.css({//一定得写入页面后添加left，top
+                            left:$oLi.position().left,
+                            top:$oLi.position().top,
+                        })
+                        arr.push($oLi);//放入arr数组
+
+                    }
+                }
+
+                //单独给定位
+                $mark.children().each(function(index,item){
+                      $(item).css({position:'absolute'});
+                })
+
+                //随机消失
+
+                var count = 0;
+                timer = setInterval(function(){
+
+                    $(arr).each(function(index,item){
+                        if( item.x + item.y == count ){
+                            item.css({
+                                transform:'translate(-150px,-150px) rotate(30deg)'
+                            }).fadeOut();
+                        }
+                    })
+
+                  count++;
+                  if( count >w_num+h_num){
+                    clearInterval(timer);
+                  }
+                },1000/60)
+
+
+
+
+
+            }
+
+
+
+
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

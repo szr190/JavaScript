@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    .clearfix:after{content:'';display:block;clear:both;}
+    .fl{float:left;}
+    .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+        /*
+            json创建
+        */
+
+        //一
+        // var obj = {};//直接量
+        // var obj = {hello:123};
+        // //二
+        // var obj = new Object();
+        // //es5
+        // var obj = Object.create({});//这种方式需要一个对象
+        //  alert(obj);
+
+        // var obj = {
+        //     hello:123,
+        //     name:'二狗',
+        //     age:20,
+        //     aaa:function(){
+        //        console.log(this);//this指向对象本身
+        //     },
+        //     bbb:{a:1,b:2,c:3,d:{}},
+        //     ccc:[1,2,3,4,5,6,{index:888}]
+
+        // };//一个key对应一个value值
+        // //alert( obj.name )
+        // //obj.aaa();//'ok'
+        // //obj.aaa();//obj
+        // alert( obj.ccc[6].index);
+
+        // var obj = {hello:123};
+        // alert( obj['hello']);
+
+        //改
+        // var obj = {a:123,b:456,c:789};
+        // obj.a = 'hello';
+        // alert(obj.a);//'hello'
+
+        //严格的JSON需要用引起来
+        // var obj = {'hello':123};
+        // alert(obj.hello);
+
+        //数字属性
+        // var obj = { 0:'a',1:'b',2:'c'};
+        // console.log(obj[1]);
+
+        //attr in json是否包含某个属性
+
+        //var obj = { hello:123};
+
+        //alert( 'hello' in obj);//true 存在
+        //alert( 'a' in obj);//false
+
+        /*********** 遍历json ******************/
+
+        //for in遍历json
+        // var obj = {
+        //     index:888,
+        //     age:20,
+        //     name:'二狗',
+        //     aaa:'什么鬼'
+        // };
+
+        // for(var attr in obj){
+        //     console.log(attr);//打印属性
+        //     console.log(obj[attr]);//打印值
+
+        // }
+
+        //json 吃不消for循环
+        // for(var i=0;i<3;i++){
+        //    alert( obj[i] )
+        // }
+
+        // var arr = ['a','b','c','d'];
+
+        // for(var i in arr){
+        //     //console.log(i);//i下标
+        //     console.log( arr[i])
+        // }
+
+        //添加
+        // var  obj = {hello:123};
+        //  obj.index = 'aaa';
+        //  console.log(obj);
+
+        //删除属性
+        // var obj = { hello:'你好',index:888};
+
+        // //obj.index = '';
+        // delete obj.index;//删除obj下的index的属性
+        // console.log( obj);
+
+        // //var a = 123;
+        // b  = 'hello';//直接对一个未申明的变量，进行赋值是不会报错
+        // alert(b);//'hello'
+
+        // var a = 123;
+        // b = 'hello';
+        // //alert(window.b);//hello
+        // delete window.a;
+        // //alert(a);//123 删除不了
+
+        // delete window.b;//删除成功
+        // alert(b);
+
+
+
+
+
+
+
+
+
+
+
+
+        /** 仿jQuery 链式操作**/
+
+        //$ 等于 jQuery
+        $('#box').css().html();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

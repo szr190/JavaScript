@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';height:2000px;}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #box{
+
+            width:400px;
+
+
+            padding:40px;
+            margin:50px auto;
+            border:1px solid red;
+
+
+
+
+        }
+        li{
+
+            list-style: none;
+            height:100px;
+            background: red;
+            margin:20px 0;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li id="li"></li>
+            <li id="li"></li>
+            <li id="li"></li>
+            <li id="li"></li>
+            <li id="li"></li>
+        </ul>
+    </div>
+
+</body>
+    <script src='js/jquery-3.2.1.js'></script>
+    <script>
+        /*
+            offset() {top: 100, left: 100} 相对于文档,可获取可设置
+
+            hover(fn1,fn2) fn1是滑入处理函数，fn2是滑出处理函数
+
+
+        */
+
+        // $('#box').mouseenter(function(){
+        //     console.log( 'mouseenter');
+
+        // })
+        // $('#box').mouseleave(function(){
+        //     console.log( 'mouseleave');
+
+        // })
+        // $('#box').hover(function(){
+        //         console.log( 'enter')
+
+        // },function(){
+        //     console.log( 'leave')
+
+        // })
+
+//on添加事件
+//单个事件
+        // $('#box').on('click',function(){
+        //     console.log('click')
+        // })
+//多个
+        // $('#box').on('click mouseleave',function(){
+        //     console.log('ok');
+        // })
+//多个
+        // $('#box').on({
+        //     click:function(){  console.log( 'click')},
+        //     mouseleave:function(){  console.log( 'mouseleave')}
+        // })
+
+//事件委托
+    // $('#box').on('click','li',function(){
+    //     alert('ok');
+    // })
+//off()  取消事件
+    // $('#box').on('click',function(){
+    //     console.log('ok');
+    //     //$('#box').off('click');
+    // })
+
+//one() 一次性事件
+    // $('#box').one('click',function(){
+    //     console.log('ok');
+    // })
+
+//trigger 主动触发
+
+    // $('#box').on('bbb',function(){
+    //     console.log( 'bbb' );
+    // })
+    // $('#box').on('click',function(){
+    //     console.log( 'bbb' );
+    // })
+    // $('#box').trigger('click');
+
+    // $('#box').on('bbb',function(e,message,message2){
+    //     console.log( message );
+    //     console.log( message2 );
+    // })
+
+    // $('#box').trigger('bbb',['hello','二狗']);
+
+//event.data 事件数据
+    // $('#box').on('click','li',{age:25,name:'二狗'},function(e){
+    //     //console.log( this );
+    //     console.log( e.data);
+    // });
+//event.type 事件类型
+    // $('#box').on('mouseenter',function(e){
+    //     console.log(e.type);
+    // });
+
+//event.target 事件源
+    // $('#box').on('click',function(e){
+    //     console.log(e.target);
+    // });
+
+//e.pageX 鼠标相对于整个文档的X轴的坐标
+//e.pageY 鼠标相对于整个文档的Y轴的坐标
+    // $(document).on('click',function(e){
+    //     console.log(e.pageY);
+    // });
+//e.which 键盘和鼠标事件
+    // $(document).on('keydown',function(e){
+    //     console.log(e.which);
+    // })
+//e.preventDefault();//阻止默认
+    // $(document).on('contextmenu',function(e){
+    //     //console.log(e.which);
+    //     return e.preventDefault();//阻止默认
+    // })
+//e.stopPropagation(); //阻止冒泡
+    // $('#box').on('click',function(){
+    //     console.log( 'box');
+
+    // })
+    // $('li').on('click',function(e){
+    //     console.log( 'li');
+    //     return e.stopPropagation();
+
+    // })
+
+//return false //既阻止冒泡又阻止默认
+    // $('#box').on('click',function(){
+    //     console.log( 'box');
+
+    // })
+    // $('li').on('click',function(e){
+    //     console.log( 'li');
+    //     return false;
+    // })
+
+    // $(document).on('contextmenu',function(e){
+    //     //console.log(e.which);
+    //     //return e.preventDefault();//阻止默认
+    //     return false;
+    // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

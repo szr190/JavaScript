@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				字符串相关整理 
+			*/
+			var a='absdcd';
+			
+			//1.length 长度----该属性是不能修改的(只读)
+			console.log(a.length);
+			
+			//2.[]支持下标的写法---(只读)
+			console.log(a[1]);
+			
+			//3.charAt()---找到某位置的字符---与[]用法一样
+			console.log(a.charAt(1));
+			
+			//3.charCodeAt()---返回某位置的字符编码
+			console.log(a.charCodeAt(1));
+			
+			//4.String.fromCharCode---返回编码所对应的字符			
+			console.log(String.fromCharCode(1230));
+			
+			//5.indexOf---返回你所想知道的字符串的位置---找不到返回-1---后面的一个参数表示从哪一位开始找
+			console.log(a.indexOf('d',4));
+			
+			//6.substring---截取字符串---从哪开始到哪结束(只包括前面的不包括后面的)
+			//	slice---只能正序截取,倒序不会找到
+			console.log(a.substring(0,2));
+			console.log(a.slice(4,2));
+			console.log(a.slice(2,4));
+			
+			//7.split---把字符串通过某个字符切割开,放到数组里面
+			var b='a b c d e';
+			console.log(b.split(' '));
+			
+			//8.toUppercase---转换成大写/toLowercase---转换成小写
+			console.log(a.toUpperCase());
+			
+			
+			
+		</script>
+	</body>
+</html>

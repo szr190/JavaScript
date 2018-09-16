@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				对象的下标扩展 
+				
+				下标和属性是独立的
+			*/
+			var a=['szr',1,2,5,false];
+			for(var key in a){
+				console.log(a[key]);
+			}
+			
+			//json可以扩展自定义属性,例如：
+		
+			//console.log(a.weight='150kg');
+			
+			
+			
+			
+			/*
+				获取元素样式的方式 
+				
+				currentStyle---兼容IE来获取样式的方式
+				getComputedStyle(对象).属性----兼容FF和chrome浏览器来获取样式的方式
+			*/
+			//console.log(oBox.style.width)  //这是错误的
+			//console.log(oBox.currentStyle.width)
+			//console.log(getComputedStyle(oBox).width);
+			
+			//把上面的两种方式封装起来
+			function getStyle(obj,attr){//obj--对象  attr---属性
+				//var value=getComputedStyle(obj)[attr];//attr在这是变量不是属性,所以要用[]括起来
+				//return value;
+				
+				//判断是不是IE
+				if(obj.currentStyle){
+					return obj.currentStyle[attr];
+				}else{
+					return getComputedStyle(obj)[attr];
+				}
+				
+				//改成三目
+				return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+			}
+		</script>
+	</body>
+</html>

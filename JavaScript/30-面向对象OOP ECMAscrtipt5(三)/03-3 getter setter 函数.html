@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+         /*
+           一 对象的类型:
+                本地对象:Number,String,Array......Error,这些需要加new
+                内置对象:window、Math
+                宿主对象:DOM、BOM
+                自定义对象:
+
+           二，对象中的this
+
+           三 对象方法改写
+           四 ECMAscript5 对象属性和方法
+
+            isPrototypeOf();
+            obj.hasOwnProperty(o); o是不是obj自有属性,非继承
+
+
+
+         */
+
+            //fn.prototype.isPrototypeOf( obj );
+
+            // var obj = {
+
+            //     age:20
+
+            // }
+            // var obj2 = {
+            //     name:'二狗',
+            //     __proto__:obj
+
+            // }
+
+            // console.log( obj.isPrototypeOf( obj2 ) );//true
+
+            // var obj = {age:20 }
+            // var obj2 = {name:'二狗',__proto__:obj }
+            // //console.log( obj2.age );//20
+            // //console.log( obj2.hasOwnProperty('name') );//true
+            // console.log( obj2.hasOwnProperty('age') );//false
+
+
+            /*
+                obj.propertyIsEnumerable( o )
+                obj的o属性是不是可枚举,——是否可for in循环
+            */
+            var obj = {age:20 }
+            var obj2 = {name:'二狗',__proto__:obj }
+            var arr = ['A','B'];
+
+            //console.log( obj2.propertyIsEnumerable('name') );//true  可用for in
+            // for(key in obj2){//name被遍历出来，我们就说它可枚举
+            //     console.log(key);
+            // }
+            //console.log( arr.propertyIsEnumerable('length') );//false 不可用for in遍历此属性
+            for(key in arr){//length没被遍历出来，我们就说它不可枚举
+                //console.log(key )
+            }
+
+
+
+            /*
+                setter getter函数是一个特殊的函数
+            */
+
+            var obj = {
+                _name:20,
+                get name(){
+
+                    return this._name;
+                },
+                set name(val){
+                    alert('set');
+                    this._name = val;
+
+                }
+            }
+           console.log( obj.name ) //获取name属性 会触发getter函数
+           obj.name = 80;//设置name值，会触发setter函数
+           console.log( obj.name );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

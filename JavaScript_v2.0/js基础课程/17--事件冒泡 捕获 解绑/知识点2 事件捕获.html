@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{ margin:0; padding:0;}
+			#box1,#box2,#box3{
+				padding:50px;
+			}
+			#box1{
+				background:red;
+			}
+			#box2{
+				background:blue;
+			}
+			#box3{
+				background:green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			<div id="box2">
+				<div id="box3"></div>
+			</div>
+		</div>
+		
+		<script>
+			var oBox1 = document.getElementById('box1');
+			var oBox2 = document.getElementById('box2');
+			var oBox3 = document.getElementById('box3');
+			
+			/*
+				事件捕获 
+				
+				事件源：看捕获和不捕获的位置，谁在前面谁先
+
+					假设父级有捕获的事件，
+					先执行最高级父级的捕获事件，
+					再从低到高执行父级的不捕获事件。
+			*/
+			
+			document.addEventListener('click',fn,false);
+			
+			function fn(){
+				console.log(1);
+			}
+			
+			var oBox1 = document.getElementById('box1');
+			var oBox2 = document.getElementById('box2');
+			var oBox3 = document.getElementById('box3');
+
+			
+		
+			oBox2.addEventListener('click' , f2 , true);
+			oBox3.addEventListener('click' , f3 , true);
+			oBox1.addEventListener('click' , f1 , true);
+
+			
+			oBox2.addEventListener('click' , f22 , false);
+			oBox3.addEventListener('click' , f33 , false);
+			oBox1.addEventListener('click' , f11 , false);
+
+			// 1   2   33   3    22    11
+
+			function f1(){
+				alert(1);
+			}
+			function f2(){
+				alert(2);
+			}
+			function f3(){
+				alert(3);
+			}
+			function f11(){
+				alert(11);
+			}
+			function f22(){
+				alert(22);
+			}
+			function f33(){
+				alert(33);
+			}
+
+		</script>
+	</body>
+</html>

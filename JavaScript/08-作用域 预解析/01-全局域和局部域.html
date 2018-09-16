@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+
+</body>
+<script>
+
+    /*
+       作用域:作用范围，有效范围
+
+       全局域：直接在script标签下的
+            直接在script标签下的变量称之为 全局变量
+       局部域：每一个函数都会生成一个局部的域
+            在函数内部申明的变量称之为 局部
+    */
+    var a  = 'hello';
+    //alert(a);
+
+    function fn(){
+        var b = 120;
+         alert(b);//120
+    }
+    fn();
+    //alert(b);//b is not defined
+
+
+</script>
+</html>

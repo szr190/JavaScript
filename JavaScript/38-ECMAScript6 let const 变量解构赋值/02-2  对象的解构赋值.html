@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+            /*
+                let 命令,块级变量          全局 function 块级
+                    ---块级变量，作用于块级
+                    ---不存在变量提升 ->先声明再使用，提前使用报错
+                    ---暂时性死区,不可重复申明
+                const 命令，常量
+                    --- 声明即赋值,修改值会报错
+                    ---作用于块级
+                    ---不存在变量提升 ->先声明再使用，提前使用报错
+                    ---暂时性死区,不可重复申明
+
+                数组的解构赋值
+                    ---对应赋值
+                对象的解构赋值
+                    ---对应属性赋值
+
+
+
+
+
+            */
+
+            // let {name,age} = {name:'二狗',age:25};
+            // console.log(name,age);//二狗 25
+
+            // let {name,age,index} = {name:'二狗',age:25,};
+            // console.log(name,age,index);//二狗 25 undefined
+
+            // let {age,index,name} = {name:'二狗',age:25,};
+            // console.log(name,age,index);//二狗 25 undefined
+
+            //赋值不成功,会赋值undefined
+            // let {age,name} = {};
+            // console.log(age,name);
+
+            //对象解构赋值本质
+            // let {age:age,name:name} = {age:25,name:'二狗'};
+            //     //等同于 let {age,name} = {age:25,name:'二狗'};
+            //     console.log(age,name);
+
+            ///////////
+                // let {age:bar,name:bbb} = {age:25,name:'二狗'};
+                // console.log(bar,bbb);//25 '二狗'
+                // console.log(age,name);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				数组相关整理 
+			*/
+			
+			var arr=[1,2,3,4];
+			
+			//1.length
+			//console.log(arr.length);
+			
+			//2.[]
+			//console.log(arr[2]);
+			
+			//3.可以更改长度,说明length是一个可读可写的属性
+			arr.length=8;
+			//console.log(arr.length);
+			
+			//4.push---往数组后面添加值或数组---返回值是数组的长度,但是不产生新的数组
+			//  unshift---往数组前面添加
+			var a=[4,5,6];
+			//console.log(a.push([2,3,4]));
+			//console.log(a.push(7));
+			//console.log(a.length);
+			
+			//5.pop---删除最后一个-----返回被删除的那个
+			//  shift---删除第一个
+			var b=[1,2,3,4,5,6];
+			//console.log(b);
+			//console.log(b.pop());
+			//console.log(b);
+			
+			//6.splice---从第几位开始删除几位---返回被删除的那个---超过个数以后认为是最后一个
+			//        ---还可以进行替换
+			var c=[9,0,4,5,6];
+			//console.log(c.splice(0,3));
+			//console.log(c.splice(0,2,'a','b'));
+			//console.log(c);
+			
+			//7.sort---排序
+			var d=[1,5,7,9,2,6,8];
+			d.sort(function(x,y){
+				return x-y;//从小到大进行排列
+				//return y-x;//从大到小排列
+				//return -1;//顺序展示
+				//return 1;//倒序展示
+			});
+			//console.log(d);
+			
+			//8.concat---拼接数组
+			var e=[1,2,3];
+			//console.log(e);
+			var f=e.concat([4,5,6]);
+			//console.log(f);
+			
+			//9.join---用另外的方式拼接起来
+			var j=[1,2,3];
+			var k=j.join('|');
+			//console.log(k);
+			
+			
+		</script>
+	</body>
+</html>

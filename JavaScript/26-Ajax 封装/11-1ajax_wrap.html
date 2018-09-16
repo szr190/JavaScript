@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+   <input type="text">
+    <hr>
+   <button>提交</button>
+</body>
+
+    <script>
+
+        ajax({
+            type:'GET',//请求方式
+            url:'11-1ajax_wrap.php',//路径
+            asny:true,//是否异步
+            data:{
+                username:'千寻',
+                password:'8888'
+            },
+            dataType:'json',
+            success:function(reponse){
+                console.log(reponse);
+            },
+            error:function(status){
+                console.log(status)
+            }
+
+        });
+        function ajax(obj){
+            var type = obj.type || 'GET',//默认是GET
+                url = obj.url,
+                asny = obj.asny !== false,//false
+                data = '',//预设写入数据
+                dType = obj.dataType || 'json',
+                success = obj.success,
+                error = obj.error;
+
+            //处理data
+            //age=20&name=二狗&
+            for(key in obj.data){
+                data +=key+'='+obj.data[key]+'&';
+            }
+
+
+            var xhr;//创建XMLHttpRequest
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }else{
+                try{
+                    xhr = new ActiveXObject('Msxml2.XMLHTTP.6.0');
+                }catch(e){
+                    xhr = new ActiveXObject('Msxml2.XMLHTTP.3.0');
+                }
+            }
+
+            if(type.toUpperCase() == 'GET'){ //处理GET
+                var d = new Date();
+                url += '?'+data+d.getTime();//出GET相同url缓存问题
+                data = null;
+            }
+            xhr.open(type,url,asny);
+            //设置请求头信息
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            xhr.send(data);//发送
+            //xhr监听
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4 && xhr.status ==200 ){
+                    var response;
+                    if(dType == 'text' || dType == 'json'){
+                        if( dType == 'json'){//json
+                            response = JSON.parse( xhr.responseText );
+                        }else{//普通文本
+                            response =  xhr.responseText ;
+                        }
+                    }else{//XML
+                        response =  xhr.responseXML ;
+                    }
+                    success&&success(response);//成功的回调函数
+
+                }else{//请求失败
+                   error&&error(xhr.status);
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+    </script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box wrap"></div>
+		
+		<script>
+			
+			/*
+				通过class获取元素 
+			*/
+			
+			var box=getClass('box');
+			//console.log(box.length);
+			function getClass(cName,parent){//从哪找什么名字
+				parent=parent||document;//从父级找,如果为假就从document里找
+				//通过真假值可以判断是否支持IE
+				if(parent.getElementsByClassName){
+					return parent.getElementsByClassName(cName);
+				}else{
+					//先找到所有的元素
+					var all=parent.getElementsByTagName('*');
+					//把循环后得到的东西放到一个数组里面去
+					var arr=[];
+					//循环
+					for (var i=0;i<all.length;i++) {
+						//当前元素的class名
+						var classname=all[i].className;
+						var arrClass=classname.split(' ');
+						for (var j=0;j<arrClass.length;j++) {
+							if(arrClass[j]==cName){
+								arr.push(all[i]);
+							}
+						}						
+					}
+					return arr;
+				}
+			}
+		</script>
+	</body>
+</html>

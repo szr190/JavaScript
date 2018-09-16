@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+
+</body>
+<script>
+    /*  算术运算符
+        + 加 当有字符串是（字符串拼接）
+        - 减
+        * 乘法
+        / 除
+        % 模(取余数)
+        - * / 会把字符串数字隐式转换为真实的数字
+
+        NaN ----not a number 不是一个数字(数字类型)
+            不是数字的数字类型
+            NaN和自己都不相等
+            isNaN( obj ) 可以判断obj是不是NaN,是true,不是false;
+
+
+
+
+
+
+    */
+    // var a = 10;
+    // alert( '10' + '20' );//1020
+    // var a = 10;
+    // alert( a - '5');//5
+    //var a = 10;
+    // alert( typeof (a - 'hello') );//NaN
+
+    //alert( NaN == NaN );
+    //alert( isNaN( a - 'hello' ) );
+
+    // var a = 10;
+    //  alert( a * '50');//500
+
+    // var a = 11;
+    // alert( a/'2');//200
+
+    /*
+        显示类型转化
+        Number 可以把所有东西转化为数字类型
+        parseInt （取整) 能够获取字母前面的数字,不认识小数点
+        parseFloat（取小数) 能够获取第二小数点前面的数字
+    */
+
+    // var a = '100';
+    // alert( typeof Number(a) );
+
+    // var a = '-100.005';
+    // alert( Number(a) );
+
+    // var a = 'hello';
+    // alert( Number(a) );//NaN
+
+    // var a = null;
+    // alert( Number(a) );//0
+
+    //  var a = undefined;
+    // alert( Number(a) );//NaN
+
+    // var a = '';
+    // alert( Number(a) );//0
+
+    // var a = [];
+    // alert( Number(a) );//0
+
+    // var a = '5a5b5c';
+    // alert( Number(a) );//0
+
+    // var a = '120px';
+
+    // alert( parseInt(a) );//120
+
+    // var a = '12px0';
+    // alert( parseInt(a) );//12
+    // var a = '120.50px';
+    // alert( parseInt(a) );//12
+
+    // var a = '120.50px';
+    // alert( parseFloat(a) );//120.5
+
+    // var a = '120.56.8px';
+    // alert( parseFloat(a) );//120.5
+
+    //数字转字符串
+    // var a = 50;
+    // alert( typeof String(a) );//string
+
+    // var a = 50;
+    // alert( typeof a.toString() );//string
+    // var a = function(){};
+    // alert( typeof a.toString() );
+
+
+    /*
+        赋值运算
+
+        =
+        -=
+        +=
+        *=
+        /=
+        ++
+        --
+
+    */
+    //var a = 120;
+
+
+   // var a = 120;
+    //a = a -120;//
+   //  a -= 120;
+   // alert(a);//0
+
+   // var a = 40;
+   // a = a * 10;
+   // alert(a);//400
+
+   // var a = 50;
+   // a *= 10;
+   // alert(a);//500
+
+   // var a = 50;
+   //  a /= 10;
+   // alert(a);//5
+
+   //取模(取余数)
+
+   // var a = 12;
+   // var b = a%10;   //0123456789 012334656789
+   // alert( b );
+
+   // var a = 40;
+   // a %= 6;
+   // alert( a );//4
+
+   // var i=0;
+   // //i = i+1;
+   // i++; //i+=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';height:2000px;}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+        #box{
+
+            width:200px;
+            height:200px;
+            padding:20px;
+            margin:100px auto;
+            border:5px solid red;
+            background: #ccc;
+
+
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+</body>
+    <script>
+        /* window属性
+
+            innerWidth 浏览器窗口宽 包含滚动条/innerHeight  浏览器窗口高
+
+
+
+            元素属性
+           clientWidth 可视宽 / clientHeight 可视高 (content+padding)
+           offsetWidth 占位宽/offsetHeight 占位高  (content+padding+border)
+           scrollWidth 滚动宽/scrollHeight 滚动高  (content+padding)
+                    包含子元素 子元素定位 float overflow:hidden -----一致
+
+            parentNode 父级
+            offsetParent 定位父级
+
+            oP.offsetLeft 到定位父级左侧的距离,从border开始计算
+            oP.offsetTop 到定位父级顶部的距离,从border开始计算
+
+            document 属性
+
+            document.documentElement.clientWidth  浏览器窗口宽 不包含滚动条
+            document.documentElement.clientHeight 浏览器窗口高
+
+            document.body.clientWidth 网页可视宽 (content+padding)
+            document.body.clientHeight 网页可视高 (content+padding)
+            document.body.offsetWidth  网页占位宽 (content+padding+border)
+            document.body.offsetHeight  网页占位宽 (content+padding+border)
+             document.body.scrollWidth   网页滚动宽 (content+padding+border)
+            document.body.scrollHeight  网页滚动宽 (content+padding+border)
+
+
+            scrollLeft 左侧滚动距离 scrollTop 顶部滚动距离 要有滚动条的元素才行
+                适用document和元素
+
+            getBoundingClientRect() 得到矩形元素的界线，返回的是一个对象，包含 top, left, right, bottom四个属性值
+
+
+
+
+        */
+
+
+
+        //alert( window.outerHeight )
+        var oBox = document.getElementById('box');
+        var oP = document.getElementsByTagName('p')[0];
+        //console.log( oBox.getBoundingClientRect().left );
+
+       //alert( document.body.scrollHeight )
+       // oBox.onclick = function(){
+       //      oBox.scrollTop = 500;
+       // }
+
+
+
+
+
+
+
+
+
+        //封装到浏览器窗口左边的距离
+        // var val = 0;
+        // var obj = oP;
+        // while(obj){
+        //     val += obj.offsetLeft;//70
+        //     console.log(val )
+        //     obj = obj.offsetParent;
+        // }
+        // console.log( val )
+
+
+    </script>
+</html>

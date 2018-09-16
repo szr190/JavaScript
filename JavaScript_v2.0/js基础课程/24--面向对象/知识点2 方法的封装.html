@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			原料-----加工------出厂
+		-->
+		
+		<script>
+			function person(name){
+				var obj=new Object();
+				obj.name=name;
+				obj.showname=function(){
+					alert(this.name);
+				}
+				return obj;
+			}
+			
+			var obj1=person('szr');
+			var obj2=person('zss');
+			
+			obj1.showname();
+		</script>
+	</body>
+</html>

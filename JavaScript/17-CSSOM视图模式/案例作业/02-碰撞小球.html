@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    body{font:16px/1.5 'Microsoft Yahei';}
+    .clearfix:after{content:'';display:block;clear:both;}
+    .fl{float:left;}
+    .fr{float:right;}
+    div{
+        width:80px;
+        height:80px;
+        position: absolute;
+        border-radius: 50%;
+        background:linear-gradient(180deg,#8CC1DE,#F9A886);
+
+        overflow:hidden;
+    }
+
+
+
+    </style>
+</head>
+<body>
+
+
+</body>
+    <script>
+        var obj = document.createElement('div');
+        document.body.appendChild(obj);
+        var Max_l = window.innerWidth - obj.offsetWidth;//
+        var Max_h = window.innerHeight - obj.offsetHeight;//
+
+        obj.speed_x = 10;
+        obj.speed_y = 10 ;
+        var init_t = obj.offsetTop;
+        var init_l = obj.offsetLeft;
+        //alert(init_t);
+        (function run(){
+             init_t += obj.speed_y;
+             init_l += obj.speed_x;
+
+             if(init_t >= Max_h || init_t<0){
+
+                init_t = Math.min(Max_h,init_t);
+                init_t = Math.max(init_t,0);
+                obj.speed_y = -obj.speed_y;
+
+             }
+
+             if(init_l>= Max_l || init_l<0 ){
+
+                init_l = Math.min( Max_l,init_l );
+                init_l = Math.max( init_l,0 );
+               obj.speed_x = -obj.speed_x;
+             }
+
+            obj.style.top = init_t+'px';
+            obj.style.left = init_l+'px';
+            requestAnimationFrame( run );
+        })()
+
+
+
+    </script>
+</html>

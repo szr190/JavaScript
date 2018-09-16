@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<p></p>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				 nextChild nextElementChild----同级的下一个
+			*/
+			//console.log(oBox.nextElementSibling);
+			//console.log(oBox.parentNode);//父节点
+			
+			console.log(siblings(oBox));
+			
+			/*
+				找同级元素的方法 
+			*/
+			
+			//找到同级兄弟,不包含自己
+			function siblings(obj){
+				//同级别的所有子元素
+				var parents=obj.parentNode.children;
+				//统统放到数组中去
+				var arr=[];
+				for (var i=0;i<parents.length;i++) {
+					if(parents[i]!=obj){
+						arr.push(parents[i]);
+					}
+				};
+				return arr;
+			}
+			
+		</script>
+	</body>
+</html>

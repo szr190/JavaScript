@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';height:2000px;}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #box{
+            position: absolute;
+            top:100px;
+            left:300px;
+            width:150px;
+
+            background: green;
+            cursor:move;
+        }
+
+
+    </style>
+</head>
+<body>
+   <img id="box" ondragstart='return false' src="images/mnls.jpg" alt="">
+</body>
+    <script>
+
+
+
+        /*
+            右键菜单：又称上下文菜单
+
+            阻止默认事件
+                return false;//在函数尾部 return false阻止默认事件
+                处理图片拖拽问题 添加ondragstart= 'return false'
+
+
+        */
+        var oBox = document.getElementById('box');
+
+        oBox.onmousedown = function(e){//鼠标按下
+            e = e||window.event;
+            var X = e.clientX;//记录鼠标的开始位置
+            var Y = e.clientY;
+            var init_l = oBox.offsetLeft;//记录oBox的开始位置
+            var init_t = oBox.offsetTop;
+            console.log( 'down')
+            document.onmousemove = function(e){
+                 e = e||window.event;
+                 var moveX = e.clientX - X;//鼠标的移动距离
+                 var moveY = e.clientY - Y;
+                 console.log(moveX,moveY )
+                 oBox.style.left = init_l + moveX + 'px';
+                 oBox.style.top = init_t + moveY + 'px';
+
+            }
+
+            document.onmouseup = function(){
+              document.onmousemove = null;//取消mousemove事件
+              document.onmouseup = null;
+
+            }
+
+            return false;//阻止默认事件
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       //注册封装
+        function addEvent(obj,type,fn,boolen){
+            obj[type]= handle;
+            if(obj.addEventListener){//标准
+                obj.addEventListener(type,obj[type],boolen);
+            }else{
+                obj.attachEvent('on'+type,obj[type]);
+            }
+
+            function handle(e){
+                e = e|| window.event;
+                fn.call(obj,e);
+
+            }
+
+
+        }
+
+        function removeEvent(obj,type,fn,boolen){
+
+            if(obj.removeEventListener){
+                obj.removeEventListener(type,obj[type],boolen);
+            }else{
+                obj.detachEvent('on'+type,obj[type]);
+
+            }
+
+        }
+
+
+
+
+
+    </script>
+</html>

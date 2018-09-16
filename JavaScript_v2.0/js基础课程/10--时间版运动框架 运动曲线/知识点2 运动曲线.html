@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				margin-left: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		<script type="text/javascript" src="运动曲线(时间版运动框架的封装).js" ></script>
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				运动曲线 
+				
+				tween算法（flash运用的运动算法，JQ也是基于这个写的）
+					四个参数分别是：
+					t：current time（当前时间）；
+					b：beginning value（初始值）；
+					c： change in value（变化量）；
+					d：duration（持续时间）
+
+			*/
+			
+			move(oBox,{
+				marginLeft:800,
+				width:200,
+				height:200
+			},5000,'linear');
+			
+		
+			
+			
+		</script>
+	</body>
+</html>

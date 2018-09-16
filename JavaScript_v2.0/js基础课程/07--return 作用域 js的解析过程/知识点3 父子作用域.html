@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+			 	js中最大的域是script
+			 	{}一般碰到就是域,if,for的大括号除外
+			 	先执行大域,再去执行小域
+			 	
+				父作用域：
+					父域不能访问子域的变量和参数	
+				
+				子作用域：
+					子域可以访问父域的变量和参数
+			*/
+			a();
+			var c=3;
+			//a();
+			function a(){
+				var b=2;
+				//console.log(c);
+			}
+			
+			//上面的这样执行返回的是3,解析过程如下：
+			/*
+			   script域
+			   		1.定义：
+			   			var c;
+			   			function a(){var b=2;console.log(c);}
+			   		2.执行：
+			   			c=3;
+			   			a();//新作用域
+			   				1.定义：
+			   					var b;
+			   				2.执行：
+			   					b=2;
+			   					console.log(c);//作用域没有此参数向上找,c=3
+			   	   
+			*/
+			
+			//如果把上面的a();放到最上面,解析过程如下：
+			/*
+				script域
+					1.定义：
+						var c;
+						function a(){var b=2;console.log(c);}
+					2.执行：
+						a();//新作用域
+							1.定义：
+								var b;
+							2.执行：
+								b=2;
+								console.log(c);//没有c向上找,undefind
+						c=3;
+			*/
+			
+			
+			/*
+				script是一个比较特殊的域
+					一块域执行完毕后才能往下走
+			*/
+			
+			var e=function f(){
+				console.log('ok');
+			}
+			f();/*IE6,7,8支持,存在浏览器兼容性,不要用f去调用,一般直接用e去调用*/
+		</script>
+	</body>
+</html>

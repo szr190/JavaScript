@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin:0;padding: 0;}
+        .clearfix{
+            content:'';
+            display:block;
+            clear:both;
+
+        }
+        .fl{
+            float:left;
+        }
+        .fr{
+            float:right;
+        }
+        #wrap{width:500px;margin:20px auto;}
+        #wrap #box{height:200px;padding:10px;border:1px solid #ccc; border-radius:8px;}
+        #wrap .btnbar{
+            height:40px;
+            margin-top:20px;
+            border-bottom:1px solid #ccc;
+
+        }
+        #wrap .btnbar button{
+            width:50px;
+            height:30px;
+        }
+        #wrap .btnbar img{
+             border-radius:50%;
+
+        }
+        #wrap ul{
+            margin-top:20px;
+
+        }
+         #wrap ul li{
+            list-style:none;
+            line-height: 50px;
+            border-bottom:1px dotted #eee;
+
+         }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="box" contenteditable="true">
+
+
+        </div>
+        <div class="btnbar clearfix">
+            <img class='fl' src="1.jpg" width='40' alt="">
+            <button id='btn' class='fr'>提交</button>
+        </div>
+        <ul>
+
+
+        </ul>
+
+
+
+
+    </div>
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oBox = document.getElementById('box');
+        var oUl = document.getElementsByTagName('ul')[0];
+        console.log(oUl)
+        oBtn.onclick = function(){
+
+            var li = '<li>'+oBox.innerHTML+'</li>';
+            oUl.innerHTML += li;
+        }
+
+    </script>
+</body>
+</html>

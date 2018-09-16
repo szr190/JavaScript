@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+        /*
+
+            一、对属性表示法
+            二、对象表达式属性名
+            三  对象方法的name属性
+            四  Object.is() 判断2个值是不是相等
+            五 Object.assign() 拷贝对象属性
+
+
+        */
+            // var obj = {
+            //     age:20,
+            // }
+
+            // var age = 20;
+            // var obj = {age};
+            // console.log(obj);//{age: 20}
+
+            // var age = 20;
+            // var obj = {age,index:8888};
+            // console.log(obj);//{age: 20, index: 8888}
+
+
+            // var age = 20;
+            // var obj = {age:age};
+            // console.log(obj);//{age: 20}
+
+            // var age = function (){
+            //     console.log('ok')
+            // }
+            // var obj = {age};
+            // obj.age();//ok
+
+            // var obj = {};
+            // obj.age = 20;
+            // obj.name = '二狗';
+            // obj['index'] = 8888;
+            // //obj.hello world = 'ok';//SyntaxError
+            // obj['hello world'] = 'ok';
+            // console.log( obj['hello world']);//ok
+
+            // var num = 5;
+            // obj['hello'+'world'+num] = 'ok';
+            // console.log( obj['hello'+'world'+num]);//ok
+
+
+            //es6
+            // var obj = {
+            //     ['hello world']:'ok2'
+            // }
+            // console.log( obj['hello world']);
+
+            // var show = 'index';
+            // var obj = {
+            //     [show]:'ok2',
+            //     age:25
+            // }
+            // console.log( obj );//{index: "ok2", age: 25}
+
+
+            // var show = 'index';
+            // var find = 'ffff';
+            // var obj = {
+            //     [show]:'ok2',
+            //     age:25,
+            //     [find](){
+            //        console.log('find00000');
+            //     }
+            // }
+
+          // obj.find();//find
+          //obj[find]();//find
+          ///obj.ffff();
+
+
+         // var obj = {
+         //    find:function(){}
+         // }
+         // console.log( obj.find.name );//find
+
+         // var obj = {
+         //    find:function(){}
+         // }
+         // console.log( obj.find.bind('ok').name );//bound find
+         // console.log(  (new Function).name );//anonymous
+
+
+         // console.log( 0 === -0 );//true
+         // console.log( NaN === NaN );//false
+
+         // var r = Object.is(NaN,NaN);
+         // console.log( r) ;//true
+
+         //  var r = Object.is(0,-0);
+         // console.log(r) ;//false
+
+        //console.log( Object.is(0,null) );//true
+
+        // var obj ={
+        //     age:20
+        // }
+        // var obj2 = { name:'二狗'}
+        // var obj3 =Object.assign(obj,obj2);
+        // console.log( obj3 );
+//浅拷贝
+        // var obj ={
+        //     age:20,
+        //     show:{
+        //         index:8888
+        //     }
+        // }
+        // var obj2 = { name:'二狗'}
+        // var obj3 =Object.assign(obj,obj2);
+        // console.log( obj3 );//{age: 20, show: Object, name: "二狗"}
+
+        // console.log(obj.show.index);
+        // obj3.show.index = 999;
+        // console.log(obj.show.index);
+
+//  取值器
+        // var obj = {
+        //     age:20,
+
+        //     get foo(){
+        //         //alert('ok');
+        //         return 123;
+        //     }
+        // }
+        // console.log( obj);
+        // var target = {
+        //     name:'二狗'
+        // }
+
+        // var obj2 = Object.assign(target,obj);
+        // console.log( target );//{name: "二狗", age: 20, foo: 123}
+        // console.log( obj2 );//{name: "二狗", age: 20, foo: 123}
+
+
+// 运用
+
+     // function fn(name){
+     //    this.name = name;
+     // }
+     // fn.prototype.index = function (){
+     //    console.log('ok')
+     // };
+
+     // function fn2(age){
+     //    this.age = age;
+     // }
+
+     // Object.assign(fn2.prototype,fn.prototype);
+     // var obj = new fn2();
+     //  obj.index();//ok
+
+
+     // var obj = {
+     //        age:20,
+
+     //        get foo(){
+     //            //alert('ok');
+     //            return 123;
+     //        }
+     //    }
+
+
+     //    var obj2 = Object.assign(obj);
+     //    console.log( obj2 );
+
+
+//对象属性遍历
+    //for in
+    //Object.keys() 获取自有(非继承)可枚举属性
+    //Object.getOwnPropertyNames();获取自有(非继承)'所有'属性
+    //Object.getOwnPropertySymbols();获取自有(非继承)Symbol属性
+    //Reflect.ownKeys();//获取自有(非继承)所有属性
+
+    // var sym = Symbol();
+    // var proto = {
+    //     index:888,
+    // }
+    // var obj = {
+    //     age:25,
+    //     name:'二狗',
+    //     [sym]:'哈哈哈哈'
+    // }
+
+    // Object.defineProperty(obj,'show',{
+    //      value:'hello'
+
+    // })
+    //  Object.setPrototypeOf(obj,proto);//Object.setPrototypeOf(obj,prototype);
+
+        //console.log( obj.index);//888
+    // console.log( Object.keys(obj) );//["age", "name"]
+    // for (key of Object.keys(obj)) {
+    //     console.log( key );//age name
+    // }
+
+    // for (key of Object.getOwnPropertyNames(obj)) {
+    //     console.log( key );//age name show
+    // }
+
+    // for (key of Object.getOwnPropertySymbols(obj)) {
+    //     console.log( obj[key] );//哈哈哈哈
+    // }
+
+    // for (key of Reflect.ownKeys(obj)) {
+    //     console.log( key );//age name show Symbol()
+    // }
+
+
+// Object.setPrototypeOf(obj,prototype)  Object.getPrototypeOf(obj);
+
+
+    // var proto = {
+    //     index:888,
+    //     show(){
+    //         console.log( this.index );
+    //     }
+    // }
+
+    // var obj = {
+    //     index:666,
+    //     name:'二狗'
+    // }
+    // var r = Object.setPrototypeOf(obj,proto);
+    // obj.show();///666
+    // console.log( r );
+    // var pro = Object.getPrototypeOf(obj);
+    // console.log(pro);//{index: 888}
+    // console.log(pro === proto);
+
+//super 关键字,对象原型
+
+    // var proto = {
+    //     index:888,
+    //     show(){
+    //         console.log( this );
+    //     }
+    // }
+
+    // var obj = {
+    //     index:666,
+    //     name:'二狗',
+    //     find(){
+    //         //super.show();//{index: 666, name: "二狗"}
+    //         //this.show();//{index: 666, name: "二狗"}
+    //         //Object.getPrototypeOf(this).show.call(this);//{index: 666, name: "二狗"}
+    //     }
+    // }
+    // Object.setPrototypeOf(obj,proto);
+    // obj.find();
+
+    //----------注意事项
+    //     var proto = {
+    //     index:888,
+    //     show(){
+    //         console.log( this );
+    //     }
+    // }
+
+    // var obj = {
+    //     index:666,
+    //     name:'二狗',
+    //     // find(){
+    //     //    super.show();
+    //     // }
+    //     get foo(){
+    //         super.show();
+    //     }
+    //     // find:function(){//SyntaxError
+    //     //    super.show();
+    //     // }
+    //     // find:()=>{
+    //     //     super.show();//SyntaxError
+    //     // }
+    //     //hello:super.show//SyntaxError
+
+    // }
+    // Object.setPrototypeOf(obj,proto);
+    // obj.foo;
+
+
+//Object.keys() Object.values() Object.entries()
+
+    // var obj = {
+    //     index:666,
+    //     name:'二狗',
+
+    // }
+    // console.log( Object.keys(obj) );//["index", "name"]
+    // console.log( Object.values(obj) );//[666, "二狗"]
+    // console.log( Object.entries(obj) );//[['index',666],['name','二狗']]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    .clearfix:after{content:'';display:block;clear:both;}
+    .fl{float:left;}
+    .fr{float:right;}
+    #box{
+        width:700px;
+        margin:auto;
+        height:450px;
+        position: relative;
+    }
+    li{
+        list-style: none;
+
+    }
+    a{
+        text-decoration: none;
+
+    }
+
+    #box ul li{
+       position: absolute;
+       opacity:0;
+    }
+    #box ul li img{
+        width:100%;
+        height:450px;
+    }
+    #box ol{
+        position: absolute;
+        margin:auto;
+        left:50%;
+        bottom:20px;
+        margin-left:-70px;
+        text-align:center;
+    }
+    #box ol li{
+        display:inline-block;
+        background: #ccc;
+        border-radius:50%;
+    }
+     #box ol li.on{
+        background:red;
+    }
+    #box ol li a{
+        display: block;
+        width:20px;
+        height:20px;
+
+    }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+       <ul>
+           <li><img src="images/1.jpg" alt=""> </li>
+           <li><img src="images/2.jpg" alt=""> </li>
+           <li><img src="images/3.jpg" alt=""> </li>
+           <li><img src="images/4.jpg" alt=""> </li>
+           <li><img src="images/5.jpg" alt=""> </li>
+           <li><img src="images/6.jpg" alt=""> </li>
+       </ul>
+       <ol>
+           <li><a href="javascript:void(0)"></a></li>
+           <li><a href="javascript:void(0)"></a></li>
+           <li><a href="javascript:void(0)"></a></li>
+           <li><a href="javascript:void(0)"></a></li>
+           <li><a href="javascript:void(0)"></a></li>
+           <li><a href="javascript:void(0)"></a></li>
+       </ol>
+
+    </div>
+
+</body>
+
+    <script>
+        var aImg = document.getElementsByTagName('ul')[0].getElementsByTagName('li');
+        var aBut = document.getElementsByTagName('ol')[0].getElementsByTagName('li');
+        var num = 0;
+        aBut[num].className = 'on';
+       animation(aImg[num],'opacity',1,600);
+        for(var i=0;i<aBut.length;i++){
+            aBut[i].index = i;
+            aBut[i].onclick = function(){
+                // for(var i=0;i< aImg.length;i++){
+                //      aImg[i].animation({ opacity:0},1000,function(){ });
+                // }
+                //alert(this.index);
+                aBut[num].className = '';
+                animation(aImg[num],'opacity',0,600);
+                animation(aImg[this.index],'opacity',1,600);
+                num = this.index;
+                aBut[num].className = 'on';
+
+            }
+        }
+
+        function animation(obj,attr,target,tar_t){//指定接受形参
+            target = parseFloat(target);//转化为number
+            var init = parseFloat(getStyle(obj,attr));//获取初始样式值
+            var init_t = new Date();//获取开始时间
+            var style_val;
+            (function rQAF(){
+                var cur_t = new Date()- init_t;//获取动画时长
+                var prop =cur_t/tar_t;//获取动画执行时长与动画预设总时间比值
+                if( prop>=1 ){//动画执行时长与动画预设总时间比值大于等于1时,
+                   prop=1;
+                }else{
+                    window.requestAnimationFrame(rQAF);
+                }
+                style_val = (target-init)*prop;//根据时间比例获取运动路程比例
+                console.log(  style_val)
+                 if(attr=='opacity'){
+                    obj.style[attr] = init+style_val;
+                 }else{
+                    obj.style[attr] = init+style_val+'px';
+                }
+            })()
+
+
+        }
+        function getStyle(obj,attr){//定义获取样式函数
+            return window.getComputedStyle? window.getComputedStyle(obj)[attr]:obj.currentStyle[attr];
+        }
+
+
+    </script>
+</html>

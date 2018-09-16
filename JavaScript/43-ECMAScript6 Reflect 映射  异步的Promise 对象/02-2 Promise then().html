@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+        /*
+            Reflect 映射
+                Object => Reflect
+                操作  =>函数行为
+                Reflect与proxy方法一一对应
+
+            Reflect 静态方法
+
+
+
+
+
+
+
+
+
+        */
+
+        // var obj = {};
+
+        // Reflect.defineProperty(obj,'age',{
+        //     value:30,
+        // });
+        // console.log(obj);
+        // var obj = {
+        //     age:25,
+        //      set index(val){
+        //         this.age = val;//此时this指向了obj2
+        //      }
+
+        // };
+        //console.log('age' in obj);//true;
+        //console.log( Reflect.has(obj,'index') );//true;
+        // new Proxy({},{
+        //     set:function(){}
+        // })
+
+//Reflect.set(target,prop,value,[receiver]);
+        // console.log(obj);
+        // var proxy = new Proxy(obj,{
+        //     set:function(target,prop,value,selft){
+
+        //         Reflect.set(target,prop,value,selft);
+        //     }
+        // })
+        // proxy.index = 9999;
+        // console.log(obj);
+        // var obj2 = {
+        //     age:30
+        // }
+
+        // Reflect.set(obj,'index',8888,obj2);//
+        // console.log(obj2.age);//8888
+        // console.log(obj.age);//25
+
+//Reflect.get(target,prop,[receiver]);
+        // var obj = {age:80};
+        // var r = Reflect.get(obj,'age');
+        // console.log(r);//80
+
+//Reflect.defineProperty(target,prop,desc)
+    // var obj = {};
+    // Reflect.defineProperty(obj,'age',{
+    //     value:999
+    // });
+    // console.log(obj);//{age: 999}
+
+//Reflect.deleteProperty(target,prop);
+    // var obj = {age:80};
+    // Reflect.deleteProperty(obj,'age');
+    // console.log(obj);//{}
+
+//Reflect.setPrototypeOf(target,prototype) 设置原型
+    // var proto = {
+    //     age:20
+    // }
+    // var obj ={
+    //     name:'二狗'
+    // }
+
+    // Reflect.setPrototypeOf(obj,proto);
+    // console.log(obj.age);//20
+
+//Reflect.getPrototypeOf(target)
+    // var proto = {
+    //     age:20
+    // }
+    // var obj ={
+    //     name:'二狗'
+    // }
+    // Reflect.setPrototypeOf(obj,proto);
+    // console.log( Reflect.getPrototypeOf(obj) );//{age: 20}
+
+//Reflect.getOwnPropertyDsescriptor(target,prop);
+    // var obj = {
+    //     age:60
+    // }
+    // var r = Reflect.getOwnPropertyDescriptor(obj,'age');
+    // console.log( r );//{value: 60, writable: true, enumerable: true, configurable: true}
+
+//Reflect.has(target,prop);//是否有某个属性
+    // var obj = {
+    //     age:60
+    // }
+    // console.log( Reflect.has(obj,'age') );//true
+
+//Reflect.ownkeys();//获取所有的属性（非继承）
+    // var obj = {
+    //     age:20,
+    //     [Symbol()]:999
+    // }
+
+    // Reflect.defineProperty(obj,'index',{
+    //     value:888,
+    // });//index是不可枚举的
+    //console.log(obj);
+    // for (key in obj) {
+    //     console.log(key);
+    //     //age
+    // }
+
+
+    // for (key of Reflect.ownKeys(obj)) {
+    //     console.log(key);
+    //     // age index Symbol()
+    // }
+
+//Reflect.apply(func,ctx,arg);
+
+    // function fn(x,y){
+    //     console.log(this);
+    //     console.log(x,y);
+    // }
+    // fn.apply = function(e){
+    //     alert(e);
+    // }
+    // fn.apply('ok');
+    // //fn.call('ok',10,20);
+    // Reflect.apply(fn,'hello',[10,20]);
+
+//Reflect.construct(func,arg); 不用new func,达到new func
+    // function Fn(x,y){
+    //     this.x = x;
+    //     this.y = y;
+    // }
+    // //var obj = new Fn(10,20);
+    // var obj = Reflect.construct(Fn,[10,20]);
+    // console.log(obj);//{x: 10, y: 20}
+
+
+//Reflect.isExtensible(target) 可拓展的？
+
+    // var obj = {
+    //     age:20
+    // }
+    // var r = Reflect.isExtensible(obj);
+    // console.log(r);//true
+
+//Reflect.preventExtensions(target);//阻止target拓展
+    // var obj = {
+    //     age:20
+    // }
+    // var r = Reflect.isExtensible(obj);
+    // console.log(r);//true
+    // Reflect.preventExtensions(obj);//阻止obj的拓展
+    // obj.index = function(){
+    //     alert('ok');
+    // };
+    // var r = Reflect.isExtensible(obj);
+    // console.log(r);//false
+    // console.log(obj);
+
+
+
+//promise 诺言
+/*
+    进行中 pending
+    完成了
+        --resolved成功了
+        --rejected失败了
+
+
+*/
+    // var promise = new Promise(function(){});
+    // console.log(promise);
+
+//成功了
+    // var promise = new Promise(function(succ,error){
+    //     succ('ok');//resolved
+
+    // });
+    // console.log(promise);//{[[PromiseStatus]]: "resolved", [[PromiseValue]]: "ok"}
+
+//失败了
+    // var promise = new Promise(function(succ,erro){
+    //     erro('失败了');//rejected
+    // });
+    // console.log(promise);//{[[PromiseStatus]]: "rejected", [[PromiseValue]]: "失败了"}
+
+//then
+    //  var promise = new Promise(function(succ,erro){
+    //     succ();
+
+    // });
+
+    //  promise.then(function(){//成功的回调函数
+    //     console.log('成功了');
+    //  },function(){//失败的回调函数
+    //     console.log('失败了')
+    //  })
+
+
+    // var promise = new Promise(function(succ,erro){
+    //     succ('ok');
+
+    // });
+    //  promise.then(function(message){//message接收succ的传递的参数
+    //     console.log(message);
+    //  },function(){//失败的回调函数
+    //     console.log('失败了')
+    //  })
+
+
+    // var promise = new Promise(function(succ,erro){
+    //     erro('失败了');
+
+    // });
+    //  promise.then(function(message){//message接收succ的传递的参数
+    //     console.log('succ'+message);
+    //  },function(messa){//失败的回调函数
+    //     console.log('error'+messa);
+    //  })//error失败了
+
+
+
+    // var promise = new Promise(function(succ,erro){
+
+    //     if( true){
+    //         setTimeout(function(){
+    //             succ('成功了');
+
+    //         },4000);
+    //     }else{
+    //         erro('失败了');
+    //     }
+
+    // });
+    //  promise.then(function(message){//message接收succ的传递的参数
+    //     console.log('succ'+message);
+    //  },function(messa){//失败的回调函数
+    //     console.log('error'+messa);
+    //  })//error失败了
+
+    // var promise = new Promise(function(succ,erro){
+    //     erro();
+    // });
+    // promise.then(function(){
+    //     console.log('ok');
+    // })
+
+    // var promise = new Promise(function(succ,erro){
+    //     console.log('now')
+    //     succ();
+    // });
+    // promise.then(function(){//在本轮事件循环结束时调用
+    //     console.log('ok');
+    // })
+    // console.log('Hi');
+    //now
+    //Hi
+    //ok
+
+    // (function fn(){
+    //     console.log('now');
+
+    // })();
+
+    // function callback(fn){
+    //     fn();
+    // }
+    // callback(function(){
+    //     console.log('ok')
+    // });
+    // console.log('Hi');
+    //now
+    //ok
+    //Hi
+
+    // setTimeout(function(){//下一轮事件循环开始执行
+    //     console.log('now')
+    // },0)
+    // var promise = new Promise(function(succ,erro){
+    //     succ();
+    // });
+    // promise.then(function(){//在本轮事件循环结束时调用
+    //     console.log('ok');
+    // })
+    // function callback(fn){
+    //     fn();
+    // }
+    // callback(function(){
+    //     console.log('back')
+    // });
+    // console.log('Hi');//马上执行
+    //back
+    //Hi
+    //ok
+    //now
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

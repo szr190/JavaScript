@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    .clearfix:after{content:'';display:block;clear:both;}
+    .fl{float:left;}
+    .fr{float:right;}
+    #box{
+        width:800px;
+        height:200px;
+
+        position: relative;
+
+    }
+    #box img{
+        position:absolute;
+        left:20px;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="./images/1.gif" alt="">
+
+    </div>
+
+</body>
+
+    <script>
+        var oImg = document.getElementsByTagName('img')[0];
+
+            oImg.onmouseenter =run;
+
+
+        function run(){
+            if(this.onoff){
+                 return false;
+             }
+            this.onoff = true;
+            var arr = [];
+            for(var i=20;i>=0;i--){
+                arr.push(i,-i);
+            }
+            var num=0;
+            var sty = parseFloat( getStyle(this,'left'));
+            var timer = setInterval(function(){
+                if(num>arr.length-1){
+                    num = arr.length-1;
+                    clearInterval( timer);
+                    this.onoff = false;
+                 }
+                 this.style.left = sty+arr[num]+'px';
+                 num++;
+                  //console.log(this);
+
+            }.bind(this),1000/40)
+
+
+        }
+        function getStyle(obj,attr){
+            return window.getComputedStyle? getComputedStyle(obj)[attr] : obj.currentStyle[attr];
+        }
+
+
+
+
+    </script>
+</html>

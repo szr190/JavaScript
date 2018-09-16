@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+    *{margin:0;padding: 0;}
+    ul{
+        width:400px;
+        margin: auto;
+    }
+    ul li{
+        height:50px;
+        background-color: green;
+        margin-bottom:5px;
+        list-style: none;
+    }
+
+</style>
+</head>
+<body>
+    <div id='box'>box</div>
+    <ul>
+        <li class='a'>1</li>
+        <li class='a'>2</li>
+        <li class='a'>3</li>
+        <li class='a'>4</li>
+        <li class='a'>5</li>
+    </ul>
+</body>
+<script>
+    var oBox = document.getElementById('box');//静态方法
+    oBox.id= 'aaa';
+    oBox.style.background = 'red';
+
+    var ali = document.getElementsByClassName('a');//动态方法
+    ali[0].className = 'bbb';
+    alert(ali.length);//4 会重新去获取元素
+
+
+</script>
+</html>

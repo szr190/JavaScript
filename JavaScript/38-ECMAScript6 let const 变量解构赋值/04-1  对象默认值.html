@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+            /*
+                let 命令,块级变量          全局 function 块级
+                    ---块级变量，作用于块级
+                    ---不存在变量提升 ->先声明再使用，提前使用报错
+                    ---暂时性死区,不可重复申明
+                const 命令，常量
+                    --- 声明即赋值,修改值会报错
+                    ---作用于块级
+                    ---不存在变量提升 ->先声明再使用，提前使用报错
+                    ---暂时性死区,不可重复申明
+
+                数组的解构赋值
+                    ---对应赋值
+                对象的解构赋值
+                    ---对应属性赋值
+
+                数组默认值
+                     ---指定默认值用=
+                        本质：判断(===)赋的值是undefined,默认值才会生效
+                对象默认值
+                      ---指定默认值用=
+                        本质：判断(===)赋的值是undefined,默认值才会生效
+
+
+
+
+
+            */
+
+            // let {name,age} = {name:'二狗'};
+            // console.log(name,age);//二狗 undefined
+
+            // let {name = '狗狗',age = 20} = {name:'二狗'};
+            // console.log(name,age);//二狗 20
+
+
+            // let {name = '狗狗',age = 20} = {};
+            // console.log(name,age);//狗狗 20
+
+            // let {name:bar,age = 20} = {name:'二狗',age:20};
+            // console.log(bar,age);//二狗 20
+
+            // let {name:bar = '旺财',age = 20} = {age:20};
+            // console.log(bar,age);//旺财 20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

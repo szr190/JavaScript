@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+        /*
+            Symbol.iterator函数
+                --iterator对象
+                --统一的数据
+                --主要供for...of使用
+                --iterator对象包含value done
+                    done:false 没有遍历完成
+                    done:true  遍历完成
+
+
+        */
+        // var arr = ['a','b','c'];
+        // console.log( typeof arr[Symbol.iterator] );//function
+
+
+        // var arr = ['a','b','c'];
+        // var f = arr[Symbol.iterator]();
+        // console.log( f.next() );//{value: "a", done: false}
+        // console.log( f.next() );//{value: "b", done: false}
+        // console.log( f.next() );//{value: "c", done: false}
+        // console.log( f.next() );//{value: undefined, done: true}
+        // console.log( f.next() );//{value: undefined, done: true}
+
+
+       //  var arr = ['a','b','c'];
+
+       // arr[Symbol.iterator] = iter;
+       //  function iter(){
+       //      var index=0;
+       //      var _this = this;
+       //      return {
+       //          next:function(){
+       //              return index<_this.length?{value:_this[index++],done:false}:{value:undefined,done:true};
+
+       //          }
+       //      }
+       //  }
+
+        // console.log( typeof arr[Symbol.iterator] )
+
+
+        //var f = iter(arr);
+        // console.log( f.next() );//{value: "a", done: false}
+        // console.log( f.next() );//{value: "b", done: false}
+        // console.log( f.next() );//{value: "c", done: false}
+        // console.log( f.next() );//{value: undefined, done: true}
+
+
+        // for (key of arr) {
+        //     console.log(key);//a b c
+        // }
+
+        // for (key of arr[Symbol.iterator]()) {
+        //     console.log(key);//a b c
+        // }
+
+
+
+        // var obj = {
+        //     age:25,
+        //     name:'二狗'
+        // }
+        // var arr = ['a','b'];
+        // obj[Symbol.iterator] =arr[Symbol.iterator];
+
+
+        // obj[Symbol.iterator] = function(){
+        //     var keyVal = Object.entries(this);//获取键值对的二维数组
+        //     //[['age',25],['name','二狗']]
+        //     var index = 0;
+        //     return {
+        //         next:function(){
+        //             return index<keyVal.length?{value:keyVal[index++]}:{done:true};
+
+        //         }
+        //     }
+        // }
+
+        // for (key of obj) {
+        //    console.log(key);
+        //    //["age", 25]
+        //    //["name", "二狗"]
+        // }
+
+        // for ([key,val] of obj) {
+        //    console.log(key,val);
+        // }
+
+        // var str = 'hello';//包装对象，使用的时候会临时包装一下成对象
+
+        // for (key of str) {
+        //     console.log(key);
+        //     //h e l l o
+        // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

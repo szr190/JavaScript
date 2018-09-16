@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>涂抹找钱</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css/js-->
+<style type="text/css">
+#money{width:200px;height:200px; margin:100px auto; background-image:url("images/money.jpg"); border:1px solid #000;position:relative;}
+
+</style>
+	</head>
+
+<body>
+
+<div id="money">
+</div>
+
+<script type="text/javascript">
+var oMoney=document.getElementById("money");
+var str="";
+// for(var i=0;i<100;i++){
+
+//str+="<div style='width:20px;height:20px;position:absolute; background:#ddd;left:"+(i%10)*20+"px;top:"+Math.floor(i/10)*20+"px'></div>";
+// }
+for(var i=0;i<10;i++){
+    for(var j=0;j<10;j++){
+        str += "<div style='background:#ddd;position:absolute;width:20px;height:20px;top:"+i*20+"px;left:"+j*20+"px'></div>"
+    }
+};
+oMoney.innerHTML=str;
+
+oDiv=oMoney.getElementsByTagName("div");
+for(var j=0;j<oDiv.length;j++){
+	oDiv[j].onmouseover=function(){
+		this.style.display="none";
+	}
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<a href="#"></a>
+		</div>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				childNodes 
+			*/
+			//console.log(oBox.childNodes.length);//长度是3,是由于换行产生的
+			//这足以证明,除了元素节点之外还有其它的一些节点,例如text节点
+			
+			//console.log(typeof oBox.childNodes);//类型是Object
+			//console.log(oBox.childNodes[2]);//节点的相应子节点
+			//console.log(oBox.childNodes[1].nodeType);//nodeType判断节点类型
+			
+			
+			/*
+				children  属性,不是children方法,不要和jquery搞混了  只找所有的儿子元素节点
+			*/
+			console.log(oBox.children);//得到相应子节点
+			
+			
+		</script>
+	</body>
+</html>

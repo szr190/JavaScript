@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="szr" id="wrap"></div>
+		
+		<script>
+		var oWrap=document.getElementById("wrap");
+		//需求---给id名称为oWrap的div添加一个class名称on
+		addClass(oWrap,'on');
+		
+			function addClass(obj,cName){//给谁加,加了什么名字
+				//获取class名称
+				var oClassName=obj.className;
+				//假如本身没有class名称
+				if(addClass==""){
+					obj.className=cName;
+				}else{
+					//class名字用空格隔开 相当于['szr','on']
+					var arrClass=oClassName.split(' ');
+					//设置一个开关
+					var onOff=true;
+					for (var i=0;i<arrClass.length;i++) {
+						if(arrClass[i]==cName){
+							onOff=false;
+						}
+					}
+					if(onOff){
+						obj.className+=' '+cName;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

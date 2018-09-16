@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';padding-bottom:500px;}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        .banner{
+            width:1130px;
+            overflow:hidden;
+            height:500px;
+            margin:auto;
+            position: relative;
+
+        }
+        .banner ul li{
+            list-style: none;
+            position: absolute;
+            top:0;
+            display:none;
+        }
+        .banner ul li.on{
+            display: block;
+        }
+        .banner ol{
+            position: absolute;
+            width:240px;
+            bottom:0;
+            left:50%;
+            margin-left:-120px;
+
+        }
+        .banner ol li{
+            display:inline-block;
+            height:5px;
+            width:30px;
+            margin:2px;
+            background: rgba(0,0,0,0.5);
+            cursor:pointer;
+        }
+        .banner ol li.on{
+            background: #f00;
+        }
+        .banner a{
+            position: absolute;
+            width:60px;
+            height:50px;
+            text-decoration: none;
+            background: rgba(0,0,0,0.5);
+            color:#fff;
+            font-size:50px;
+            text-align: center;
+            line-height:40px;
+            top:50%;
+            margin-top:-25px;
+
+        }
+        .banner a.next{
+            right:0px;
+        }
+        .banner a:hover{
+            background: rgba(0,0,0,0.3);
+        }
+
+       /*  banner2 */
+
+       hr{
+         margin:20px 0;
+
+       }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="banner" class='banner'>
+        <ul>
+            <li class='on'><img src="images/1.webp" alt=""></li>
+            <li><img src="images/2.webp" alt=""></li>
+            <li><img src="images/3.webp" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+            <li><img src="images/5.jpg" alt=""></li>
+            <li><img src="images/6.jpg" alt=""></li>
+        </ul>
+        <ol>
+            <li class='on'></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+        <a class='prev' href="javascript:void(0)"> < </a>
+        <a class='next' href="javascript:void(0)"> > </a>
+
+
+    </div>
+    <hr>
+
+    <div id="banner2" class='banner'>
+        <ul>
+            <li class='on'><img src="images/1.webp" alt=""></li>
+            <li><img src="images/2.webp" alt=""></li>
+            <li><img src="images/3.webp" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+            <li><img src="images/5.jpg" alt=""></li>
+            <li><img src="images/6.jpg" alt=""></li>
+
+        </ul>
+        <ol>
+            <li class='on'></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+        <a class='prev' href="javascript:void(0)"> < </a>
+        <a class='next' href="javascript:void(0)"> > </a>
+
+
+    </div>
+</body>
+    <script>
+
+        function banner(wrap){
+            this.init(wrap);
+        }
+
+        banner.prototype.init = function(wrap){
+            this.oBanner = document.getElementById(wrap);
+            this.aB_img =  this.oBanner.querySelectorAll('ul li');
+            this.aB_tab =  this.oBanner.querySelectorAll('ol li');
+            this.ab_Btn =  this.oBanner.querySelectorAll('a');
+            this.num = 0;
+            var _this = this;
+            for(var i=0;i<this.aB_tab.length;i++){
+                this.aB_tab[i].index = i;
+                this.aB_tab[i].onclick =  function(){
+                    _this.tab(this);
+                };
+
+            }
+            for(var i=0;i<this.ab_Btn.length;i++){
+                this.ab_Btn[i].index = i;
+                this.ab_Btn[i].onclick = function(){
+                    _this.btn(this);
+                }
+            }
+
+        }
+
+        banner.prototype.btn = function (but){
+            var _index = but.index;
+             var _this = this;
+            this.change(function(){
+                 if( _index ){
+                    _this.num++;
+                    if(_this.num == _this.aB_img.length ){_this.num = 0}
+                }else{
+                    _this.num--;
+                    if(_this.num < 0 ){_this.num = _this.aB_img.length-1 }
+                }
+
+            });
+        }
+       banner.prototype.change= function (fn){
+            this.aB_tab[this.num].className = '';
+            this.aB_img[this.num].className = '';
+            fn();
+            this.aB_tab[this.num].className = 'on';
+            this.aB_img[this.num].className = 'on';
+
+        }
+       banner.prototype.tab =  function(tab){
+            this.aB_tab[this.num].className = '';
+            this.aB_img[this.num].className = '';
+            var _index = tab.index;
+            var _this = this;
+            this.change(function(){ _this.num = _index; });
+            this.aB_tab[this.num].className = 'on';
+            this.aB_img[this.num].className = 'on';
+        }
+        var bann1 = new banner('banner');
+
+        //自动轮播
+
+        function Autobanner(){
+            this.init();
+        }
+        Autobanner.prototype = new banner('banner2');
+        //自动轮播
+        Autobanner.prototype.play = function(){
+            this.timer = setInterval(function(){
+                this.change(function(){
+                        this.num++;
+                        console.log( this.num );
+                        if(this.num == this.aB_img.length ){this.num = 0}
+                }.bind(this));
+            }.bind(this),1500)
+        }
+        //自动暂停
+        Autobanner.prototype.pause = function(){
+            clearInterval(this.timer);
+        }
+        //初始化
+        Autobanner.prototype.init =function(){
+            this.play();
+            var _this = this;
+            this.oBanner.onmouseenter = function(){
+                _this.pause();
+            }
+            this.oBanner.onmouseleave = function(){
+                _this.play();
+            }
+
+        }
+
+        new Autobanner();
+
+
+
+
+    </script>
+</html>

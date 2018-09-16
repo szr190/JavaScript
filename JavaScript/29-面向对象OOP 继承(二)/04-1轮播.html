@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #banner{
+            width:1130px;
+            overflow:hidden;
+            height:500px;
+            margin:auto;
+            position: relative;
+
+        }
+        #banner ul li{
+            list-style: none;
+            position: absolute;
+            top:0;
+            display:none;
+        }
+        #banner ul li.on{
+            display: block;
+        }
+        #banner ol{
+            position: absolute;
+            width:240px;
+            bottom:0;
+            left:50%;
+            margin-left:-120px;
+
+        }
+        #banner ol li{
+            display:inline-block;
+            height:5px;
+            width:30px;
+            margin:2px;
+            background: rgba(0,0,0,0.5);
+            cursor:pointer;
+        }
+        #banner ol li.on{
+            background: #f00;
+        }
+        #banner a{
+            position: absolute;
+            width:60px;
+            height:50px;
+            text-decoration: none;
+            background: rgba(0,0,0,0.5);
+            color:#fff;
+            font-size:50px;
+            text-align: center;
+            line-height:40px;
+            top:50%;
+            margin-top:-25px;
+
+        }
+        #banner a.next{
+            right:0px;
+        }
+        #banner a:hover{
+            background: rgba(0,0,0,0.3);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <ul>
+            <li class='on'><img src="images/1.webp" alt=""></li>
+            <li><img src="images/2.webp" alt=""></li>
+            <li><img src="images/3.webp" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+            <li><img src="images/5.jpg" alt=""></li>
+            <li><img src="images/6.jpg" alt=""></li>
+        </ul>
+        <ol>
+            <li class='on'></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+        <a class='prev' href="javascript:void(0)"> < </a>
+        <a class='next' href="javascript:void(0)"> > </a>
+
+
+    </div>
+</body>
+    <script>
+        var oBanner = document.getElementById('banner');
+        var aB_img = oBanner.querySelectorAll('ul li');
+        var aB_tab = oBanner.querySelectorAll('ol li');
+        var aB_but = oBanner.querySelectorAll('a');
+        var num = 0;
+
+
+        for(var i=0;i<aB_tab.length;i++){
+            //tab点击
+            aB_tab[i].index = i;
+            aB_tab[i].onclick = function(){
+                aB_tab[num].className = '';
+                aB_img[num].className = '';
+                num = this.index;
+                aB_tab[num].className = 'on';
+                aB_img[num].className = 'on';
+
+            }
+
+        }
+
+        for(var i=0;i<aB_but.length;i++){
+            aB_but[i].index = i;
+            //左右点击
+            aB_but[i].onclick = function(){
+                aB_tab[num].className = '';
+                aB_img[num].className = '';
+                if(this.index){//01 右点击
+                    num++;
+                    num %= aB_tab.length;
+                }else{//左点击
+                   num--;
+                   if(num<0){ num = aB_tab.length-1;}
+
+                }
+                aB_tab[num].className = 'on';
+                aB_img[num].className = 'on';
+            }
+
+        }
+
+
+
+
+
+
+
+
+    </script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';height:2000px;}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+        #box{
+
+            width:200px;
+            height:200px;
+            border:1px solid red;
+            background: #ccc;
+            position: relative;
+
+
+        }
+        #box p{
+            width:500px;
+            height:600px;
+            background: green;
+            float:left;
+        }
+
+    </style>
+</head>
+<body>
+
+        <div id="box">
+            <p>
+
+
+            </p>
+        </div>
+
+
+
+</body>
+    <script>
+        /* window属性
+
+            innerWidth 浏览器窗口宽/innerHeight  浏览器窗口高
+
+
+
+            元素属性
+           clientWidth 可视宽 / clientHeight 可视高 (content+padding)
+           offsetWidth 占位宽/offsetHeight 占位高  (content+padding+border)
+           scrollWidth 滚动宽/scrollHeight 滚动高  (content+padding)
+                    包含子元素 子元素定位 float overflow:hidden -----一致
+
+
+        */
+
+        //alert( window.outerHeight )
+        var oBox = document.getElementById('box');
+        console.log( oBox.scrollHeight )
+
+
+    </script>
+</html>

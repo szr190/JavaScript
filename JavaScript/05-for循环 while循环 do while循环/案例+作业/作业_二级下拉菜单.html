@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>案例_二级下拉菜单</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css/js-->
+<style type="text/css">
+*{margin:0px;}
+#List{width:200px;list-style-type:none;}
+#List li{color:#fff;font-size:14px;height:35px;text-indent:5px; overflow:hidden;border:1px solid #000;} 
+#List li h3{background-color:#9900cc;line-height:35px; }
+#List li p{color:#000; line-height:30px; border-bottom:1px dotted #ddd;}
+</style>
+	</head>
+
+<body>
+
+<ul id="List" >
+	<li>
+		<h3>同事</h3>
+		<p>千寻</p>
+		<p>千凡</p>
+		<p>阿飞</p>
+		<p>追梦</p>
+	</li>
+	<li>
+		<h3>好友</h3>
+		<p>梅梅</p>
+		<p>甜甜</p>
+		<p>波波</p>
+	</li>
+	<li>
+		<h3>VIp学员</h3>
+		<p>一米阳光</p>
+		<p>小风车</p>
+		<p>小米</p>
+
+	</li>
+
+</ul>
+
+<script>
+var oUl=document.getElementById("List");
+var oLi=oUl.getElementsByTagName("li");
+var arr=[];
+
+
+for(var i=0;i<oLi.length;i++){
+	oLi[i].onclick=function(){
+		//操作标题
+		for(var j=0;j<oLi.length;j++){
+			oLi[j].style.height="35px";
+		}
+		this.style.height="auto";
+
+		var op=this.getElementsByTagName("p");
+
+		//操作 p元素
+		for(var k=0;k<op.length;k++){
+
+			op[k].onmouseover=function(){
+				this.style.backgroundColor="#cc00cc";
+			}
+
+			op[k].onmouseout=function(){
+				this.style.backgroundColor="";
+			}
+
+		}
+	}
+}
+
+</script>
+</body>
+</html>

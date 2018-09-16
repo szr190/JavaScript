@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+    *{margin:0;padding: 0;}
+
+
+</style>
+</head>
+<body>
+
+    <div id='box' abc='千寻'>box</div>
+
+</body>
+<script>
+    var a = 'hello';//变量
+    var oBox = document.getElementById('box');//node 对象，是对象就有属性
+    //alert( oBox.abc );//非凡属性是获取不到的
+    oBox.a = '小黑';//自定义属性
+    //alert( a );//hello
+    alert( oBox.a );//小黑
+
+</script>
+
+</html>

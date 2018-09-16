@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jquery-01-$ css eq</title>
+		<style>
+			*{margin: 0;padding: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+			</ul>
+		</div>
+		<p></p>
+	<!--
+		(1)怎样获取元素？
+		$();
+		$("#wrap");----id
+		$("#wrap ul li,p")----类似于css样式的表达式  | 分割是利用正则表达式去处理的
+		
+		(2)怎样给获取的元素指定样式？
+		.css()方法
+		.css('属性名称','属性值');
+		
+		       怎样指定多个样式？----利用json的格式(键值对)
+		.css({
+			color:'#f00',
+			fontSize:'14px'
+		});
+		
+		总结：
+			.css() Jq对象添加/获取样式
+				添加：
+					.css('属性','值');
+					.css({属性:'值',属性:'值'});
+				获取：
+					.css('属性'); 
+					
+		(3)怎样筛选Jq对象？
+			eq(x)-----把Jq对象中的第x个js对象拿出来,重新组装成Jq对象---获取对应的jq对象
+	-->	
+		
+		
+		
+	<script type="text/javascript" src="../js/jquery-1.12.1.min.js" ></script>
+	<script>
+		$("#wrap ul li,p").CSS('color','#f00');
+		$("#wrap ul li").eq(1)
+	</script>
+	</body>
+</html>

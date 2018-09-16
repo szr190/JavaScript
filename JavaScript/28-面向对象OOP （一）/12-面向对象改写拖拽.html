@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #box{
+            width:100px;
+            height:100px;
+            background: green;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+</body>
+    <script>
+
+        new drag('box');
+        function drag(wrap){
+            this.oBox = document.getElementById(wrap);
+            var _this = this;
+            this.oBox.onmousedown = function(e){
+                e = e || window.event;
+                _this.down(e);
+            };
+
+        }
+
+        drag.prototype.down = function(e){//按下
+            this.X = e.clientX;
+            this.Y = e.clientY;
+            this.initL = this.oBox.offsetLeft;
+            this.initT = this.oBox.offsetTop;
+            var _this = this;
+            document.onmousemove = function(e){
+                e = e || window.event;
+                _this.move(e);
+            }
+            document.onmouseup =function(){
+                _this.up();
+            }
+            return false;
+        }
+
+        drag.prototype.move = function(e){//移动
+            this.moveX = e.clientX-this.X;
+            this.moveY = e.clientY-this.Y;
+            this.oBox.style.left  = this.initL + this.moveX +'px';
+            this.oBox.style.top  = this.initT + this.moveY +'px';
+
+        }
+        drag.prototype.up = function(){
+            document.onmousemove = null;
+            document.onmouseup = null;
+
+        }
+
+
+
+
+
+    </script>
+</html>

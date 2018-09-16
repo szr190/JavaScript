@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    .clearfix:after{content:'';display:block;clear:both;}
+    .fl{float:left;}
+    .fr{float:right;}
+    #box{
+        width:600px;
+        border:1px solid #ccc;
+        margin:50px auto;
+        font-size:25px;
+        padding:10px;
+    }
+     #box ul li{
+        list-style:none;
+        border-bottom:1px solid #ccc;
+     }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li>
+                <span>东京时间:</span>
+                <p></p>
+            </li>
+            <li>
+                <span>北京时间:</span>
+                <p></p>
+            </li>
+            <li>
+                <span>伦敦时间:</span>
+                <p></p>
+            </li>
+            <li>
+                <span>纽约时间:</span>
+                <p></p>
+            </li>
+
+        </ul>
+
+    </div>
+</body>
+    <script>
+
+
+        /*
+            获取世界时间
+        */
+        var aP = document.getElementsByTagName('p');
+        setInterval(function(){
+            //东京时间
+           worldT(aP[0],9);
+           //北京时间
+           worldT(aP[1],8);
+           //伦敦时间
+           worldT(aP[2],0);
+           //纽约时间
+           worldT(aP[3],-5);
+        },1000);
+        function worldT(obj,num){
+            var d = new Date();
+            var time = d.getTime();//本地时间的毫秒数
+            var offset = d.getTimezoneOffset()*60*1000;//分钟 -毫秒
+            //alert(offset);//-480 东8区
+
+            //世界时间
+            var worldT = time+offset+(num*60*60*1000);
+            worldT = new Date(worldT);
+            //
+            var Year = worldT.getFullYear();
+            var Mon = worldT.getMonth()+1;
+            var Dat = worldT.getDate();
+            var Day = worldT.getDay();
+            var Hour = worldT.getHours();
+            var Min = worldT.getMinutes();
+            var Sec = worldT.getSeconds();
+
+
+            Mon = Mon>=10?Mon:'0'+Mon;
+            Dat = Dat>=10?Dat:'0'+Dat;
+            Hour = Hour>=10?Hour:'0'+Hour;
+            Min = Min>=10?Min:'0'+Min;
+            Sec = Sec>=10?Sec:'0'+Sec;
+            var arr = ['日','一','二','三','四','五','六'];
+
+            obj.innerHTML = Year+'年'+Mon+'月'+Dat+'日&nbsp;星期'+arr[Day]+'&nbsp;&nbsp;'+Hour+'时'+Min+'分'+Sec+'秒';
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

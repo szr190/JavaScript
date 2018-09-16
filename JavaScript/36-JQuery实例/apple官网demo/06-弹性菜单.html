@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        ul{
+            width:600px;
+            margin:50px auto;
+            border:1px solid #ccc;
+            position: relative;
+            padding:10px;
+        }
+        ul li{
+            list-style: none;
+            width:150px;
+            float:left;
+            text-align: center;
+            line-height:40px;
+
+        }
+        ul li.btn{
+            position: absolute;
+            height:40px;
+            left:10px;
+            /*background: rgba(0,0,0,0.2);*/
+            box-shadow:inset 0 0 10px 0 #ccc;
+            border-radius: 8px;
+
+        }
+        ul li a{
+            display:block;
+            text-decoration: none;
+            color:#999;
+            position: relative;
+            z-index:999;
+        }
+
+
+    </style>
+</head>
+<body>
+    <ul class='clearfix'>
+        <li><a href="javascript:void(0)"> item 1</a></li>
+        <li><a href="javascript:void(0)"> item 2</a></li>
+        <li><a href="javascript:void(0)"> item 3</a></li>
+        <li><a href="javascript:void(0)"> item 4</a></li>
+        <li class='btn'></li>
+
+
+    </ul>
+
+</body>
+    <script>
+
+        var aLi = document.getElementsByTagName('li');
+        //animation(aLi[aLi.length-1],'left',-200,aLi[aLi.length-1]);
+        for(var i=0;i<aLi.length-1;i++){
+            aLi[i].onclick = function(){
+               animation(aLi[aLi.length-1],'left',this.offsetLeft,aLi[aLi.length-1]);
+            }
+
+        }
+
+
+
+
+
+
+
+        function animation(obj,attr,target,tar_obj){
+           obj.offset = obj.offsetLeft;
+           obj.speed=0;
+            clearInterval(obj.timer);
+           obj.timer = setInterval(function(){
+                obj.speed += (target-obj.offset)/5;
+                obj.speed *=0.85;
+                obj.offset += obj.speed; //化零取整
+
+                //正负值情况
+                if( Math.abs( obj.offset - target ) < 1 && Math.abs( obj.speed ) < 1 ){
+                    clearInterval(obj.timer);
+                    obj.offset = target;
+                }
+                console.log( 'ok');
+                tar_obj.style[attr] = obj.offset +'px';//100 obj.offsetLeft 100
+
+            },1000/60);
+
+        }
+
+        function getStyle(obj,attr){
+            if(window.getComputedStyle){
+               return getComputedStyle(obj)[attr];
+            }else{
+                return obj.currentStyle[attr];
+            }
+
+
+        }
+
+
+
+
+
+
+
+    </script>
+</html>

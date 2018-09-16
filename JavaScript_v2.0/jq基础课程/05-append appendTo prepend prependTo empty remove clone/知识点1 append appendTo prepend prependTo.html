@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>123</p>
+<div></div>
+
+
+
+<script src="../js/jquery-1.12.1.min.js"></script>
+<script>
+    /*
+        append()-----------原来就已经存在的某个节点,会把原来的删除掉再拿到这个
+            功能：添加节点
+            参数：新创建jq对象 / 可以直接创建标签字符串
+    */
+    var obj=$("<div></div>");
+    $('body').append(obj);
+
+    /*
+        appendTo()---------是跟append相反的操作顺序,是把前面的追加到后面去
+    */
+    $("p").appendTo('div');
+
+    /*
+        prepend()--------往前面加
+    */
+    $("p").prepend('<b>Hello</b>');
+</script>
+</body>
+</html>

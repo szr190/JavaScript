@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:14px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #emswrap{
+            width:538px;
+            /*height:503px;*/
+            padding:10px;
+            margin:50px auto;
+            border:1px solid #cfcfcf;
+            box-shadow:0 0 5px 0 #aaa;
+        }
+        #emswrap .ems_top{
+            padding:10px;
+            background: #eee;
+        }
+        #emswrap .ems_top div{
+            margin-bottom:5px;
+        }
+
+         #emswrap .ems_top p,#emswrap .ems_top input{
+            display: inline-block;
+            margin-left:20px;
+            border:1px solid #ccc;
+            border-top-color:#bbb;
+            background: #fff;
+            width:188px;
+            height:26px;
+         }
+        #emswrap .ems_top input{
+           margin-left:15px;
+           outline: none;
+           text-indent:10px;
+        }
+        #emswrap .ems_top input:focus{
+            box-shadow:0 0 5px 0 #ccc inset;
+        }
+
+        #emswrap .ems_top .company_name p{
+            text-indent: 10px;
+        }
+        #emswrap .ems_top .company_name p:hover{
+            box-shadow: 0 0 5px 0 #ccc inset;
+        }
+        #emswrap .ems_top .company_name p i{
+            display:inline-block;
+            width:16px;
+            height:16px;
+            margin:5px;
+            vertical-align: middle;
+            background: url('./images/ems.png') 0 -16px;
+        }
+        #emswrap .ems_top .company_name p span{
+            display: inline-block;
+            width:26px;
+            height:26px;
+            float:right;
+            border-left:1px solid #ccc;
+            background: #fefefe;
+
+        }#emswrap .ems_top .company_name p:hover span{
+            background: #ececec;
+        }
+        #emswrap .ems_top button{
+            width:50px;
+            height:26px;
+            border:none;
+            background: #388bff;
+           border-color: #3c8dff #408ffe #3680e6;
+           color:#fff;
+
+        }
+         #emswrap .ems_mid{
+
+
+         }
+         #emswrap .ems_mid ul li{
+
+            list-style: none;
+            padding:10px 10px 10px 50px;
+            border-bottom:1px solid #eee;
+
+         }
+
+        #emswrap .ems-bott{
+            padding-top:10px;
+        }
+        #emswrap .ems-bott img:nth-child(1){
+            margin:5px;
+        }
+        #emswrap .ems-bott .company_info{
+            margin-left:5px;
+        }
+        #emswrap .ems-bott .data{
+            clear:both;
+            float:right;
+
+        }
+        #emswrap .ems-bott button{
+            border:1px solid #ccc;
+            background: #fefefe;
+            padding:5px;
+            margin:5px;
+        }
+        #emswrap .ems-bott .data a{
+            color:#aaa;
+            text-decoration: none;
+        }
+        #emswrap .ems-bott .data a:hover{
+            color:#aaa;
+            text-decoration:underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="emswrap">
+        <div class="ems_top">
+           <div class='company_name'> 公司名称<p><i></i>申通快递<span></span></p><br/></div>
+            <div>快递单号
+                <input type="text">
+                <button>查询</button>
+            </div>
+
+        </div>
+        <div class="ems_mid">
+            <ul class="">
+                <!-- <li>
+                    <div class="time">2017年10月17日 上午10:50:40</div>
+                    <div class="info">湖南长沙青山分部-颜小龙-派件中</div>
+                </li> -->
+            </ul>
+        </div>
+        <div class="ems-bott clearfix">
+            <img class='fl' src="images/ems2.png" alt="">
+            <div class="company_info fl">
+                <h3>申通快递</h3>
+                <p>官网地址：<a href="http://www.sto.cn/">www.sto.cn</a></p>
+                <p>客服电话：95543</p>
+                <button>网点查询</button><button>网上寄件</button>
+            </div>
+            <div class='data'>
+                <img src="images/ems3.png" alt=""><a href="http://www.sto.cn/">数据来源申通快递</a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+    <script>
+        var oBut =  document.getElementsByTagName('button')[0];
+        var oUl = document.getElementsByTagName('ul')[0];
+
+
+        oBut.onclick =  function(){
+            ajax({
+                type:'POST',
+                url:'ems.json',
+                asyn:true,
+                data:{
+                    username:'千寻',
+                    password:'888'
+                },
+                dataType:'json',
+                success:success_fn,
+                error:function(response){
+
+                }
+
+            })
+
+        }
+
+        function success_fn(response){
+            var context = response.data.info.context;
+            for(var i=0;i<context.length;i++){
+                var li = document.createElement('li');
+                var time = document.createElement('div');
+                if(i==0){
+                    li.style.color = 'red';
+                }
+                time.className ='time';
+                var d =new Date( Number(context[i].time+'000') );
+                var Year = d.getFullYear();
+                var Mon = d.getMonth()+1;
+                var Dat = d.getDate();
+                var Hours = d.getHours();
+                var Mins = d.getMinutes();
+                var Secs = d.getSeconds();
+
+                var val = Hours>12?'下午':'上午';
+                time.innerText = Year+'年'+Mon+'月'+Dat+'日 '+val+' '+Hours+'时'+Mins+'分'+Secs+'秒';
+                li.appendChild(time);
+                //处理信息
+                var info = document.createElement('div');
+                info.className ='info';
+                info.innerText = context[i].desc;
+                li.appendChild(info);
+
+                oUl.appendChild(li);
+
+
+            }
+        }
+
+
+        function ajax(obj){
+            var type = obj.type||'POST',//请求类型
+            url = obj.url,//url处理
+            asny = obj.asny!==true,//异步处理
+            data = '',//预设写入数据
+            dataType = obj.dataType||'json',//请求类型
+            success = obj.success,//回调函数
+            error = obj.error;//错误处理函数
+            for(key in obj.data){//数据处理
+                data += key+'='+obj.data[key]+'&';
+            }
+            data = encodeURI(data);
+            console.log(data);
+            var xhr=new XMLHttpRequest();
+            //console.log(xhr);
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }else{
+                try{
+                   xhr = new ActiveXObject('Msxml2.XMLHTTP.6.0');
+                }catch(e){
+                   xhr = new ActiveXObject('Msxml2.XMLHTTP.3.0');
+                }
+            }
+            //如果是GET请求方式,设置数据
+            if(type.toUpperCase() == 'GET'){
+                var date = new Date().getTime();
+                //console.log(date);
+                url = url+'?'+data+date;
+                data =null;
+            }else if(dataType.toUpperCase() == 'XML'){
+                data =null;
+            }
+            xhr.open(type,url,asny);//请求架设
+            xhr.setRequestHeader('content-Type','application/x-www-form-urlencoded');//设置请求头信息
+            //console.log(data);
+            xhr.send(data);//发送数据
+            xhr.onreadystatechange= function(){//监听请求
+                //readyState 为XMLHttpRequest对象的状态
+                //status 为服务器返回的http状态码
+
+                if(xhr.readyState== 4 && xhr.status==200){
+                    var response;
+                    if(dataType === 'json' || dataType === 'text'){
+                        if(dataType === 'json'){
+                            //解析json数据
+                            response = JSON.parse(xhr.responseText);
+                        }else{
+                            //普通数据
+                             response = xhr.responseText;
+                        }
+
+                    }else{
+                        response = xhr.responseXML;
+                    }
+                    success&&success(response);
+                }else{
+                    error&&error(xhr.status);
+                }
+            }
+
+        }
+
+
+
+
+    </script>
+</html>

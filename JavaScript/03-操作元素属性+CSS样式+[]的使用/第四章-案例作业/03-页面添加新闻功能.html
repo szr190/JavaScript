@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>页面添加新闻功能</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		<!--css/js-->
+<style type="text/css">
+*{margin:0px; padding:0px; list-style-type:none;}
+#News{width:400px; border:1px solid #000; margin:100px auto 0px;}
+#News h3{color:#fff; text-indent:10px; font-size:14px; font-family:"微软雅黑";  height:35px; line-height:35px;
+			background:#000; position:relative;}
+#News h3 span{width:35px; display:block; color:#fff; font-size:20px; float:right; cursor:pointer;}
+#News ul li{line-height:35px;border-bottom:1px dotted #ddd; font-size:12px; margin:0px 10px;}
+#News ul li a{text-decoration:none; color:#000;}
+#News ul li a:hover{color:#ff3366;}
+#News input.txt{border:0px;width:160px; height:25px; position:absolute; left:80px; top:5px;}
+#News input.but{width:50px;height:25px; background:#ff9900;color:#fff; border:0px; position:absolute;
+				left:240px; top:5px;}
+#News h3 p#con{display:none;}
+</style>
+
+	</head>
+
+<body>
+
+<div id="News">
+	<h3><span id="add">+</span>最新动态
+		<p id="con"><input type="input" class="txt" id="txt"><input type="button" value="添加" class="but" id="addNews"></p>
+	</h3>
+	<ul id="list">
+		<!--<li><a href="">【2016-8-25】网页制作Javascript0基础</a></li>
+		<li><a href="">【2016-9-2】网页制作Html5+Css30基础</a></li>-->
+	</ul>
+</div>
+
+<script>
+var oBut=document.getElementById("add");
+var oP=document.getElementById("con");
+var oUl=document.getElementById("list");
+var addNews=document.getElementById("addNews");
+var txt=document.getElementById("txt");
+oBut.onclick=function(){
+	oP.style.display="block";
+}
+
+addNews.onclick=function(){
+	
+	oUl.innerHTML+="<li><a href='#'>"+txt.value+"</a></li>";
+	txt.value="";
+	oP.style.display="none";
+}
+
+
+
+</script>
+</body>
+</html>

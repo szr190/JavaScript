@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Java开发百度云盘大数据平台系统【百度大数据顶尖技术】 - Arry老师</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css/js-->
+<style type="text/css">
+*{margin:0px; padding:0px;}
+	#Music{width:600px; height:500px; margin:100px auto;}
+	#Music ul li{height:35px; border-bottom:1px solid #ddd; line-height:35px; font-size:12px; list-style-type:none;
+				text-indent:50px; background-image:url("images/ck.png");background-repeat: no-repeat; background-position:10px 10px;}
+	#Music p{height:35px; text-indent:50px; background-image:url("images/ck.png");background-repeat: no-repeat; background-position:10px 10px; line-height:35px; }
+
+	#Music ul li.active{background-image:url("images/cked.jpg");}
+	#Music p.active{background-image:url("images/cked.jpg");}
+</style>
+	</head>
+
+<body>
+
+<div id="Music">
+	<ul>
+		<li>私奔</li>
+		<li>北京北京</li>
+		<li>我爱你中国</li>
+		<li>花火</li>
+		<li>回来</li>
+		<li>爱要有你才完美</li>
+		<li>我是认真的</li>
+	</ul>
+	<p>全选</p>
+</div>
+
+
+<script type="text/javascript">
+
+var oMusic=document.getElementById("Music");
+var oLi=oMusic.getElementsByTagName("li");
+var oP=oMusic.getElementsByTagName("p")[0];
+var arrColor=["#9999ff","#9966cc"];
+var xs = 0;
+	for(var i=0;i<oLi.length;i++){
+
+		oLi[i].style.backgroundColor=arrColor[i%2];
+		oLi[i].index=i;
+		oLi[i].onmouseover=function(){
+			this.style.backgroundColor="#33ff00";
+		}
+
+		oLi[i].onmouseout=function(){
+			this.style.backgroundColor=arrColor[(this.index)%2];
+		}
+
+		oLi[i].onclick=function(){
+			if(this.className=="active"){
+				this.className="";
+				
+				jf();
+			}else{
+				this.className="active";
+				jf();
+				
+			}
+		}
+
+	}
+	
+//全选按扭
+var bq=0;
+oP.onclick=function(){
+	for (var i = 0; i < oLi.length; i++) {
+		
+		if (oLi[i].className) {
+			oLi[i].className = '';
+			
+		} else{
+
+			oLi[i].className="active";
+			
+		} 
+	}
+	/*if(bq==0){
+		for(var i=0;i<oLi.length;i++){
+			
+				oLi[i].className="active";
+				oP.className="active";
+		}
+		bq=1;
+	}else{
+
+		for(var i=0;i<oLi.length;i++){
+			
+				oLi[i].className="";
+				oP.className="";
+		}
+		bq=0;
+	}*/
+}
+
+
+//判断内容是否全部被选中了，如果是，就把全选按扭勾上
+function jf(){
+	var pk=0;
+	for(var i=0;i<oLi.length;i++){
+
+		if(oLi[i].className==""){
+			pk++;
+		}
+	}
+
+	if(pk>0){
+			oP.className="";
+			bq=0;
+		}else{
+			oP.className="active";
+			bq=1;
+		}
+
+}
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+            /*
+                let 命令,块级变量          全局 function 块级
+                    ---块级变量，作用于块级
+                    ---不存在变量提升 ->先声明在使用，提前使用报错
+                    ---
+
+            */
+            // var a = 20;
+            // console.log(a);//20
+            // let b = 30;
+            // console.log(b);//30
+
+
+            // if(true){
+            //     var a = 20;
+            // }
+            // console.log(a);//20
+
+            // if(true){
+            //     let a = 20;
+            //     console.log(a);//20
+            // }
+            //console.log(a);//ReferenceError
+
+            //代码块
+            // {
+            //     var a = 20;
+
+            // }
+            // console.log( a );
+
+            // var a = 20;
+
+            function fn(){
+                console.log( a );
+                //var a = 20;//undefined
+                let a= 20;//ReferenceError
+
+            }
+            fn();
+
+
+
+
+
+
+
+
+    </script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		
+		<form action="">
+			<input type="text" id="txt" />
+			<input type="radio" name="qq" id="rad1" />
+			<input type="radio" name="qq" id="rad2" />
+			<input type="checkbox" id="cBox" />
+			<!--在form里面写button标签是不行的-->
+			<input type="button" id="btn" value="button" />
+			
+			<select name="qq" id="select">
+				<option value="">1</option>
+				<option value="">2</option>
+				<option value="">3</option>
+				<option value="">4</option>
+				<option value="">5</option>
+			</select>
+		</form>	
+		
+		<script>
+		
+		/*
+		 	只有按下tab能够选中的就可以得到焦点
+			focus()---得到焦点 
+			onfocus---获得焦点事件
+			
+			blur()---失去焦点
+			onblur---失去焦点事件
+			
+			onchange---当内容改变的时候触发的事件
+					text:失去焦点时,和得到焦点的value值不一样时就会触发
+					radio:自己改变自己选中的内容时才触发
+					checkbox:自己改变自己的时候才触发
+					select:改变option时才触发
+					
+		*/
+			var oTxt=document.getElementById("txt");
+			var oBtn=document.getElementById("btn");
+			var oCbox=document.getElementById("cBox");
+			var oSelect=document.getElementById("select");
+			
+			oBtn.onclick=function(){
+				oTxt.focus();
+				
+			}
+			oTxt.onfocus=function(){
+				console.log(1);
+			}
+			oTxt.onblur=function(){
+				console.log(2);
+			}
+			
+			oCbox.checked=true;
+			document.onclick=function(){
+				oCbox.checked=false;
+			}
+			
+			oSelect.onchange=function(){
+				console.log('change')
+			}
+		</script>
+	</body>
+</html>

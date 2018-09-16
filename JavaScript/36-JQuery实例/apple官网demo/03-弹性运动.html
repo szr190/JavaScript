@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #box{
+            width:100px;
+            height:100px;
+            background: green;
+            position: absolute;
+            left:800px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+
+    </div>
+</body>
+    <script>
+        var oBox = document.getElementById('box');
+
+        var target = 300;
+        var speed=0;
+        var timer = setInterval(function(){
+            // if(oBox.offsetLeft > 300){
+
+            //     speed = speed + (oBox.offsetLeft-300); -10
+
+            //     // speed = speed - (oBox.offsetLeft-300)/8;
+            //     // speed = speed - oBox.offsetLeft/8+300/8;
+
+            // }else{
+            //     // speed = speed -oBox.offsetLeft/8 +300/8;
+            // }
+            speed += (target-oBox.offsetLeft)/8;
+
+            oBox.style.left = oBox.offsetLeft + speed +'px';
+
+        },1000/10);
+
+
+
+
+    </script>
+</html>

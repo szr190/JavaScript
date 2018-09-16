@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				定时器 
+			*/
+			
+			//一次性定时器  setTimeout---相当于延迟执行
+			setTimeout('a()',2000);//两秒之后把引号里面的代码当做JavaScript代码来执行,不建议,但优点是可以传参
+			
+			function a(){
+				//console.log(1);
+				return function(){
+					//console.log(2);
+				}
+			}
+			
+			//拓展：怎样拿到函数套函数里的东西?
+			function fn(){
+				window.b=b;//全局属性做接口
+				function b(){
+					//console.log('szr');
+				}
+			}
+			//fn();
+			//b();
+			
+			//循环定时器 setInterval---重复执行
+			
+			var timer=setInterval(function(){
+				//console.log(1);
+			},2000);
+			
+			//终止定时器  clearTimeout clearInterval
+			
+			
+			
+			/*
+				初始运动框架 
+			*/
+			
+			//所有运动的基础都是定时器
+			
+			//把box的margin-left移动到500的位置----最简单的运动
+			var x=0;
+			var time=setInterval(function(){
+				x+=2;
+				if(x>=500){
+					x=500;
+					clearInterval(time);
+				}
+				oBox.style.marginLeft=x+'px';
+			},13);
+			
+		</script>
+	</body>
+</html>

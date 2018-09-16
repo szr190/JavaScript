@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box1,#box2,#box3{
+				padding:50px;
+			}
+			#box1{
+				background:red;
+			}
+			#box2{
+				background:blue;
+			}
+			#box3{
+				background:green;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			<div id="box2">
+				<div id="box3"></div>
+			</div>
+		</div>
+		
+		
+		
+		<script>
+			var oBox1 = document.getElementById('box1');
+			var oBox2 = document.getElementById('box2');
+			var oBox3 = document.getElementById('box3');
+			
+			/*
+			oBox3.onclick=function(){
+				alert(1);
+			}
+			*/
+			
+			
+			bind(oBox3,'click',function(){
+				alert(this.id);
+			});
+			
+			function unbind(obj,eName,eFn){
+				obj.attachEvent?obj.detachEvent('on'+eName,eFn):obj.removeEventListener(eName , eFn , false);
+			}
+			
+			function bind(obj,eName,eFn){
+				obj.attachEvent?obj.attachEvent('on'+eName,function(){eFn.call(obj);}):obj.addEventListener(eName,eFn,false);
+			}
+		</script>
+	</body>
+</html>

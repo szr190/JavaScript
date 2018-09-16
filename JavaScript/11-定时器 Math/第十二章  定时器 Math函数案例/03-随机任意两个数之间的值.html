@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content=" ">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        a{text-decoration: none;}
+        ul,li{list-style: none;}
+        body{font-size: 14px;font-family: "微软雅黑";}
+
+    </style>
+</head>
+<body>
+
+</body>
+<script>
+
+
+
+    //随机100个10到20间的整数
+    // for(var i=0;i<100;i++){
+    //     var num = Math.floor( Math.random()*(20-10) )+10;
+    //     console.log(num);
+    // }
+
+    //随机一个两个值之间的整数
+
+   alert(  randomNum(10,100) );
+    function randomNum(start,end){
+        return Math.floor( Math.random()*(end-start) )+start;
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li> item 1</li>
+         <li> item 2</li>
+          <li> item 3</li>
+           <li> item 4</li>
+    </ul>
+</body>
+    <script>
+        /*
+            一、Unicode表示法
+                \u0000 ~ \uFFFF
+                es6码点需要添加{}
+
+            二、codePointAt();
+                charAt() 返回字符串
+                charCodeAt() 返回十进制代码
+
+            三 String.fromCodePoint();
+                String.fromCharCode()
+
+            四 、for of 遍历
+                能遍历类数组、数组，不能遍历对象
+
+            五、includes() startswith() endsWith()
+                includes() 是否包含字符串
+                startwith()是否以某字符串开头
+                endsWith()是否以某字符串结尾
+            六、padStart() padEnd();
+
+                str.padStart(num,String) str不满足num位时，在str字符串前面以string填补
+                str.padEnd(num,String)  str不满足num位时，在str字符串前面以string填补
+
+            七、
+
+
+
+
+
+
+        */
+
+        // var str = 'hello world';
+        // console.log( str.includes('hello') );//true
+        // var str = 'hello world';
+        // console.log( str.includes('8') );//false
+
+
+        // var str = 'hello world';
+        // console.log( str.startsWith('h') );//true
+        // console.log( str.startsWith('hello') );//true
+        // console.log( str.startsWith('w') );//false
+
+
+
+        // var str = 'hello world';
+        // console.log( str.endsWith('h') );//false
+        //  console.log( str.endsWith('d') );//true
+
+
+        // var r = 'x'.padStart(4,'y');
+        // console.log( r );
+
+        // var r = '1'.padStart(5,'0');
+        // console.log( r );//00001
+
+        var r = '1'.padEnd(5,'0');
+        console.log( r );//10000
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

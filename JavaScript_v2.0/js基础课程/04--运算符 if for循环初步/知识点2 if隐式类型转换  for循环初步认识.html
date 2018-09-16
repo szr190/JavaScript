@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+	<div id="box"></div>
+	
+	<script>
+		var oBox=document.getElementById("box");
+		/*
+		   if判断的隐式类型转换 
+		   	当if里面不是bool的时候,程序会把类型转换成bool后再执行
+		   	哪些会被转换成假？：
+		   	0----数字里面除了0都是真的
+		   	NaN
+		   	null
+		   	undefined
+		   	''-----加空格就是真的
+		   	//字符串里面只有空字符串才是假的
+		*/
+		if(undefined){
+			//console.log('szr');
+		}
+		if(''){
+			//console.log(1);
+		}
+		
+		
+		/*
+		    for循环 
+			for (①;②;③) {
+				//④
+			}
+			
+			执行顺序：1-->2-->4-->3-->2-->4-->3... ...
+			(1只执行一次)
+			(2是一个bool值,真执行,假停止)
+			(3 i++===i=i+1)
+		*/
+		for (var i = 0; i < 5; i++) {
+			document.write(i+'<br />')
+		}
+		
+		
+	</script>
+	</body>
+</html>

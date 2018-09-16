@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>please enter your title</title>
+		<meta charset="utf-8">
+		<meta name="Author" content="潭州学院-阿飞老师">
+		<style type='text/css'>
+			*{ margin:0; padding:0; font-family:'Microsoft yahei';}
+			#wrap{
+				width:300px;
+				height:410px;
+				box-shadow:0 0 5px #000;
+				border-radius:5px;
+				margin:10px auto;
+				padding-top:10px;
+			}
+			.show{
+				width:270px;
+				height:50px;
+				border:1px solid #999;
+				margin:0 auto;
+				line-height:50px;
+				text-align:right;
+				font-weight:bold;
+				padding-right:10px;
+				font-size:20px;
+			}
+			input{
+				width:50px;
+				height:50px;
+				display:block;
+				float:left;
+				margin:12px;
+				font-weight:bold;
+				font-size:20px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="wrap">
+			<p class="show">0</p>
+			<input type="button" class='num' value="1" />
+			<input type="button" class='num' value="2" />
+			<input type="button" class='num' value="3" />
+			<input type="button" class='fuhao' value="+" />
+			<input type="button" class='num' value="4" />
+			<input type="button" class='num' value="5" />
+			<input type="button" class='num' value="6" />
+			<input type="button" class='fuhao' value="-" />
+			<input type="button" class='num' value="7" />
+			<input type="button" class='num' value="8" />
+			<input type="button" class='num' value="9" />
+			<input type="button" class='fuhao' value="*" />
+			<input type="button" class='num' value="0" />
+			<input type="button" class='num' value="." />
+			<input type="button" id='result' value="=" />
+			<input type="button" class='fuhao' value="/" />
+		</div>
+
+		<script type="text/javascript">
+			var oShow = document.getElementsByClassName('show')[0];
+			var aNum = document.getElementsByClassName('num');
+			var aFuhao = document.getElementsByClassName('fuhao');
+			var oRes = document.getElementById('result');
+
+			var show = '';
+			var firstNum = '';
+			var secondNum = '';
+			var fuhao = '';
+			for (var i=0;i<aNum.length;i++ ){
+				aNum[i].onclick = function(){
+					if ( fuhao ){
+						oShow.innerHTML += 12;
+						secondNum += this.value;
+					}else{
+						//第一次输入的数字
+						show += this.value;
+						//显示在input
+						oShow.innerHTML = show;
+					}
+				};
+			};
+			for (var i=0;i<aFuhao.length;i++ ){
+				aFuhao[i].onclick = function(){
+					fuhao = this.value;
+					firstNum = oShow.innerHTML;
+					oShow.innerHTML += this.value;
+				};
+			}
+
+			oRes.onclick = function(){
+				var res = 0;
+				switch ( fuhao ){
+					case '+':
+						res = (firstNum*1) + (secondNum*1);
+						break;
+					case '-':
+						res = firstNum - secondNum;
+						break;
+					case '*':
+						res = firstNum * secondNum;
+						break;
+					case '/':
+						if(secondNum != "0"){
+							res = firstNum / secondNum;
+						}else{
+							alert("除数不能为0")
+						}
+						break;
+				}
+				oShow.innerHTML = res;
+				show = '';
+				firstNum = res;
+				secondNum = '';
+				fuhao = '';
+			};
+		</script>
+	</body>
+</html>

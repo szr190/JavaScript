@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				clientX/Y(水平/垂直)---鼠标触发事件时浏览器窗口的距离
+				
+				pageX/Y(水平/垂直)-----鼠标触发事件时页面的距离
+			*/
+			
+			//拖拽案例
+			
+			/*
+				onmousedown---鼠标按下事件
+				onmouseup---鼠标抬起事件
+				
+				onmousemove---鼠标移动事件
+				
+				onmouseover(子元素触发也会引发父元素触发)
+				onmouseout
+				
+				onmouseenter(只触发一次,只有进入自己本身的时候才触发)
+				onmouseleave
+			*/
+			
+//			document.onmousemove=function(){
+//				//console.log(1);
+//			}
+			
+			oBox.onmousedown=function(ev){//只有激活down时才激活move
+				ev=ev||window.event;
+				
+				//获取鼠标初始值
+				var eX=ev.clientX;
+				var eY=ev.clientY;
+				
+				//获取初始的left和top值
+				var boxX=this.offsetLeft;
+				var boxY=this.offsetTop;
+				
+				
+				document.onmousemove=function(ev){
+					ev=ev||window.event;
+					//变化量=当前位置-初始位置
+					var x_=ev.clientX-eX;
+					var y_=ev.clientY-eY;
+					
+					//确定盒子的位置=初始值+变化量
+					oBox.style.left=boxX+x_+'px';
+					oBox.style.top=boxY+y_+'px';
+					
+				};
+				document.onmouseup=function(){//抬起鼠标键时清除move
+					this.onmousemove=null;
+				}
+			}
+		</script>
+	</body>
+</html>

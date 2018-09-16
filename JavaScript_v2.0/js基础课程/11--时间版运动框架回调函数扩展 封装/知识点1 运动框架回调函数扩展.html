@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				margin-left: 50px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		<script type="text/javascript" src="运动曲线(时间版运动框架的封装).js" ></script>
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				运动框架回调函数扩展 
+				
+				等动画完成之后再去执行一个事情
+			*/
+			move(oBox,{
+				marginLeft:800,
+				width:150,
+				height:150
+			},3000,function(){
+				//console.log('停');
+				this.style.backgroundColor='green';
+			},'easeIn');
+			
+		</script>
+	</body>
+</html>

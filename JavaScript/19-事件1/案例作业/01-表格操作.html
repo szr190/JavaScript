@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        table{
+            margin:50px auto;
+            width:500px;
+            border-collapse:collapse;
+
+        }
+        table tbody{
+
+        }
+        table tr th{
+            background: #efefef;
+            padding:5px 0;
+
+        }
+        table tr td{
+            padding:5px;
+           text-align: center;
+        }
+        table tr td input{
+           width:90%;
+           height:30px;
+           border:1px solid #ccc;
+           border-radius: 8px;
+           padding:5px 20px;
+        }
+        table tr td textarea{
+           width:90%;
+           height:55px;
+           padding:5px 20px;
+           border-radius: 8px;
+        }
+
+        table tr td button{
+           width:50px;
+           height:30px;
+           border:1px solid #ccc;
+           border-radius: 8px;
+           outline:none;
+           background: #fff;
+        }
+         table tr td button:hover{
+            background: #ccc;
+         }
+
+    </style>
+</head>
+<body>
+    <table id='table'>
+      <tbody>
+          <tr>
+              <th>资料</th>
+              <th>输入框</th>
+              <th>操作</th>
+          </tr>
+          <tr>
+              <td class='first' width='20'>姓名</td>
+              <td class='two' width='80'><input type="text" placeholder="name"></td>
+              <td class='three' width='20'><button name='but_1'>删除</button></td>
+          </tr>
+          <tr>
+              <td>留言</td>
+              <td><textarea name="" id="" cols="30" rows="10" placeholder="..."></textarea></td>
+              <td><button name='but_2'>删除</button></td>
+          </tr>
+      </tbody>
+    </table>
+
+</body>
+    <script>
+        var oTable = document.getElementById('table');
+        var aBut = oTable.getElementsByTagName('button');
+        aBut[0].onclick = function(){
+            this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)
+
+        }
+        aBut[1].onclick = function(){
+            this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)
+
+        }
+
+
+    </script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+    <p  id='info'></p>
+   <a href="./4-2a_php_target.php?username=hello&password=8888">4-1a_php.php</a>
+   <!-- 这里发生的数据默认GET方式请求的 -->
+
+   <script>
+        var result = window.location.search;
+        var info = document.getElementById('info');
+        result = result.split('');
+        console.log(result[1]);
+        if(result[1] == 1){
+            info.innerText = '注册成功';
+        }else if(result[1] == 2){
+            info.innerText = '注册失败';
+
+        }
+    </script>
+</body>
+    <script>
+
+    </script>
+</html>

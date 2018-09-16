@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+*{margin:0;padding: 0;}
+.clearfix:after{
+    content:'';
+    display:block;
+    clear:both;
+}
+.fr{
+    float:right;
+}
+.fl{
+    float:left;
+}
+.wrap{
+    width:400px;
+    padding:10px;
+    border:1px solid #ccc;
+    margin:50px auto;
+}
+.wrap ul{
+    margin:0 20px;
+}
+.wrap ul li{
+    width:19px;
+    height:19px;
+    list-style:none;
+    margin-right:5px;
+    background:url('./images/star.png') no-repeat;
+}
+.wrap ul li.on{
+    background:url('./images/star.png') no-repeat 0px -28px;
+}
+.wrap p{
+    width:100px;
+    height:80px;
+    border:1px solid #ccc;
+}
+
+</style>
+</head>
+<body>
+ <div class="wrap clearfix">
+    <span class='fl'>星级评分</span>
+    <ul class='fl'>
+        <li class='fl'></li>
+        <li class='fl'></li>
+        <li class='fl'></li>
+        <li class='fl'></li>
+        <li class='fl'></li>
+
+
+    </ul>
+    <p class='fr'></p>
+ </div>
+</body>
+<script>
+    var aLi = document.getElementsByTagName('li');
+    var oP = document.getElementsByTagName('p')[0];
+    var oUl = document.getElementsByTagName('ul')[0];
+    var arrText = ['请添加评分','很差','差','一般','推荐','力荐',];
+    //var leaveIndex;
+    var clickIndex;
+    oP.innerHTML = arrText[0];
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].onmouseenter = function(){
+            for(var j =this.index; j<aLi.length;j++){
+                 aLi[j].className ='fl';
+            }
+            for(var e=0;e<=this.index;e++){
+                 aLi[e].className ='fl on';
+                 oP.innerHTML = arrText[e+1];
+            }
+           // leaveIndex = this.index;
+
+        }
+        aLi[i].onclick = function(){
+            clickIndex = this.index;
+        }
+
+    }
+    oUl.onmouseleave = function(){
+        if( clickIndex ){
+            for(var i = clickIndex+1;i<aLi.length;i++){
+                 aLi[i].className ='fl';
+                 oP.innerHTML = arrText[i];
+            }
+        }else{
+            for(var i = 0;i<aLi.length;i++){
+                 aLi[i].className ='fl';
+                 oP.innerHTML = arrText[0];
+            }
+        }
+
+
+    }
+
+
+
+</script>
+</html>

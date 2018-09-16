@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="Anthor" content="阿飞老师" />
+    <title>Title</title>
+    <style>
+        *{ margin:0; padding:0; font-family:"Microsoft yahei",serif;}
+        li{ list-style-type: none;}
+        #box{
+
+            width: 100px;
+            height: 500px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+    var $box = $("#box");
+
+    $box.slideUp( 2000 );
+
+    $(document).click(function () {
+        $box.stop(true , true);
+    });
+
+    // 第二的参数：true  瞬间到达动画重点
+    //           false 停在当前位置（默认）
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				new Date ----当前电脑的时间
+				
+				系统日期对象
+			*/
+			var a=new Date();
+			console.log(a);
+			var b=new Date();
+			console.log(a==b);//这两个不相等 false  因为内存地址指向是不同的
+			
+			console.log(a-0);//从1970年到现在的毫秒数1462282721680
+			
+			
+			console.log(a.getFullYear());
+			console.log(a.getMonth()+1);
+			console.log(a.getDate());
+			console.log(a.getDay());
+			console.log(a.getHours());
+			console.log(a.getMinutes());
+			console.log(a.getMilliseconds());
+			console.log(a.getTime());//得到从1970年到现在的毫秒数
+			
+			//可以传参数---可以缺省(可写可不写)----设置一个自己想要的时间
+			var c=new Date(2016,5,3,21,47,22);
+			console.log(c);
+			
+		</script>
+	</body>
+</html>

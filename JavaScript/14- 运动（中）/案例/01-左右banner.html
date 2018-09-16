@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    .clearfix:after{content:'';display:block;clear:both;}
+    .fl{float:left;}
+    .fr{float:right;}
+    #box{
+        width:700px;
+        margin:auto;
+        height:450px;
+        position: relative;
+        overflow:hidden;
+    }
+    li{
+        list-style: none;
+
+    }
+    a{
+        text-decoration: none;
+
+    }
+    #box ul{
+       position: absolute;
+       width:600%;
+
+
+    }
+    #box ul li{
+
+      /* opacity:0;*/
+
+       float:left;
+       width:16.6666667%;
+    }
+    #box ul li img{
+        width:100%;
+        height:450px;
+    }
+    #box ol{
+        position: absolute;
+        margin:auto;
+        left:50%;
+        bottom:20px;
+        margin-left:-70px;
+        text-align:center;
+        z-index:999;
+    }
+    #box ol li{
+        display:inline-block;
+        background: #ccc;
+        border-radius:50%;
+    }
+     #box ol li.on{
+        background:red;
+    }
+    #box ol li a{
+        display: block;
+        width:20px;
+        height:20px;
+
+    }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+       <ul>
+           <li><img src="images/1.jpg" alt=""> </li>
+           <li><img src="images/2.jpg" alt=""> </li>
+           <li><img src="images/3.jpg" alt=""> </li>
+           <li><img src="images/4.jpg" alt=""> </li>
+           <li><img src="images/5.jpg" alt=""> </li>
+           <li><img src="images/6.jpg" alt=""> </li>
+       </ul>
+       <ol>
+           <li><a href="javascript:void(0)"></a></li>
+           <li><a href="javascript:void(0)"></a></li>
+           <li><a href="javascript:void(0)"></a></li>
+           <li><a href="javascript:void(0)"></a></li>
+           <li><a href="javascript:void(0)"></a></li>
+           <li><a href="javascript:void(0)"></a></li>
+       </ol>
+
+    </div>
+
+</body>
+    <script src='js/self_element.js'></script>
+    <script>
+        var Ul = document.getElementsByTagName('ul')[0];
+        var Ol = document.getElementsByTagName('ol')[0];
+        var aImg = Ul.getElementsByTagName('li');
+        var aBut = Ol.getElementsByTagName('li');
+        var num = 0;
+        aBut[num].className = 'on';
+        aImg[num].style.left = 0;
+        for(var i=0;i<aBut.length;i++){
+            aBut[i].index = i;
+            aBut[i].onclick = function(){
+                // for(var i=0;i< aImg.length;i++){
+                //      aImg[i].animation({ opacity:0},1000,function(){ });
+                // }
+                //alert(this.index);
+                aBut[num].className = '';
+                num = this.index;
+                Ul.animation({left:-700*num,zIndex:0},600);
+                aBut[num].className = 'on';
+
+
+
+
+
+
+
+            }
+        }
+
+
+    </script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{ margin:0; padding:0;}
+			#wrap{width:404px;height:44px;margin:100px auto;position:relative;
+						font-family:'Microsoft yahei';}
+			#search{width:400px;height:40px;font-size:14px;font-family:'Microsoft yahei';
+						letter-spacing:1px;text-indent:10px;}
+			#list{width:402px;position:absolute;top:44px;border:1px solid #999;border-top:none;
+					display:none;}
+			#list ul li{width:100%;height:25px;line-height:25px;font-size:12px;
+					list-style:none;text-indent:10px;}
+			#list ul li a{display:block;text-decoration:none;color:#333;}
+			#list ul li a:hover{background:#ddd;}
+		</style>
+	</head>
+	<body>
+		
+		
+	   <!--
+       	作者：szr190@163.com
+       	时间：2016-06-07
+       	描述： 跨域调用百度搜索数据
+       -->
+       <div id="wrap">
+			<input type="text" id='search' />
+			<div id="list">
+				<ul>
+					 <!--<li><a href=''>联想词1</a></li>
+					<li><a href=''>联想词2</a></li>
+					<li><a href=''>联想词3</a></li>
+					<li><a href=''>联想词4</a></li>
+					<li><a href=''>联想词5</a></li> -->
+				</ul>
+			</div>
+		</div>
+       
+       
+       <script>
+       	var oSearch = document.getElementById('search');
+			var oList = document.getElementById('list')
+			var oUl = oList.getElementsByTagName('ul')[0];
+
+			oSearch.onkeyup = function(){
+				var val = this.value;
+				
+				var oS = document.createElement('script');
+				oS.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+ val +'&cb=fly';
+				document.body.appendChild( oS );
+
+				if ( val )
+				{
+					oList.style.display = 'block';
+				}
+				else
+				{
+					oList.style.display = 'none';
+				}
+			};
+
+			function fly( mJson ){
+				oUl.innerHTML = '';
+				for ( var i=0;i<mJson.s.length ;i++ )
+				{
+					var oLi = document.createElement('li');
+					oLi.innerHTML = '<a href="https://www.baidu.com/s?wd='+ mJson.s[i] +'" target="_new">'+ mJson.s[i] +'</a>';
+					oUl.appendChild( oLi );
+				};
+			}
+       </script>
+	</body>
+</html>

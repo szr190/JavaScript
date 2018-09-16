@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #box{
+            width:100px;
+            height:100px;
+            background: green;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+</body>
+    <script>
+        var oBox = document.getElementById('box');
+        /*
+            event对象
+                 //标准浏览器even对象是函数的第一形参，非标准的ie是window.event
+
+        */
+        oBox.onclick = fn;
+
+        function fn(ev){
+            ev = ev || window.event;
+            //标准浏览器even对象是函数的第一形参，非标准的ie是window.event
+            console.log( ev );
+
+        }
+
+    </script>
+</html>

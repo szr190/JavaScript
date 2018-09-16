@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		
+		<p id="text">5555555555555</p>
+		
+		
+		<script>
+			/*
+				默认事件
+				
+				如何阻止？找到 事件 源头 然后 返回 false；
+			*/
+			
+			//阻止移动
+			var oText=document.getElementById("text");
+			oText.onmousemove=function(){
+				return false;
+			}
+			
+			//阻止右键菜单
+			document.oncontextmenu=function(){
+				return false;
+			}
+			
+			//当选中开始的时候
+			oText.onselectstart=function(){
+				return false;
+			}
+		</script>
+	</body>
+</html>

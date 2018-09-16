@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+    <script>
+        /*
+            async 函数
+                (1)内置执行器
+                (2)更好的语义
+                (3)await 可跟promise及原始值
+                (3) promise 对象
+            基本用法
+                async关键字
+
+
+
+        */
+           // async function fn(){
+           //      console.log('ok');
+
+           // }
+
+           // fn();
+
+           // var fn = async function(){}
+
+           // setTimeout(async function(){
+           //  console.log('async')
+           // },1000)
+
+           // var fn =async () => { console.log('ok')};
+           // fn();
+
+
+//返回值 Promise 状态resolve
+        // async function fn(){
+
+
+        // }
+
+        // console.log( fn() );//{[[PromiseStatus]]: "resolved", [[PromiseValue]]: undefined}
+
+        // async function fn(){}
+
+        // fn().then(function(message){
+        //     console.log('成功的:'+message);
+        // },function(message){
+        //     console.log('失败的:'+message);
+        // })
+
+//return值会成为PromiseValue值
+    // async function fn(){
+    //     return 'hello';
+    // }
+    // fn().then(function(message){
+    //     console.log('成功的:'+message);
+    // },function(message){
+    //     console.log('失败的:'+message);
+    // })
+
+//async内部报错触发reject
+    // async function fn(){
+    //     throw new Error;
+    // }
+    // fn().then(function(message){
+    //     console.log('成功的:'+message);
+    // },function(message){
+    //     console.log('失败的:'+message);
+    // })
+    //失败的:Error
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

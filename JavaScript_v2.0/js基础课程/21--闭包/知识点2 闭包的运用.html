@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>0000</div>
+		<div>1111</div>
+		<div>2222</div>
+		<div>3333</div>
+		
+		<!--
+			完全利用了闭包的概念和特性
+		-->
+		
+		<script>
+			var oDiv=document.getElementsByTagName("div");
+			
+			for (var i=0;i<oDiv.length;i++) {
+				
+//				a(i);
+//				function a(x){
+//					oDiv[x].onclick=function(){
+//						alert(x);
+//					};
+//				};
+
+			//改造
+			(function(x){
+				oDiv[x].onclick=function(){
+					alert(x);
+				};
+			})(i);
+			
+			
+			};
+		</script>
+	</body>
+</html>

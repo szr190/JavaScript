@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;}
+        #wrap{
+            background-color: green;
+            margin:50px auto;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+
+
+    </div>
+</body>
+<script>
+    var oWrap = document.getElementById('wrap');
+    //alert( oWrap.style.height );//获取行内样式
+
+    //getComputedStyle()兼容
+    function getStyle(obj,attr){
+
+        if(window.getComputedStyle){
+
+            return getComputedStyle(obj)[attr];
+        }else{
+
+            return obj.currentStyle[attr];
+        }
+
+    }
+    var w = getStyle(oWrap,'width');
+
+    alert( w );
+
+    //不要去获取复合样式
+    //不要去获取没有定义的样式
+
+
+
+
+
+
+
+</script>
+</html>

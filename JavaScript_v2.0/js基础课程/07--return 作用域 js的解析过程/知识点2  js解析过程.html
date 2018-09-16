@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				作用域 ：
+					起作用的范围
+				js的解析过程：
+					(1)定义过程：找出所有的var和function来执行
+					(2)执行过程：从上到下执行
+			*/
+			
+			//例子1：
+			
+			console.log(b);//函数块
+			console.log(a);//undefined
+			var a=3;
+			console.log(b);//函数块
+			console.log(a);//3
+			function b(){
+				console.log(2);
+			}
+			
+			//上面例子的过程是：
+			/*
+				(1)定义：
+					var a;//只找定义,不找赋值的数值(因为赋值是执行的过程,不属于定义)
+					function b(){console.log(2);}
+				(2)执行：
+					从上往下依次执行
+			*/
+		</script>
+	</body>
+</html>

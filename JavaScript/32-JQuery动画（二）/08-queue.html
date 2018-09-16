@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="Anthor" content="阿飞老师" />
+    <title>Title</title>
+    <style>
+        *{ margin:0; padding:0; font-family:"Microsoft yahei",serif;}
+        li{ list-style-type: none;}
+        #box{
+            width: 100px;
+            height: 100px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+    /*var $box = $("#box");
+
+    $box.animate({
+        width : 500
+    },1000);
+
+    //加入队列
+    $box.queue(function () {
+        $box.css("backgroundColor" , "#000");
+
+        $box.dequeue();//退出队列（继续执行外面的后面的队列）
+    });
+
+    $box.animate({
+        height : 500
+    },1000);*/
+
+    var $box = $("#box");
+
+    $box.animate({
+        width : 500
+    },1000,function () {
+        $box.queue(function () {
+            $box.css("backgroundColor" , "#000");
+            $box.dequeue();
+        });
+    });
+
+    $box.animate({
+        height : 500
+    },1000);
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

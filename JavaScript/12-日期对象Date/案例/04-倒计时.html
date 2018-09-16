@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content=" ">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        a{text-decoration: none;}
+        ul,li{list-style: none;}
+        body{font-size: 14px;font-family: "微软雅黑";}
+        #box{width: 100%;height: auto;margin-top:100px;text-align: center;}
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h1 id="hh"></h1>
+    </div>
+    <script type="text/javascript">
+        /*
+            倒计时
+         */
+        var hh = document.getElementById("hh");
+        function start(y,m,d){
+            var now = Date.now(); //毫秒数
+            var end = new Date(y,m-1,d);
+            //毫秒数
+            var ss = end.getTime() - now;
+            //var ss = end.valueOf() - now.valueOf();
+            //秒数
+            var s = Math.floor(ss / 1000);
+            var day = Math.floor(s / 60 / 60 / 24);
+            var hour = Math.floor(s / 60 / 60 % 24);
+            var min = Math.floor(s / 60 % 60);
+            var sec = Math.floor(s % 60);
+
+            var html = "距离"+"<span style='color:red;'>过年</span>"+"还有"+day+"天"+toTime(hour)+"小时"+toTime(min)+"分"+toTime(sec)+"秒";
+            hh.innerHTML = html;
+        }
+
+        function toTime(n){
+            return n<10?n="0"+n:n = n;
+        }
+        setInterval(function(){
+            start(2018,2,15);
+        },1000);
+    </script>
+</body>
+</html>

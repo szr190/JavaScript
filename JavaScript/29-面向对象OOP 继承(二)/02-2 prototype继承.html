@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+       /*
+            fn.prototype.isPrototypeOf( obj )
+            obj是不是从fn.prototype那里继承而来,true是，false
+
+            原型链
+
+
+            继承
+
+            一 call() for/in循环
+
+       */
+
+       function Person(name,age){
+            this.name = name;
+            this.age = age;
+            this.arr = [200];
+       }
+       Person.prototype.showname = function(){
+            alert(this.name);
+       }
+
+       var person1= new Person('二狗',30);
+       var person2= new Person('三狗',60);
+
+
+       function Worker(work){
+           this.work = work;
+       }
+       Worker.prototype = new Person('旺财',20);//继承Person实例的属性和方法
+       // Worker.prototype = {
+       //      name:'二狗',
+       //      age:20,
+       //      showname:function(){
+       //          alert(this.name);
+       //     }
+       // }
+      var work = new Worker('teacher');
+      var work2 = new Worker('code');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

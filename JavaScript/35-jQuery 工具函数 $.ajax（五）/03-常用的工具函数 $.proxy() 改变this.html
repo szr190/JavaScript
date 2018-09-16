@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #box{
+            width:100px;
+            height:100px;
+            background: green;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <li></li>
+         <li></li>
+          <li></li>
+           <li></li>
+            <li></li>
+
+
+    </div>
+</body>
+    <script src='js/jquery-3.2.1.js'></script>
+
+
+    <script>
+        //console.log( $ );
+        //console.log( jQuery)
+        //$是jQuery的小名
+        // jQuery(function(){
+        //     alert('ok');
+
+        // })
+        //$('#box').text();//只能给jQuery对象用
+        //$.xxx();//工具函数,既能给jQuery对象用，也能给原生javascript对象用
+
+        /*
+            工具函数
+
+            $.type( obj )  判断对象类型
+            $.each(obj,fn); 遍历对象,可以遍历任何对象
+
+
+
+
+
+
+        */
+
+        // var obj = ['a','b'];
+        // var val = $.type(obj);
+        // console.log( val  );//array
+
+        // $('li').each(function(){
+
+        // })
+        // $.each($('li'),function(key,val){
+        //     console.log(key,val);
+        //     /*
+        //         age 20
+        //         name 二狗
+
+        //     */
+        // })
+
+
+        // var  $ = 'hello';
+        //$('li')
+
+        //var s = $.noConflict();//释放了jQuery对$的控制权
+        //console.log( s );//此时s具有了$的功能
+        // s('#box').click(function(){
+        //     alert('ok');
+
+        // })
+        //console.log( $ );//undefined
+        //console.log( jQuery );//jQuery依然能用
+
+
+        // var s = $.noConflict(true);//释放了jQuery.js对$及jQuery的控制权
+        // console.log( $ );//undefined
+        // console.log( jQuery );//undefined
+
+
+        // function fn(){
+        //     console.log(this);
+        // }
+
+        // var obj={age:20};
+        // $(document).click( $.proxy(fn,obj )  );//{age: 20}
+
+
+       //  function fn(){
+       //      console.log(this);
+       //  }
+
+       // var obj={age:20};
+       // var ret = $.proxy(fn,obj );//不会自执行
+       // //  //console.log( ret )
+       // $(document).click(ret);//{age: 20}
+       // ret();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

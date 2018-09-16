@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #box{
+            width:100px;
+            height:100px;
+            background: green;
+            position: absolute;
+
+        }
+        h3{
+
+            width:1px;
+            height:100px;
+            position: absolute;
+            left:500px;
+            background: #000;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+
+    </div>
+    <h3>
+
+    </h3>
+</body>
+    <script>
+        var oBox = document.getElementById('box');
+        console.log(oBox.offsetLeft);
+        console.log(oBox.clientLeft);
+        oBox.onclick = function(){
+            animation(oBox,'left',500);
+
+
+        }
+
+
+        function animation(obj,attr,target){
+           obj.init_offset = parseFloat(getStyle(obj,attr));
+            obj.speed =50;
+            obj.timer = setInterval(function(){
+                 obj.speed += (target-obj.init_offset)/5;
+                 obj.speed *= 0.75;
+                 obj.init_offset += obj.speed;
+                 if( Math.abs(obj.init_offset-target)<1 &&  Math.abs( obj.speed ) < 1 ){
+                    obj.init_offset = target;
+                    clearInterval(obj.timer);
+                 }
+
+                oBox.style.left = obj.init_offset +'px';
+                console.log(obj.speed);
+            },1000/60)
+
+
+        }
+        function getStyle(obj,attr){
+            if(window.getComputedStyle){
+               return getComputedStyle(obj)[attr];
+            }else{
+               return obj.currentStyle[attr];
+            }
+
+
+
+        }
+
+    </script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="Anthor" content="阿飞老师" />
+        <title>Title</title>
+        <style>
+            *{ margin:0; padding:0; font-family:"Microsoft yahei",serif;}
+            li{ list-style-type: none;}
+            #box{
+                display: none;
+                width: 100px;
+                height: 100px;
+                background: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box"></div>
+
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+
+            var $box = $("#box");
+
+            //show hide toggle
+
+            //$box.hide(1000);
+
+            //$box.show("slow");// "fast" 300    "normal" 500   "slow"  800
+            //$box.show(5000 , "linear");// "swing"  "linear"
+            $box.show(2000 , function(){
+                alert("动画完了！");
+            });
+
+            /*
+
+            当没参数，是瞬间变化的
+
+            第一个参数：时间
+
+            第二个参数：运动曲线，可以不写
+
+            第三个参数：回调函数
+
+             */
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

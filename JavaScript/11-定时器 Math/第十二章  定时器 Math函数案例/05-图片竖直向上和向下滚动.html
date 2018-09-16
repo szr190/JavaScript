@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    .clearfix:after{content:'';display:block;clear:both;}
+    .fl{float:left;}
+    .fr{float:right;}
+    #wrap{
+        width:300px;
+        margin:50px auto;
+        border:1px solid #ccc;
+        text-align:center;
+        height:299px;
+        overflow:hidden;
+        position: relative;
+    }
+    #wrap p{
+        background: #ccc;
+        line-height:30px;
+        cursor:pointer;
+        position: absolute;
+        width:100%;
+        z-index:99;
+
+    }
+     #wrap p:hover{
+        background-color: #aaa;
+        color:#fff;
+     }
+     #wrap p.up{
+        top:0;
+     }
+     #wrap p.down{
+        bottom:0;
+     }
+     #wrap ul{
+       position: relative;
+       top:30px;
+     }
+     #wrap ul li{
+        list-style: none;
+     }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <p class='up'>上</p>
+        <ul>
+            <li><img src="images/scroll1.png" alt=""></li>
+            <li><img src="images/scroll2.png" alt=""></li>
+            <li><img src="images/scroll3.png" alt=""></li>
+        </ul>
+        <p class='down'>下</p>
+
+    </div>
+</body>
+    <script>
+        var aP = document.getElementsByTagName('p');
+        var oUl = document.getElementsByTagName('ul')[0];
+        var num = 30;
+        var timer;
+        oUl.min = -461;
+        oUl.max = 30;
+        aP[0].onmousedown = function(){
+
+            timer = setInterval(function(){
+                num--;
+                var top = Math.max(num,oUl.min);
+                oUl.style.top = top+'px';
+                if(top<=oUl.min){
+                    clearInterval( timer );
+                }
+
+            },15)
+        }
+        aP[0].onmouseup = function(){
+            clearInterval( timer );
+        }
+        aP[1].onmousedown = function(){
+            timer = setInterval(function(){
+                num++;
+                var top = Math.min(num,oUl.max);
+                if(top>=oUl.max){
+                    clearInterval( timer );
+                }
+                oUl.style.top = top+'px';
+
+            },15)
+        }
+        aP[1].onmouseup = function(){
+            clearInterval( timer );
+        }
+
+    </script>
+</html>

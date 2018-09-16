@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+	<div id="box"></div>
+	
+	<script>
+		var oBox=document.getElementById("box");
+		
+		/*
+		       运算符 
+		*/
+		//+
+		var a=1;
+		var b=2;
+		//console.log(a+b);
+		//-
+		var c=4;
+		var d=3;
+		//console.log(c-d);
+		//*
+		var e=2;
+		var f=6;
+		//console.log(e*f);
+		//%
+		var g=10;
+		var h=2;
+		//console.log(g/h);
+		
+		//+=  运算和赋值连在一起
+		var j=2;
+		j+=5;//本身加上后面的数
+		//console.log(j);
+		
+		//-=
+		var k=3;
+		k-=2;
+		//console.log(k);
+		
+		
+		
+		
+		
+		/*
+		       符号的隐式类型转换 
+		*/
+		
+		//加号两边如果有字符串就是拼接,而不是加法运算,最后得到的是字符串类型
+		//不管什么时候- * % /号都是数学运算,最后得到的是数字(number)类型
+		var l='2';
+		var m=3;
+		//console.log(l+m);
+		//console.log(l-m);
+		
+		//加字符串本身没有变化
+		var n=50;
+		n+='';
+		//console.log(n);
+		
+		
+		
+		
+		
+	</script>
+	</body>
+</html>

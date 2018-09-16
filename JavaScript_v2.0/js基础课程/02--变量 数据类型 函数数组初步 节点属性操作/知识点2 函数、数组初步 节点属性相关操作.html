@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数、数组初步 节点属性相关操作</title>
+		<style>
+			*{margin: 0;padding: 0;}
+		</style>
+	</head>
+	<body>
+	
+	<div id="box"></div>
+		
+    <script>
+    	/*
+    	    '函数'初步 
+    	    
+    	    //匿名函数
+	    	function(){
+	    		
+	    	}
+	    	//有名函数
+	    	function a(){
+	    		
+	    	}
+	    	var a=function(){
+	    		
+	    	}
+	    	函数执行：
+	    	   主动执行---函数名()
+	    	   被动执行---对象.事件=函数名(或者匿名函数) 
+	    	
+    	*/
+    	
+    	
+    	
+    	
+    	//a();//主动执行
+    	document.onclick=a;//被动执行---在事件中执行  不能加括号
+    	
+    	//有名函数
+    	function a(){
+    		//console.log('szr')
+    	}
+    	
+    	
+    	/*
+    	      数组初步 
+    	            所有的数据类型都可以放在[]里面
+    	     length是数组自带的,用来获得数组的长度(个数)
+    	             数组后面的[]是下标的意思,用于获得数组里面的内容,这种方式不可以一下子拿两个内容
+    	*/
+    	
+    	var arr=[1,null,undefined,'szr'];
+    	//console.log(arr.length);
+    	//console.log(arr[0]);
+    	
+    	
+    	/*
+    	       节点属性操作 
+    	       读---读取内容
+    	       写---改变内容
+    	*/
+    	
+    	var oBox=document.getElementById("box");
+    	//写
+    	oBox.innerHTML='zss';//改变网页内容
+    	
+    	//读
+    	var a=oBox.innerHTML;
+    	console.log(a);
+    	
+    	
+
+    </script>
+	</body>
+</html>

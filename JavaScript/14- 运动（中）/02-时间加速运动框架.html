@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    .clearfix:after{content:'';display:block;clear:both;}
+    .fl{float:left;}
+    .fr{float:right;}
+    #box{
+        width:100px;
+        height:100px;
+        background: green;
+        position: absolute;
+        left:0px;
+
+
+    }
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+
+</body>
+    <script>
+        /*
+            requestAnimationFrame() 请求动画
+                每次请求一次
+            cancelAnimationFrame(timer) 删除动画
+        */
+        var oBox = document.getElementById('box');
+
+
+        animation(oBox,'left','800px',1000);
+        function animation(obj,attr,targ,dur){
+            //
+            targ = parseFloat(targ);//转化为数字类型，并去掉单位;
+            var init = parseFloat( getStyle(obj,attr) );//获取初始值
+            var init_t = new Date();//获取初始时间
+
+            //targ-init =a*Math.pow(dur,2)/2;
+            var a = (targ-init)*2/Math.pow(dur,8);
+            //console.log(a);
+            (function run(){
+                var run_r = new Date()-init_t;//运动时长
+                var prop = run_r /dur;
+                if(prop>=1){
+                    prop = dur;
+                }else{
+                     window.requestAnimationFrame(run);
+                }
+                var val = a*Math.pow(run_r,8)/2; //当前的路程
+
+                if(attr=='opacity'){
+                    obj.style[attr] = init+val;
+                }else{
+                    obj.style[attr] = init+val+'px';
+                }
+
+
+
+
+            })()
+
+        }
+
+        function getStyle(obj,attr){
+            return window.getComputedStyle?window.getComputedStyle(obj)[attr]:obj.currentStyle[attr];
+        }
+
+
+
+
+
+
+
+
+    </script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+    <input type="text" >
+    <input type="button" value='提交'>
+</body>
+    <script>
+        /*
+            一 throw ('错误描述')
+            二 Error 类
+                Error('错误描述');
+                EvalError—————本规范现在已经不再使用这个异常，这个对象保留用于跟规范之前版本的兼容性。
+                RangeError ————表示一个数值超出了允许的范围
+                ReferenceError ——-表示一个不正确的引用值被检测到
+                SyntaxError ———–表示一个解析错误发生
+                TypeError ————-表示一个操作数的真实类型与期望类型不符。
+                URIError ————–表示全局 URI 处理函数被以不符合其定义的方式使用
+
+
+
+        */
+         //throw ('你操作异常');
+         //allert('ok');
+
+         var aInp = document.getElementsByTagName('input');
+         aInp[1].onclick = function(){
+            if(aInp[0].value !== '1'){
+                throw new TypeError('你输入的不是1');
+                //alert(1);
+
+            }
+
+         }
+
+
+
+    </script>
+</html>

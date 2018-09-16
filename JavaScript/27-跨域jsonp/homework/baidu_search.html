@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:14px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #wrap{
+            text-align:center;
+            margin:50px auto;
+            padding:10px;
+        }
+        #wrap .search{
+            width:680px;
+            margin:auto;
+            text-align: center;
+            position: relative;
+        }
+
+        #wrap .search input[type='text']{
+            width:550px;
+            height:40px;
+            text-indent: 10px;
+            border:1px solid #ccc;
+            outline:none;
+        }
+        #wrap .search input[type='text']:focus{
+            border:1px solid #3385ff;
+        }
+        #wrap .search input[type='button']{
+            padding:0 15px;
+            height:42px;
+            border:none;
+            background:#3385ff;
+            color:#fff;
+            outline:none;
+            border-bottom: 1px solid #2d78f4;
+            cursor:pointer;
+
+        }
+        #wrap .search input[type='button']:hover{
+            background: #317ef3;
+        }
+        #wrap .search i{
+            width:20px;
+            height:20px;
+            position: absolute;
+            background:no-repeat url('./images/caption.png') right 0;
+            right:140px;
+            top:50%;
+            margin-top:-10px;
+         }
+        #wrap .search i:hover{
+            width:20px;
+            height:20px;
+            position: absolute;
+            background:no-repeat url('./images/caption.png') right -20px;
+            right:140px;
+            top:50%;
+            margin-top:-10px;
+         }
+        #wrap .search ul{
+            width:550px;
+            position: absolute;
+            top:41px;
+            display: none;
+            text-align: left;
+            border:1px solid #ccc;
+        }
+        #wrap .search ul li{
+            list-style: none;
+            padding:5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <img width='300' src="https://www.baidu.com/img/bd_logo1.png" alt="">
+       <div class="search clearfix">
+            <input class='fl' type="text">
+            <i></i>
+            <input class='fl' type="button" value='百度一下'>
+            <ul>
+               <li>
+                    <div class="">javascript</div>
+                    <div class="">javascript</div>
+                    <div class="">javascript</div>
+                    <div class="">javascript</div>
+                    <div class="">javascript</div>
+
+               </li>
+
+           </ul>
+       </div>
+
+
+
+
+    </div>
+
+
+
+    <script>
+
+        var oWrap= document.getElementById('wrap');
+        var aInp = oWrap.getElementsByTagName('input');
+        var oUl = oWrap.querySelector('ul');
+        var aItem = oWrap.querySelectorAll('ul li div');
+        var oScript;
+        aInp[0].onkeyup = function(){
+            var  val= this.value;
+                if(oScript){
+                    document.body.removeChild(oScript);
+                }
+                oScript = document.createElement('script');
+                oScript.src ='https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+encodeURI(val)+'&sugmode=2&jsonp=1&p=3&sid=1431_19036_13550_21112_17001_24022_24658&req=2&bs=javascript&csor=10&cb=callback&_=1508568908610';
+
+            document.body.appendChild(oScript);
+
+        }
+
+
+        function callback(data){
+            oUl.style.display = 'block';
+
+           // aItem[0].innerText = data.q;//搜索的值
+            data = data.s;//百度数据
+            var length = Math.min(aItem.length,data.length);
+            console.log(length);
+            for(var i=0;i<length;i++){
+                  aItem[i].innerText = data[i];
+            }
+
+        aInp[0].onblur = function(){
+            oUl.style.display = 'none';
+
+        }
+
+
+
+            //console.log(data);
+
+        }
+    </script>
+
+</body>
+
+</html>

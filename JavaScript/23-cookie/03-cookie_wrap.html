@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+        /*
+            cookie 可以在用户电脑上存储数据
+                1 以域名方式存储,一个域名对应一个cookie
+                2 每个浏览器存储的位置不一样,不能共享
+                3 cookie存储数量有限制
+                4 cookie存储有时间限制,默认浏览器关闭cookie清除
+
+                cookie 特点
+                  一 给的值不会覆盖
+                  二 value; value;
+                  三 可以设置cookie
+                  四 expires+字符串类型的时间
+
+
+
+        */
+
+            setCookie({
+                age:30,
+                name:'二狗',
+                love:'逛街',
+                sex:'男'
+            },30);
+            function setCookie(obj,time){
+                var date = new Date();
+                date.setDate( date.getDate()+time);//设置过期时间
+                for(key in obj){//遍历obj
+                    //设置
+                    document.cookie = key+'='+obj[key]+'; expires='+date.toUTCString();
+                }
+            }
+
+             //setCookie('bbb','6666',30);
+            // function setCookie(key,val,time){
+            //     var date = new Date();
+            //     date.setDate( date.getDate()+time);
+            //     //console.log( date.toUTCString() );
+            //     document.cookie = key+'='+val+'; expires='+date.toUTCString();
+            // }
+
+
+
+
+
+
+    </script>
+</html>

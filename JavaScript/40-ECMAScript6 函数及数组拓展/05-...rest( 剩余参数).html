@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+
+        /*
+            函数拓展
+                一 函数参数默认值
+                二 函数参数位置
+                三 函数参数默认值作用域
+                四 函数length属性
+                五、...rest(剩余参数)
+                    --- 剩余参数后面不要在写参数，否则报错
+
+                六、箭头函数
+
+
+
+
+
+        */
+         // function fn(x,y){
+         //    console.log( x,y);
+         // }
+         // fn(10,20);//10 20
+
+
+         // function fn(x=10,y=20){
+         //    console.log(x,y);
+         // }
+         // fn();//10 20
+
+
+         // function fn(x=10,y=20){
+         //    console.log(x,y);
+         // }
+         // fn('二狗','旺财');
+
+
+         // function fn(x=10,y=20){
+         //    console.log(x,y);
+         // }
+         //fn(,'旺财');//SyntaxError
+         //fn(undefined,'旺财');//10 "旺财"
+
+
+         // function fn(x,y){//var x;
+         //    console.log(x,y);
+         // }
+         // fn();//undefined undefined
+
+
+         // var x = 10;
+         // function fn(x,y){//var x;
+         //    console.log(x,y);
+         // }
+         // fn();//undefined undefined
+
+
+         // function fn(x,y){//var x;
+         //    let x = 20;//SyntaxError: Identifier 'x' has already been declared
+         // }
+         // fn();
+
+         // var x = 5;
+         // function fn(x = x,y){//报错
+         //    console.log(x,y);//5 undefined;
+         // }
+         // fn();
+
+         // var x = 5;
+         // function fn(x,y = x){//第一个x为参数，第二是变量，会访问局部第一个x
+         //    console.log(x,y);//5 undefined;
+         // }
+         // fn();
+
+         // var x = 5;
+         // function fn(y = x){//此时x是变量
+         //    console.log(y);//undefined undefined;
+         // }
+         // fn();
+
+
+         // var foo = 'outer';
+         // var x = 'hello';
+
+         // function fn( x = function(){ return foo} ){
+         //    var foo = 'inner';
+         //    console.log( x());//outer
+         // }
+         // fn();
+
+         // function fn(){}
+         // var r = fn.length;
+         // console.log(r);//0
+
+         // function fn(x,y){}
+         // var r = fn.length;
+         // console.log(r);//2
+
+         // function fn(x,y,z){}
+         // var r = fn.length;
+         // console.log(r);//3
+
+         // function fn(x,y,z = 'hello' ){}
+         // var r = fn.length;
+         // console.log( r );//2
+
+         // function fn(x,z = 'hello',y ){}
+         // var r = fn.length;
+         // console.log( r );//1
+
+         // function fn(x,y,...val){//[]
+         //    console.log(x,y);//10 20
+         //    console.log(val);//["a", "b", "c"]
+
+         // }
+         // fn(10,20,'a','b','c');
+
+
+         // function fn(x,y,...val){//[]
+         //    console.log(x,y);//10 20
+         //    console.log(val);//[];
+         // }
+         // fn(10,20);
+
+         // function fn(...val){//[]
+         //    console.log(val);//[10, 20]
+         //    console.log(val instanceof Array);//是一个真实数组,可以替代arguments
+         // }
+         // fn(10,20);
+
+         function fn(x,...val,y){//SyntaxError
+            console.log(x,y);
+            console.log(val);//[10, 20]
+            //console.log(val instanceof Array);//是一个真实数组,可以替代arguments
+         }
+         fn(10,20,'a','b','c');
+
+
+
+
+
+
+    </script>
+</html>

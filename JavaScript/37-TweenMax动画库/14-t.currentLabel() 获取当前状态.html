@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #box{
+            width:100px;
+            height:100px;
+            background: green;
+            position: absolute;
+            left:0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+</body>
+    <script src='js/jquery-2.1.4.min.js'></script>
+    <script src='js/TweenMax.js'></script>
+    <script>
+        var t = new TimelineMax();
+        /*
+            t.to(selector,duration,cssStyles,[delay] ) 从当前状态到指定状态
+                selector 选择器或者对象
+                duration  过渡时间，
+                cssStyles CSS样式对象
+                delay    延迟
+
+            t.from(selector,duration,cssStyles,[delay] ) 从指定状态到当前状态
+                selector 选择器或者对象
+                duration  过渡时间，
+                cssStyles CSS样式对象
+                delay    延迟
+                    '-=2' 在默认提前2秒
+                    '+=2' 在默认后延迟2秒
+
+            t.set(selector,cssStyles) 设置状态，无过渡
+
+            //动画控制
+            t.play();       播放动画
+            t.pause();      暂停动画
+            t.reverse()     反转动画
+
+            //回调函数
+            onStart   单动画执行开始的回调函数
+            onComplete 单动画执行完成后的回调函数
+            onReverseComplete  反转动画中单动画执行完成后的回调函数
+
+            t.add()  添加状态，要结合tweenTo()使用
+                参数是一个字符串 或者函数
+
+            t.tweenTo() 到达指定状态,需要先add指定指定状态
+                参数是一个字符串或时间
+
+            t.seek()   跳到指定的状态（无过渡）,会执行后面动画
+                1. 指定时间或状态
+                2. 【可选】布尔值,是否执行跳过的函数
+                true：不执行函数 默认
+                false: 执行函数
+
+            t.totalDuration() 动画执行到当前状态所花时间
+            t.getLabelTime()  到达指定状态所需时间
+                参数 字符串状态
+            t.currentLabel() 获取当前状态
+
+
+
+
+
+
+
+
+
+
+
+
+
+        */
+        // var oBox = document.getElementById('box');
+        // t.to('#box',2,{left:200},1);
+
+       // document.onclick = function(){
+       //      // t.to('#box',2,{left:200},1);
+       //      t.set('#box',{left:400,width:200,top:200,delay:2});
+       //      //delay延迟
+
+       // }
+
+       var obj = document.getElementById('box');
+        t.to('#box',5,{left:400},6);
+         // t.add('state2');//字符串
+        // t.add(function(){ alert('ok') });//函数
+        //t.add(10);//
+        t.add('state1');//函数
+
+        t.to('#box',2,{width:150,height:150});
+
+        t.to('#box',2,{top:400,onComplete:function(){ console.log( t.currentLabel() ) }
+    });
+
+
+        t.add('state3');
+        t.to('#box',2,{rotationZ:180});
+        //t.add('state3');
+        t.to('#box',2,{left:0});
+
+
+
+
+
+
+
+    </script>
+</html>

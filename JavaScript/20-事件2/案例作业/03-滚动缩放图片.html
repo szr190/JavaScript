@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #wrap{
+            width:400px;
+
+            margin:50px auto;
+
+        }
+        #wrap img{
+            width:100%;
+           /* transform:scale(2);*/
+
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <img src="images/mnls.jpg" alt="" >
+    </div>
+
+</body>
+    <script>
+        var oWrap = document.getElementById('wrap');
+        var img = document.getElementsByTagName('img')[0];
+        var scale = 1;
+       addEvent(img,'mousewheel',fn );
+
+       //removeEvent(img,'mousewheel',fn);
+       function fn(e){
+            scale += e.wheel/1000;
+            this.style.transform = 'scale('+scale+')';
+            console.log(scale);
+       }
+
+       // oDiv.onmousewheel=fn;
+       //  if(oDiv.addEventListener){
+       //  oDiv.addEventListener('DOMMouseScroll',fn,false);
+       //  }
+       //  function fn(ev){
+       //  var b='';
+       //  if(  ev.wheelDelta  ){  b = ev.wheelDelta>0?true:false; }else{    b = ev.detail<0?true:false;  }
+       //  alert(b);
+       //  }
+
+
+        function addEvent(obj,eventType,fn,boolean){
+            //事件兼容处理
+            boolean=boolean?boolean:false;
+            obj[eventType] = handle;//把处理函数赋值给window，便于后面的清除
+             obj.addEventListener?obj.addEventListener(eventType,obj[eventType],boolean):obj.attachEvent('on'+eventType,obj[eventType]);
+
+             //兼容:鼠标滚动
+             if(eventType=='mousewheel'){
+                obj.onmousewheel = obj[eventType];//兼容ie chrome
+                obj.addEventListener?obj.addEventListener('DOMMouseScroll',obj[eventType],boolean):false;   //兼容firefox
+
+             }
+             //滚动函数event对象处理
+
+             function handle(e){
+                e = e || window.event;
+                console.log( 'ok')
+                e.wheel = e.wheelDelta?e.wheelDelta:-e.detail*40;
+                fn.call(obj,e);
+            }
+
+        }
+
+        function removeEvent(obj,eventType,fn,boolean){
+            boolean=boolean?boolean:false;
+            obj.removeEventListener?obj.removeEventListener(eventType,obj[eventType],boolean):obj.detachEvent('on'+eventType,obj[eventType]);
+            //兼容:鼠标滚动
+             if(eventType=='mousewheel'){
+                obj.onmousewheel = null;//兼容ie chrome
+                eventType ='DOMMouseScroll';
+                obj.removeEventListener?obj.removeEventListener(eventType,obj[eventType],boolean):false;   //兼容firefox
+
+             }
+
+
+        }
+
+
+
+
+
+
+    </script>
+</html>

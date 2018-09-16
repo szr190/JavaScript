@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        iframe{
+            display:block;
+            width:800px;
+            height:800px;
+            margin:auto;
+            border:1px solid #ccc;
+
+        }
+        #info{
+            background-color: #fcf;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+    <form action="04-2form_post.php" method='post'>
+        用户名：<input type="text" name='username'>
+
+        <hr>
+        密码：<input type="password" name='password'>
+        <div id="info"></div>
+        <hr>
+
+        <input class='submit' type="submit" value='提交'>
+
+         <input class='button' type="button" value='按钮'>
+    </form>
+
+</body>
+    <script>
+        var oForm =  document.getElementsByTagName('form')[0];
+        var aInp = document.getElementsByTagName('input');
+
+        aInp[2].onclick = function(){
+            //return false;
+        }
+        aInp[3].onclick =   function(){
+            ajax({
+                type:'POST',
+                url:'01-ajax_json.php',
+                asyn:true,
+                data:{
+                    username:'千寻',
+                    password:'888'
+                },
+                dataType:'json',
+                success:function(response){
+                    console.log( response );
+                },
+                error:function(response){
+
+                }
+
+            })
+
+        }
+
+        function ajax(obj){
+            var type = obj.type||'POST',//请求类型
+            url = obj.url,//url处理
+            asny = obj.asny!==true,//异步处理
+            data = '',//预设写入数据
+            dataType = obj.dataType||'json',//请求类型
+            success = obj.success,//回调函数
+            error = obj.error;//错误处理函数
+            for(key in obj.data){//数据处理
+                data += key+'='+obj.data[key]+'&';
+            }
+            data = encodeURI(data);
+            console.log(data);
+            var xhr=new XMLHttpRequest();
+            //console.log(xhr);
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }else{
+                try{
+                   xhr = new ActiveXObject('Msxml2.XMLHTTP.6.0');
+                }catch(e){
+                   xhr = new ActiveXObject('Msxml2.XMLHTTP.3.0');
+                }
+            }
+            //如果是GET请求方式,设置数据
+            if(type.toUpperCase() == 'GET'){
+                var date = new Date().getTime();
+                //console.log(date);
+                url = url+'?'+data+date;
+                data =null;
+            }
+            xhr.open(type,url,asny);//请求架设
+            xhr.setRequestHeader('content-Type','application/x-www-form-urlencoded');//设置请求头信息
+            //console.log(data);
+            xhr.send(data);//发送数据
+            xhr.onreadystatechange= function(){//监听请求
+                //readyState 为XMLHttpRequest对象的状态
+                //status 为服务器返回的http状态码
+
+                if(xhr.readyState== 4 && xhr.status==200){
+                    var response;
+                    if(dataType === 'json' || dataType === 'text'){
+                        if(dataType === 'json'){
+                            //解析json数据
+
+                            response = JSON.parse(xhr.responseText);
+                        }else{
+                            //普通数据
+                             response = xhr.responseText;
+                        }
+
+                    }else{
+                        response = xhr.responseXML;
+                    }
+                    success&&success(response);
+                }else{
+                    error&&error(xhr.status);
+                }
+            }
+
+        }
+
+
+
+
+    </script>
+</html>

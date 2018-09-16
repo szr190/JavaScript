@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="text" placeholder="请输入您的邮箱或者qq号" id="txt" />
+		
+		<script>
+			/*
+				其它小点 
+				
+				(1) .------代表任意,可以匹配任意字符
+				(2) ^------前面必须是字符串开始的部分,在字符集[]里面使用的时候是'非'的意思
+				(3) $------结束部分
+				(4) |------单纯的或者的意思 var a=/abc|d/;---abc或者d
+				
+				(5)//replace  str.replace( reg , strA ); 把匹配成功的东西替换成strA;
+				
+				
+			*/
+			
+			/*
+				小实例
+			*/
+			var oTxt=document.getElementById("txt");
+			
+			//QQ号规则：min-5 max-10 ;不能以0开头;只能是数字;严格控制起始部分
+			
+			var regQQ=/^[1-9]\d{4,9}$/;
+			
+			//邮箱规则：
+			
+			var regEmail=/^\w+@[0-9a-zA-Z]{2,}(\.[a-zA-Z]{2,}){1,2}$/;
+			
+			//手机号码规则：长度11;数字;1开头
+			
+			var regTel=/^1[34578]\d{9}$/;
+			
+			//身份证规则：
+			
+			var regPeopleID=/^[1-9]\d{16}[0-9xX]$/;
+			
+			
+			oTxt.onblur=function(){
+				var val=this.value;
+				if(val.length){
+					if(regQQ.test(val)){
+						console.log('ok');
+					}else{
+						console.log('error');
+					}
+				}
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

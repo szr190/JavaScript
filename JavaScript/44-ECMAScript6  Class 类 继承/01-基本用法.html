@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+/*基本用法*/
+    // function A(){
+
+    // }
+    // var obj = new A();
+
+    // class A{}
+    // var obj = new A();
+    // console.log(obj);//A {}
+    // console.log( typeof A)//function
+
+//constructor
+//每一个类里面必须有constructor
+
+    // class A{
+    //     constructor(x,y){
+    //        console.log(x,y);// 10 20
+    //     }
+
+    // }
+    // var obj = new A(10,20);
+
+
+    // class A{
+    //     constructor(x,y){
+    //        this.x = x;
+    //        this.y = y;
+    //     }
+
+    // }
+    // var obj = new A(10,20);
+    // console.log(obj);//{x: 10, y: 20}
+
+
+    //class A{}
+    //等同于
+    // class A{
+    //     constructor(){}
+    // }
+
+//class的方法,是给类的原型(prototype)添加方法,不要带function关键字，不要有逗号，否则报错
+    // class A{
+    //     constructor(x,y){
+    //        this.x = x;
+    //        this.y = y;
+    //     }
+    //     show(){
+    //         console.log(`x:${this.x}\ny:${this.y}`)
+    //     }
+    // }
+    // var a = new A(10,20);
+    // //a.show();
+    // console.log(A.prototype);
+
+    //等同于
+    // class A{
+    //     constructor(x,y){
+    //        this.x = x;
+    //        this.y = y;
+    //     }
+
+    // }
+
+    // A.prototype = {
+    //     show(){
+    //         console.log(`x:${this.x}\ny:${this.y}`)
+    //     }
+    // }
+
+//static 静态方法,给类添加方法
+    // class A{
+    //     constructor(x,y){
+    //        this.x = x;
+    //        this.y = y;
+    //     }
+    //     show(){
+    //         console.log(`x:${this.x}\ny:${this.y}`)
+    //     }
+    //     index(){}
+    //     static hello(){
+    //         console.log('hello');
+    //     }
+
+    // }
+
+    //A.hello();//hello
+
+    // A.hello = function(){
+    //     console.log('hello');
+    // }
+
+    // var a = new A(10,20);
+    // a.show();
+
+//class表达式
+    // class A{
+    //     constructor(){
+    //         console.log(A);//当前类
+    //     }
+
+    // }
+    // var a = new A();
+
+
+
+    // var MyClass = class A{
+    //     constructor(){
+    //         console.log(A);//当前类
+    //     }
+    // }
+
+    // var a = new MyClass();
+
+
+    // var MyClass = class {}
+    // var a = new MyClass();
+    // console.log(a);//MyClass {}
+
+    //立即执行的类
+    // var a = new class {}
+    // console.log(a);//Object {}
+
+    // var a = new class A{}
+    // console.log(a);//A {}
+
+    // var obj = {age:20};
+    // var a = new class A{
+    //     constructor(){//生成this对象
+    //         return Object.create(obj,{
+    //             name:{
+    //                 value:'二狗'
+    //             },
+    //             index:{
+    //                 value:888,
+    //                 writable:true,
+    //                 enumerable:true,
+    //                 configurable:true
+    //             }
+    //         });
+    //     }
+    // }
+    // console.log(a);//Object {}
+
+//传统写法改写成class
+    // function Point(x,y){
+    //     this.x = x;
+    //     this.y = y;
+    // }
+    // Point.prototype.show = function(){
+    //     console.log( `x:${this.x}\ny:${this.y}`);
+
+    // }
+
+    // var p = new Point(10,40);
+    // console.log(p);//{x: 10, y: 40}
+
+    // class Point{
+    //     constructor(x,y){
+    //         this.x = x;
+    //         this.y = y;
+    //     }
+    //     show(){
+    //        console.log( `x:${this.x}\ny:${this.y}`);
+    //     }
+    // }
+    // var p = new Point(10,40);
+    // console.log(p);//{x: 10, y: 40}
+    // p.show();//x:10 y:40
+
+
+//class 不存在变量提升
+
+    // var A = 'hello';
+    // class A{}//SyntaxError: Identifier 'A' has already been declared
+
+    // var a = new A();//ReferenceError: A is not defined
+    // class A{}
+
+//Class取值函数(getter)及设置函数(setter)
+
+        // class A{
+        //     constructor(_prop,y){
+        //         this._prop = _prop;
+        //         this.y = y;
+        //     }
+        //     get prop(){
+        //         return this._prop;
+        //     }
+        //     set prop(val){
+        //         this._prop = val;
+        //     }
+
+        // }
+
+        // var a = new A(10,20);
+        // // console.log(a);//{x: 10, y: 20}
+        // // a.prop = 8888;
+        // // console.log(a);//{x: 8888, y: 20}
+
+        // //console.log( 'prop' in A.prototype );//true
+        // var des = Object.getOwnPropertyDescriptor(A.prototype,'prop');
+        // console.log(des.set.name);//set prop
+        // console.log(des.get.name);//get prop
+
+//new.target 当前构造函数
+    //  function Point(){
+    //     console.log(new.target );//Point
+    //     //console.log(new.target ==Point );//true
+    //  }
+    // // var obj = new Point();//true
+    //  Point();//undefined
+
+
+    // class Point{
+    //     constructor(){
+    //          console.log( new.target === this.constructor );
+    //     }
+
+    // }
+    // Point();//报错
+    //new Point();//指代Point
+
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

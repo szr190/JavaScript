@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{
+				width: 200px;
+				height: 200px;
+				background: red;
+				padding: 10px;
+				border: 10px solid pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				元素宽高的获取 
+				
+				clientHeight/Width-----width+padding
+				
+				offsetHeight/Width-----Width+padding+border
+				
+				scrollHeight/Width-----Width+padding
+			*/
+			var a=getStyle(oBox,'width');
+			//console.log(a);
+			var b=oBox.clientWidth;
+			//console.log(b);
+			var c=oBox.offsetWidth;
+			//console.log(c);
+			var d=oBox.scrollWidth;
+			//console.log(d);
+			
+			function getStyle(obj,attr){
+				return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+			}
+			
+			
+		</script>
+	</body>
+</html>

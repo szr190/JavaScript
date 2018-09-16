@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<p></p>
+			<div></div>
+		</div>
+		
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				 firstChild  firstElementChild
+			*/
+			
+			//两种有兼容问题
+			//console.log(oBox.firstChild);
+			//console.log(oBox.firstElementChild);
+			
+			//书写可兼容IE6,7,8和FF等浏览器的方法----得到第一个子元素的方法
+			//如果没有第一个节点,null的判断条件最终结果为假,直接跑到else执行去了,所以需要排除null的情况
+			function firstC(obj){
+				if(obj.firstElementChild !==undefined){//IE9+
+					return obj.firstElementChild;
+				}else{
+					return obj.firstChild;
+				}
+			}
+			
+			/*
+				 得到第一个子元素的方法
+			*/
+			//简写：三目
+			function firstC(obj){
+				return obj.firstElementChild!==undefined?obj.firstElementChild:obj.firstChild;
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

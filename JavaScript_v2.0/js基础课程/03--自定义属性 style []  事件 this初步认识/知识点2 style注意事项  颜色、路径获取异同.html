@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			.szr{
+				width: 150px;height: 150px;
+				background: yellowgreen;
+			}
+		</style>
+	</head>
+	<body bgcolor="#fff">
+	<div id="box"></div>
+	<a href="szr" id="link">123456</a>
+	
+	<script>
+		var oBox=document.getElementById("box");
+		
+		/*
+		   style使用注意事项 
+		   
+		   (1)带 - 符号 的 用  驼峰
+		   (2)当所操作属性比较多的时候 用cssText(会覆盖原本的内联样式),className(直接替换样式)代替
+		   (3)style里的float不能直接用(一般都是通过样式名字去解决,由于存在一定的兼容性问题)
+		*/
+		//(1)
+		oBox.style.marginLeft='50px';
+		//(2)
+		oBox.style.cssText='width: 100px;height: 100px;border: 1px solid red;';
+		oBox.className='szr';
+		//(3)
+		oBox.style.styleFloat='left';
+		oBox.style.cssFloat='left';
+		
+		
+		/*
+		       颜色、路径获取时的异同 
+		       获取的路径和颜色不能用来做判断
+		       http://127.0.0.1:8020/js%E5%AD%A6%E4%B9%A0-%E6%BD%AD%E5%B7%9E2/03/szr
+		                 不等于
+		       szr
+		       (只能拿它去赋值,但不能拿来做判断)
+		*/
+		var oLink=document.getElementById("link");
+		//console.log(oLink.href)
+		
+		//console.log(document.body.bgColor)
+		
+		
+	</script>
+	</body>
+</html>

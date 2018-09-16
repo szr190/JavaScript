@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        #box{
+            width:100px;
+            height:100px;
+            background: green;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+
+
+    </div>
+</body>
+    <script src='js/jquery-3.2.1.js'></script>
+
+
+    <script>
+        //console.log( $ );
+        //console.log( jQuery)
+        //$是jQuery的小名
+        // jQuery(function(){
+        //     alert('ok');
+
+        // })
+        //$('#box').text();//只能给jQuery对象用
+        //$.xxx();//工具函数,既能给jQuery对象用，也能给原生javascript对象用
+
+        /*
+           一 工具函数
+
+            $.type( obj )  判断对象类型
+            $.each(obj,fn); 遍历对象,可以遍历任何对象
+            $.proxy(fn,obj)  让fn的作用域指向obj对象
+            $.noConflict(boolean)   避免冲突
+
+            二 HTTP XHR
+            load(url,data,success(response,status,xhr));//默认get,
+            $.ajax({})
+            $.get(url,data,success(response,status,xhr),dataType);
+            $.post(url,data,success(response,status,xhr),dataType);
+            $.getJSON(url,data,success(response,status,xhr));
+
+
+            三 继承
+            $.extend([deep],target,obj1,obj2,objN);
+                deep :是一个布尔值,true是深拷贝
+
+            四 jQuery插件拓展
+
+
+                $.extend();//只有一个参数的时候是给jQuery添加工具函数
+
+
+
+
+
+
+        */
+
+
+            // var obj = {
+            //     show:function(){ alert( 'ok') }
+            // }
+
+
+            // $.extend(obj);
+            // $.show();//ok
+            //$.xxx()
+            // function fn(){
+
+
+            // }
+            // fn.show = function(){
+
+            //     alert('ok');
+            // };
+
+            var  obj = {
+                show:function(){ alert('ok')}
+            }
+
+            $.fn.extend(obj);
+            //$.show();//报错
+            // $('#box').show();
+            // $('li').show();
+
+
+            function fn(){}
+            var  obj = new fn();
+            //$.extend() 给fn构造函数用的
+            //$.fn.extend() 给obj用的
+
+            //console.log( $.fn === $.prototype )//true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+
+    </style>
+</head>
+<body>
+    <div id="box">
+
+        <i>iiii</i>
+        hello
+        <p>ppp</p>
+        <i>iiii222</i>
+
+    </div>
+
+</body>
+    <script>
+    var oBox = document.getElementById('box');
+    var p = document.getElementsByTagName('p')[0];
+
+    /*
+        ele.childNodes 子节点
+            包括文本/元素
+        ele.children  子元素节点
+
+        nodeType 节点类型(12)
+            元素节点 1  tagName
+            属性节点 2   oBox.getAttributeNode('id').nodeType
+            文本节点 3
+        nodeName 节点名称
+
+        属性节点的操作
+         获取 ele.getAttributeNode('id')
+         创建 document.createAttribute();
+         设置 ele.setAttributeNode()
+
+
+         obj.firstChild 第一个子节点 包含文本和元素
+         obj.firstElementChild  第一个元素子节点
+         obj.previousSibling  上一个兄弟
+         obj.previousElementSibling  上一个兄弟元素
+
+
+
+    */
+
+
+
+
+    //console.log( p.previousSibling );//'hello' 上一个兄弟
+    //console.log( p.previousElementSibling )
+
+    //console.log( oBox.firstElementChild )//上一个兄弟元素
+
+
+
+
+
+
+
+
+    //console.log( oBox.children.length )//类型数组
+
+    //console.log( oBox.children[0].nodeType );
+
+    //console.log( oBox.children[0].nodeName );
+    //obj.animation({},1000);
+    //animation(obj,{},1000);
+    //console.log( oBox.childNodes[0].nodeName );//#text
+    //console.log( oBox.attributes[0].nodeType );//2
+
+    //获取属性节点
+    //console.log( oBox.getAttributeNode('id').nodeType );
+
+    //创建属性节点
+    // var _class = document.createAttribute('class');
+    // _class.value = 'hello';
+    // //设置属性节点
+    // oBox.setAttributeNode(_class);
+    //console.log( oBox.getAttributeNode('id').nodeName )//id
+
+
+
+
+
+
+
+    </script>
+</html>

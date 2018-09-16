@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<input type="text" id="txt" />
+		
+		<script>
+		/*
+			事件的种类：
+				鼠标事件
+				系统事件
+				表单事件
+				键盘事件
+		*/
+		
+			/*
+				键盘事件 ---只有能得到焦点的元素才能触发键盘事件
+				onkeydown---在值触发之间就触发了
+				onkeyup---当键按下之后抬起触发的事件
+			*/
+			
+			var oBox=document.getElementById("box");
+			var oTxt=document.getElementById("txt");
+			
+			oTxt.onkeydown=function(){
+				console.log(1);
+			}
+			
+			oTxt.onkeyup=function(){
+				console.log(2);
+			}
+			
+			/*
+				keyCode---检测按下的是哪一个键 
+			*/
+			document.onkeydown=function(e){
+				e=e||window.event;
+				console.log(e.keyCode);
+			}
+			
+			
+		</script>
+	</body>
+</html>

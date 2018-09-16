@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>var 数据类型</title>
+		<style>
+			*{margin:0;padding:0;}
+		</style>
+	</head>
+	<body>
+	<div id="box"></div>
+	
+	
+	<script>
+	    /*
+	                变量：
+	                         字母(严格区分大小写) 
+	                         第一个字符不能是数字   
+	                         可以用$开头  
+	                         不能使用关键词(js语法里面本来就有意义的)和保留词(比如class for arguments)
+	    */
+		var oBox=document.getElementById("box");
+		
+		/*
+		       数据类型   测试是哪个数据类型 typeof
+		*/
+		var a=10;  //number类型
+		//alert(typeof a);
+		
+		var b='szr';  //string类型
+		//alert(typeof b);
+		
+		var c=true;  //boolean类型
+		//alert(typeof c);
+		
+		var d=function(){}  //function函数类型
+		//alert(typeof d);
+		
+		var e=[];   //object类型  ----获取的所有节点都是对象
+		var f={};
+		var g=window;
+		var h={
+			x:1,
+			y:2,
+			z:3
+		}
+		var k=null; //指向一个不存在的空对象,在js中属于object类型,在其它源中单独属于null类型
+		//alert(typeof h);
+		
+		var j;   //undefined类型----未定义的类型
+		//alert(typeof j);
+		
+		
+		
+	</script>
+	</body>
+</html>

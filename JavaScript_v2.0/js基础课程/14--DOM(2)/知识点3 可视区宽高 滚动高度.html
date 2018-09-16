@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body style="height: 2000px;">
+		<div id="box"></div>
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				可视区宽高---只有针对节点的时候才有
+			*/
+			//console.log(document.documentElement.clientWidth);
+			//console.log(window.innerWidth);//IE6,7,8没有这个属性
+			
+			/*
+				 滚动距离
+				 
+				 document.body.scrollTop---只适用于chrome浏览器
+				 document.documentElement.scrollTop---只不适用于chrome浏览器
+			*/
+			//console.log(document.body.scrollTop);
+			//console.log(document.documentElement.scrollTop);
+			
+			
+			//得到页面滚动高度的方法
+			document.onclick=function(){
+				var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+			}
+			
+		</script>
+	</body>
+</html>

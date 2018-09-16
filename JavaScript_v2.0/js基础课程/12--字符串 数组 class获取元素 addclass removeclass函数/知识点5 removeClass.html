@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<div class="szr on" id="wrap"></div>
+		<script>
+			var oWrap=document.getElementById("wrap");
+			
+			
+			removeClass(oWrap,'on');
+			
+			function removeClass(obj,cName){
+				//获得元素的class名称,并且用空格隔开
+				var arrClass=obj.className.split(' ');
+				//console.log(arrClass);
+				
+				//倒着做循环,如果碰到要删除的class名称,则删除掉那一位
+				for (var i=arrClass.length-1;i>=0;i--) {
+					if(arrClass[i]==cName){
+						arrClass.splice(i,1);
+					}
+				}
+				
+				//原本的class以空格拼接起来
+				obj.className=arrClass.join(' ');
+			}
+		</script>
+	</body>
+</html>

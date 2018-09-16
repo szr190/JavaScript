@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{
+				width: 100px;
+				height: 100px;
+				margin-left: 50px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				运动框架的封装 
+			*/
+			move(oBox,'marginLeft','300',5);
+			function move(obj,attr,target,speed){//对象,哪个属性去动,动到哪,变化速度
+				//得到元素的初始位置
+				var val=parseInt(getStyle(obj,attr));
+				var onOff = true;
+				if ( val > target )onOff = false;
+				var timer = setInterval(function(){
+					if ( onOff )
+					{
+						val += speed;
+						if ( val >= target )
+						{
+							val = target;
+							clearInterval(timer);
+						}
+					}
+					else
+					{
+						val -= speed;
+						if ( val <= target )
+						{
+							val = target;
+							clearInterval(timer);
+						}
+					}
+					obj.style[attr] = val + 'px';
+				},13);
+
+				
+				//得到一个元素的属性值
+				function getStyle(obj,attr){
+					return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+				}
+			}
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

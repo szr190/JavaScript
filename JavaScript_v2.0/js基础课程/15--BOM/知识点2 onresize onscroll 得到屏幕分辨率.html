@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box" style="height: 800px;"></div>
+		
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				onresize ---当浏览器在调整窗口大小的时候触发
+			*/
+			window.onresize=function(){
+				console.log(1);
+			}
+			
+			/*
+				onscroll---当滚动条在滚动的时候触发 
+			*/
+			window.onscroll=function(){
+				console.log('szr');
+			}
+			
+			/*
+				得到屏幕分辨率 
+			*/
+			console.log(screen.availWidth);
+		</script>
+	</body>
+</html>

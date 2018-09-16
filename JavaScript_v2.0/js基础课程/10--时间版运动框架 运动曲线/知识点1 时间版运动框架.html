@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				margin-left: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				时间版运动框架 
+			*/			
+			move(oBox,'marginLeft','500px',2000);
+			function move(obj,attr,target,time){
+				//获取开始位置
+				var startVal=parseInt(getStyle(obj,attr));
+				//获取结束位置
+				var endVal=parseInt(target);
+				//获取开始时间
+				var startTime=new Date();				
+				var timer=setInterval(function(){
+					//获得当前次的时间
+					var nowTime=new Date();
+					//到现在为止经过了多长时间
+					var t=nowTime-startTime;
+					//获取现在时间-开始时间与总时间的比值---到当前进行了多少过程 ---百分比
+					var prop=t/time;
+					//比例值不能超过1
+					if(t>=time){
+						t=time;
+						clearInterval(timer);
+					}
+					//console.log(t);
+					//获取运动的距离 ---也就是当前位置点
+					var s=prop*(endVal-startVal)+startVal;
+					obj.style[attr]=s+'px';
+					
+				},13);
+			}			
+			//获取元素的属性
+			function getStyle(obj,attr){
+				return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+			}
+		</script>
+	</body>
+</html>

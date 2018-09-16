@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    body{font:16px/1.5 'Microsoft Yahei';}
+    .clearfix:after{content:'';display:block;clear:both;}
+    .fl{float:left;}
+    .fr{float:right;}
+    #wrap{
+        width:900px;
+        height:150px;
+        margin:50px auto;
+        border:1px solid #ccc;
+        position: relative;
+        overflow: hidden;
+    }
+    ul{
+        height:100%;
+        position: absolute;
+        left:0;
+
+    }
+    ul li{
+        width:900px;
+        list-style:none;
+        float:left;
+        height:100%;
+    }
+    ul li div{
+        height:100%;
+        width:298px;
+        margin:0 1px;
+        font-size:30px;
+        color:#fff;
+        line-height:150px;
+        float:left;
+        text-align:center;
+        background-color: #ccc;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul class='clearfix'>
+            <li><div>1</div><div>2</div><div>3</div></li>
+            <li><div>4</div><div>5</div><div>6</div></li>
+            <li><div>7</div><div>8</div><div>9</div></li>
+            <li><div>10</div><div>11</div><div>12</div></li>
+            <li><div>13</div><div>14</div><div>15</div></li>
+            <li><div>1</div><div>2</div><div>3</div></li>
+        </ul>
+
+
+    </div>
+
+</body>
+    <script src='js/self_element.js'></script>
+    <script>
+    var oUl = document.querySelector('ul');
+    var num = 0;
+    oUl.style.width = oUl.children.length*900+'px';
+
+    setInterval(function(){
+        num ++;
+        oUl.animation({left:-num*900},1000,'easeIn',function(){
+            if(num==oUl.children.length-1){
+                oUl.style.left = 0;
+                num = 0;
+            }
+        });
+    },2500)
+
+
+    </script>
+</html>

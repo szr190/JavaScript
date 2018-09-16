@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    .clearfix:after{content:'';display:block;clear:both;}
+    .fl{float:left;}
+    .fr{float:right;}
+
+    </style>
+</head>
+<body>
+
+</body>
+    <script>
+        // var str = 'helloWorld';-- 1 直接量
+        // //alert(str.length);//字符串长度
+        // //alert(str[1]);//访问指定下标的字符
+        // var str2 = '小黑';
+        // var new_str = str.concat( str2 );
+        // alert(new_str);
+
+        //var str = new String('helloWorld');//2
+        //var str = String('helloWorld');
+        //alert(str);
+
+        //var str = 'hPelloWorld';//11
+
+        //alert( str.indexOf('d') );//通过指定字符串查找所在位置
+        //alert( str.charAt(1) );//指定索引返回字符串
+        //alert( str.charCodeAt(1) )//通过指定索引返回字符串的ASCII码
+        //alert( String.fromCharCode(80) )//通过指定ASCII码返回字符串
+
+
+        //alert( str.substring(11,1) );//截取字符串
+        /*
+            截取start至end ,不包含end
+            如果num2大于num1 那么会互换位置
+
+        */
+        //alert( str.slice(-5,-1) );//截取字符串
+        /*
+            截取start至end ,不包含end
+            可以有负数
+        */
+        //alert(str.lastIndexOf('o') );//7
+
+        //var str ='helloWORLD';
+        //var new_str = str.toLowerCase();//字符串转小写
+        //var new_str = str.toUpperCase(); //字符串转小写
+        //alert( new_str  );
+
+        //下面方法可用于正则
+
+        //var str = 'helloworld';
+
+        //alert( str.match('hell') );//hell 查找
+        //通过指定字符串查找，返回匹配的一个或者多个，如果没有找到返回null
+
+        //alert( str.search('m') );//4 搜索
+        //通过指定字符串查找，返回首次匹配的下标，如果没有找到返回-1
+
+        //alert( str.replace('o',123) )//替换
+        /*
+            str.replace(value,newval)
+
+        */
+        //console.log( str.以 ) //分割字符串成数组
+        //str.split(val) 以val对字符串进行分割，然后分别放入数组当中
+
+
+        /*---- Array 数组 -----*/
+
+        //---1
+        // var arr = []; //空数组
+        // var arr = [1,2,3];
+        //--2
+        // var arr = new Array();//空数组
+        // var arr = new Array(1,2,3)
+        // console.log(arr);
+
+        //区别
+        // var arr = [3];
+        // alert(arr.length);//1
+        // var arr = new Array(3);//当为一个值的时候，指定的是数组的长度
+        // alert(arr.length);//3
+        // var arr = new Array(2,3);
+        // alert(arr.length);//2
+
+        //--3
+        // var arr = Array(1,2,3);
+        // console.log(arr);
+
+        var arr = [1,5,3,6];
+
+        //alert(arr[1]);//5 通过指定索引获取对应的值
+        //alert(arr.length);//4 数组长度
+
+        // arr.length = 3;//改长度
+        // alert( arr );//[1,5,3]
+
+        //改数组
+        //arr[0] = 'hello';
+        //alert(arr);//['hello',5,3,6]
+
+        //添加新内容
+        //arr[4] = '小黑';
+        //alert(arr);//[1,5,3,6,'小黑']
+
+        //稀疏数组
+        // var arr = [1,,5,3,,6];
+        // alert(arr.length);//6
+
+
+     /*
+        方法
+
+
+     */
+     //var arr = [1,5,3,6];
+     //arr.unshift('hello');  //向数组开头添加内容,返回新长度 ---会改变原数组
+     //arr.push('hello');     //向数组末尾添加内容,返回新长度---会改变原数组
+     //arr.shift();           //删除数组首个,会返回删除的项 ---会改变原数组
+     //arr.pop();              //删除数组最后一个 ,会返回删除的项 ---会改变原数组
+
+     //alert( arr.unshift('hello') );
+
+
+     //arr.splice(1,0,'hello');//添加
+     //arr.splice(1,2);//删除
+     //arr.splice(1,1,'hello')//替换
+
+
+
+     //alert(arr);
+
+     //sort() 排序
+
+    var arr = [1,9,103,8,5,6,7,2];
+
+    // arr.sort();//默认按编码大小排序，只比首位
+    // console.log(arr);//[1, 103, 2, 5, 6, 7, 8, 9]
+
+    /*冒泡排序
+         > 调换位置
+         0 不会调换位置
+         < 不会调换位置
+    */
+    arr.sort(function(a,b){
+        //console.log(a,b);
+        //console.log(arr);
+        return a-b;//升序
+
+    })
+    alert(arr);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

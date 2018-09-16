@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+        *{margin: 0;padding: 0;}
+        body{font:16px/1.5 'Microsoft Yahei';}
+        .clearfix:after{content:'';display:block;clear:both;}
+        .fl{float:left;}
+        .fr{float:right;}
+        ul#wrap{
+            width:100px;
+            height:100px;
+            background: green;
+            position: relative;
+            margin:auto;
+        }
+        ul li{
+
+            position: absolute;
+            /*background: red;*/
+            list-style: none;
+        }
+        ul li.ball{
+           /* background:purple;*/
+        }
+        ul li:nth-child(1){
+            top:0;
+            left:10px;
+            height:10px;
+            width:calc(100% - 20px);
+            cursor:n-resize;
+        }
+        ul li:nth-child(2){
+            right:0;
+            top:10px;
+            width:10px;
+            height:calc(100% - 20px);
+            cursor:e-resize;
+        }
+        ul li:nth-child(3){
+            bottom:0;
+            left:10px;
+            height:10px;
+            width:calc(100% - 20px);
+            cursor:s-resize;
+        }
+        ul li:nth-child(4){
+            left:0;
+            top:10px;
+            width:10px;
+            height:calc(100% - 20px);
+            cursor:w-resize;
+        }
+
+
+        ul li:nth-child(5){
+            left:0;
+            top:0;
+            width:10px;
+            height:10px;
+            cursor:nw-resize;
+        }
+        ul li:nth-child(6){
+            right:0;
+            top:0;
+            width:10px;
+            height:10px;
+            cursor:ne-resize;
+        }
+        ul li:nth-child(7){
+            right:0;
+            bottom:0;
+            width:10px;
+            height:10px;
+            cursor:se-resize;
+        }
+        ul li:nth-child(8){
+            left:0;
+            bottom:0;
+            width:10px;
+            height:10px;
+            cursor:sw-resize;
+        }
+
+
+    </style>
+</head>
+<body>
+    <ul id="wrap">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li class='ball'></li>
+        <li class='ball'></li>
+        <li class='ball'></li>
+        <li class='ball'></li>
+    </ul>
+
+</body>
+    <script>
+        var oUl = document.getElementById('wrap');
+        var aLi = oUl.getElementsByTagName('li');
+        oUl.style.top = 50+'px';
+        oUl.style.left = oUl.offsetLeft+'px';
+        oUl.style.position = 'absolute';
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index = i;
+            aLi[i].onmousedown = drag;
+
+        }
+
+        function drag(e){
+            var e = e||window.event;
+            var X = e.clientX;
+            var Y = e.clientY;
+            var initL = oUl.offsetLeft;
+            var initT = oUl.offsetTop;
+            var initW = oUl.offsetWidth;
+            var initH = oUl.offsetHeight;
+            var _this = this;
+
+
+            document.onmousemove = function(e){
+                var e = e||window.event;
+                var height,width,top,left;
+
+                //console.log(_this.index)
+
+
+                    moveY = e.clientY-Y;
+
+
+                    moveX =  e.clientX-X;
+
+
+                switch( _this.index ){
+                    case 0 :
+
+                        height = initH-moveY;
+                        top = initT+moveY;
+                        break;
+                    case 1 :
+
+                        width = initW + moveX;
+                        left = initL;
+                        break;
+                    case 2 :
+
+                        height = initH + moveY;
+                        top = initT;
+                        break;
+
+                    case 3 :
+
+                        width = initW - moveX;
+                        left = initL+moveX;
+                        break;
+                    case 4 :
+                        height = initH-moveY;
+                        top = initT+moveY;
+                        width = initW - moveX;
+                        left = initL+moveX;
+
+                        break;
+                    case 5 :
+
+                        height = initH-moveY;
+                        top = initT+moveY;
+                        width = initW + moveX;
+                        left = initL;
+
+                        break;
+                    case 6 :
+                        width = initW + moveX;
+                        left = initL;
+                        height = initH + moveY;
+                        top = initT;
+
+
+                        break;
+                    case 7 :
+                        height = initH + moveY;
+                        top = initT;
+                        width = initW - moveX;
+                        left = initL+moveX;
+
+
+                        break;
+
+
+
+                }
+
+                height = Math.max(height,10);
+                width = Math.max(width,10);
+                top = Math.max(top,0);
+                left = Math.max(left,0);
+
+                oUl.style.height = height+'px';
+                oUl.style.top = top+'px';
+                oUl.style.width = width+'px';
+                oUl.style.left = left+'px';
+                 //console.log( val,oUl.getBoundingClientRect().right );
+
+
+
+
+            }
+            document.onmouseup = function(e){
+                document.onmousemove = null;
+                 document.onmouseup = null;
+
+            }
+
+            return false;
+
+
+        }
+
+    </script>
+</html>

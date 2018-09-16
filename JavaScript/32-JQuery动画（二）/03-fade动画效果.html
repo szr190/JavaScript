@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="Anthor" content="阿飞老师" />
+        <title>Title</title>
+        <style>
+            *{ margin:0; padding:0; font-family:"Microsoft yahei",serif;}
+            li{ list-style-type: none;}
+            #box{
+                width: 100px;
+                height: 100px;
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box"></div>
+
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+
+            var $box = $("#box");
+
+            //$box.fadeOut( 2000 );//默认动画300
+
+            //$box.fadeIn(1000);
+
+            //$box.fadeToggle(2000);
+
+            $box.fadeTo( 2000 , .5 , function () {
+                alert( 1 )
+            } );
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

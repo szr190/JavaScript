@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		<script>
+			var oBox=document.getElementById("box");
+			
+			/*
+				作用域和参数 
+			*/
+			
+			//例子：
+			var a=1;
+			function fn(a){
+				console.log(a);
+				a++;
+				console.log(a);
+			}
+			fn(a);//如果不传参的话,结果就会发生变化,(1,2,2)
+			console.log(a);
+			
+			//上面的例子解析过程如下：
+			/*
+				 script域
+				 		1.定义：
+				 			var a;
+				 			function fn(a){
+								console.log(a);
+								a++;
+								console.log(a);
+							}
+						2.执行：
+							a=1;
+							fn(a);//一个带参数的新域 可以把参数理解为var a=1;
+									1.定义：
+										var a;
+									2.执行：
+										a=1;
+										console.log(a);//1
+										a++;
+										console.log(a);//2
+										
+							console.log(a);//1
+			*/
+		</script>
+	</body>
+</html>

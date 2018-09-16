@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="Anthor" content="阿飞老师" />
+        <title>Title</title>
+        <style>
+            *{ margin:0; padding:0; font-family:"Microsoft yahei",serif;}
+            li{ list-style-type: none;}
+            #box{
+                width: 100px;
+                height: 100px;
+                background: pink;
+            }
+        </style>
+    </head>
+    <body style="height: 2000px">
+        <div id="box"></div>
+
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+        <!--引入基于jq的颜色插件-->
+        <script src="https://cdn.bootcss.com/jquery-color/2.1.2/jquery.color.min.js"></script>
+
+        <script>
+
+
+            /*$("#box").animate( {
+                width : 500,
+                marginLeft : 200
+            } , 2000 , "linear" ,  function () {
+                //code
+            });*/
+
+            // animate 只能改变和数值相关的属性
+            // 默认情况下，颜色无法有动画，实在要，需要我们引入一个基于jq的颜色动画插件
+
+            /*$("#box").animate({
+                backgroundColor : "#f00"
+            } , 2000);*/
+
+
+            $("body,html").animate({
+                scrollTop : 500
+            } , 2000 );
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

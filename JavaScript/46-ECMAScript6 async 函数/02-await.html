@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+    <script>
+        /*
+            async 函数
+                (1)内置执行器
+                (2)更好的语义
+                (3)await 可跟promise及原始值
+                (3) promise 对象
+            基本用法
+                async关键字
+
+
+
+        */
+           // async function fn(){
+           //      console.log('ok');
+
+           // }
+
+           // fn();
+
+           // var fn = async function(){}
+
+           // setTimeout(async function(){
+           //  console.log('async')
+           // },1000)
+
+           // var fn =async () => { console.log('ok')};
+           // fn();
+
+
+//返回值 Promise 状态resolve
+        // async function fn(){
+
+
+        // }
+
+        // console.log( fn() );//{[[PromiseStatus]]: "resolved", [[PromiseValue]]: undefined}
+
+        // async function fn(){}
+
+        // fn().then(function(message){
+        //     console.log('成功的:'+message);
+        // },function(message){
+        //     console.log('失败的:'+message);
+        // })
+
+//return值会成为PromiseValue值
+    // async function fn(){
+    //     return 'hello';
+    // }
+    // fn().then(function(message){
+    //     console.log('成功的:'+message);
+    // },function(message){
+    //     console.log('失败的:'+message);
+    // })
+
+//async内部报错触发reject
+    // async function fn(){
+    //     throw new Error;
+    // }
+    // fn().then(function(message){
+    //     console.log('成功的:'+message);
+    // },function(message){
+    //     console.log('失败的:'+message);
+    // })
+    //失败的:Error
+
+//await
+
+    // async function fn(){
+    //     console.log('ok');
+    //     await 'hello';
+    // }
+    // fn();
+
+    // function fn(){
+    //     console.log('fn');
+    //    var a = 'hello';
+    //    console.log(a);
+    // }
+    // fn();
+    // console.log('outer');
+    //fn
+    //hello
+    //outer
+
+
+    // async function fn(){
+    //     console.log('fn');
+    //    var a = await 'hello';
+    //    console.log(a);
+    // }
+    // fn();
+    // console.log('outer');
+    //fn
+    //hello
+    //outer
+
+
+    // async function fn(){
+    //     console.log('fn');
+    //    var a = await 'hello';
+    //    console.log(a);
+    //    var b = await 'world';
+    //    console.log(b);
+    // }
+    // fn();
+    // console.log('outer');
+
+//async内部所有的异步操作执行完，才会触发then()函数
+    // async function fn(){
+    //     return await 'hello';
+
+    // }
+    //console.log( fn() );//{[[PromiseStatus]]: "pending", [[PromiseValue]]: undefined}
+
+    // var f = fn();
+    // f.then(function(message){
+    //     console.log(message);
+    //     console.log(f);//{[[PromiseStatus]]: "resolved", [[PromiseValue]]: "hello"}
+
+    // })
+    // async function foo(){
+    //     await 'hello';
+    // }
+    // async function bar(){
+    //     await 'world';
+    // }
+    // async function fn(){
+    //      console.log(1);
+    //     await foo();
+    //      console.log(2);
+    //     await bar();
+    //      console.log(3);
+    // }
+    // fn();
+    // console.log('outer');
+
+
+//await在非async中报错
+    // function fn(){
+    //     await 'hello';
+    //      console.log(3);
+    // }
+    // fn();//SyntaxError: Unexpected string
+
+
+
+
+//async中状态的变化
+
+    async function(){
+        console.log('ok');
+        var a = await 'hello';
+        console.log(a);
+        var b = await 'world';
+        console.log(b);
+    }
+
+    fn().then(function(){
+        console.log('成功的');
+    },function(){
+        console.log('失败的');
+    })
+    console.log('outer');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>hello world~!!</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style>
+    *{margin: 0;padding: 0;}
+    .clearfix:after{content:'';display:block;clear:both;}
+    .fl{float:left;}
+    .fr{float:right;}
+    #time{
+        width:500px;
+        padding:20px;
+        border:1px solid #ccc;
+        margin:50px auto;
+        font-size:25px;
+    }
+    #time ul li{
+        list-style: none;
+        border-bottom: 1px solid #ccc;
+        padding:10px 0;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="" id="time">
+        <ul>
+            <li>
+                <h4>东京时间:</h4>
+                <p></p>
+            </li>
+            <li>
+                <h4>北京时间:</h4>
+                <p></p>
+            </li>
+            <li>
+                <h4>伦敦时间:</h4>
+                <p></p>
+            </li>
+            <li>
+                <h4>纽约时间:</h4>
+                <p></p>
+            </li>
+
+        </ul>
+
+
+
+    </div>
+</body>
+    <script>
+    var aP = document.getElementsByTagName('p');
+
+    (function auto(){
+        setInterval(local_t(),1000)
+    })()
+    function local_t(){
+        //东京
+        world_T(9,aP[0]);
+        //北京
+        world_T(8,aP[1]);
+        //伦敦
+        world_T(0,aP[2]);
+        //纽约
+        world_T(-5,aP[3]);
+        return local_t;
+    }
+
+    function world_T(num,obj){
+
+        var date = new Date();
+        //本地时间 毫秒
+        var local_m_t = date.getTime();
+        //世界时
+        var world_t = local_m_t+(date.getTimezoneOffset()*60*1000);
+        //alert( date.getTimezoneOffset() );
+        //
+        world_t = new Date(world_t);
+
+        //区时
+       local_T = world_t.getTime()+num*60*60*1000;
+       local_T = new Date(local_T);
+       //
+       var year = local_T.getFullYear();
+       var mon = (local_T.getMonth()+1);
+       var date = local_T.getDate();
+       var day = local_T.getDay();
+       var hours = local_T.getHours();
+       var mins = local_T.getMinutes();
+       var secs= local_T.getSeconds();
+
+       //不足10补零
+      mon =  mon>10?mon:'0'+mon;
+      hours =  hours>10?hours:'0'+hours;
+      mins =  mins>10?mins:'0'+mins;
+      secs =  secs>10?secs:'0'+secs;
+
+       //设置时间
+
+       var arr = ['日','一','二','三','四','五','六'];//西方一周的开始是周日
+       obj.innerHTML = year+'年'+mon+'月'+date+'日'+':'+'星期'+arr[day]+':'+hours+'时'+mins+'分'+secs+'秒';
+
+
+
+    }
+
+
+
+    </script>
+</html>
